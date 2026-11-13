@@ -1,4 +1,5 @@
-package com.saris.logitrack.model;
+package model;
+
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,5 +1,7 @@
-package com.saris.logitrack.model;
+package model;
 
+import com.saris.logitrack.model.Usuario;
+import com.saris.logitrack.model.Operacion;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,8 +21,7 @@ public class Auditoria {
     @Column(name = "id_auditoria")
     private long idAuditoria;
 
-    @Column(name = "fecha_hora", nullable = false,
-            insertable = false, updatable = false)
+    @Column(name = "fecha_hora", nullable = false, insertable = false, updatable = false)
     private LocalDateTime fechaHora;
 
     @Enumerated(EnumType.STRING)

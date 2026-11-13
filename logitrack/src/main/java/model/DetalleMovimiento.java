@@ -1,5 +1,7 @@
-package com.saris.logitrack.model;
+package model;
 
+import com.saris.logitrack.model.Movimiento;
+import com.saris.logitrack.model.Producto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,10 +11,7 @@ import lombok.Setter;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "detalle_movimiento",
-        uniqueConstraints = {
-                @UniqueConstraint(columnNames = {"id_movimiento", "id_producto"})
-        })
+@Table(name = "detalle_movimiento", uniqueConstraints = {@UniqueConstraint(columnNames = {"id_movimiento", "id_producto"})})
 @Setter @Getter
 @AllArgsConstructor @NoArgsConstructor
 public class DetalleMovimiento {

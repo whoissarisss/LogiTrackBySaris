@@ -1,4 +1,4 @@
-package com.saris.logitrack.model;
+package model;
 
 public enum Rol {
     ADMIN,
