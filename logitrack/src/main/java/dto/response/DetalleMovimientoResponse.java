@@ -1,4 +1,13 @@
-package dto.response;
+package com.saris.logitrack.dto.response;
 
-public class DetalleMovimientoResponse {
+import java.math.BigDecimal;
+import com.saris.logitrack.dto.response.ProductoResponse;
+
+public record DetalleMovimientoResponse(
+
+        Long idDetalle,
+        ProductoResponse producto,
+        BigDecimal cantidad
+
+) {
 }

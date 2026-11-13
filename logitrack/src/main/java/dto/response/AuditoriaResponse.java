@@ -1,4 +1,20 @@
-package dto.response;
+package com.saris.logitrack.dto.response;
 
-public class AuditoriaResponse {
+import com.saris.logitrack.model.Operacion;
+import com.saris.logitrack.dto.response.UsuarioResponse;
+
+import java.time.LocalDateTime;
+
+public record AuditoriaResponse(
+
+        Long idAuditoria,
+        LocalDateTime fechaHora,
+        Operacion operacion,
+        UsuarioResponse usuario,
+        String tablaAfectada,
+        Long registroId,
+        String valoresAnteriores,
+        String valoresNuevos
+
+) {
 }
