@@ -1,7 +1,7 @@
 package model;
 
-import com.saris.logitrack.model.Movimiento;
-import com.saris.logitrack.model.Producto;
+import model.Movimiento;
+import model.Producto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

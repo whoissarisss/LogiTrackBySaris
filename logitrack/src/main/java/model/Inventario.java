@@ -1,6 +1,6 @@
 package model;
 
-import com.saris.logitrack.model.Producto;
+import model.Producto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

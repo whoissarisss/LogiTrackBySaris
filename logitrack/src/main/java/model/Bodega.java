@@ -1,7 +1,7 @@
 package model;
 
-import com.saris.logitrack.model.Ciudad;
-import com.saris.logitrack.model.Usuario;
+import model.Ciudad;
+import model.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
