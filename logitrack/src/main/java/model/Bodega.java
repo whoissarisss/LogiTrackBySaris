@@ -23,7 +23,7 @@ public class Bodega {
     private String nombre;
 
     @Column(nullable = false, precision = 12, scale = 2)
-    private java.math.BigDecimal capacidad;
+    private Integer capacidad;
 
     @ManyToOne
     @JoinColumn(name = "id_ciudad", nullable = false)
