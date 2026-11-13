@@ -14,30 +14,26 @@ import java.math.BigDecimal;
 @Component
 public class InventarioMapper {
 
-    public Inventario toEntity(
-            InventarioRequest request,
-            Bodega bodega,
-            Producto producto) {
-
-        Inventario inventario = new Inventario();
-
-        inventario.setBodega(bodega);
-        inventario.setProducto(producto);
-        inventario.setStockActual(BigDecimal.ZERO);
-
-        return inventario;
-    }
-
-    public InventarioResponse toResponse(
-            Inventario inventario,
-            BodegaResponse bodega,
-            ProductoResponse producto) {
-
+    public InventarioResponse entityToDto(Inventario inventario, BodegaResponse bodega, ProductoResponse producto) {
+        if (inventario == null) {
+            return null;
+        }
         return new InventarioResponse(
                 inventario.getIdInventario(),
                 bodega,
                 producto,
                 inventario.getStockActual()
         );
+    }
+
+    public Inventario DtoToEntity(InventarioRequest dto, Bodega bodega, Producto producto) {
+        if (dto == null) {
+            return null;
+        }
+        Inventario inventario = new Inventario();
+        inventario.setBodega(bodega);
+        inventario.setProducto(producto);
+        inventario.setStockActual(BigDecimal.ZERO);
+        return inventario;
     }
 }

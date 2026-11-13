@@ -11,28 +11,25 @@ import org.springframework.stereotype.Component;
 @Component
 public class DetalleMovimientoMapper {
 
-    public DetalleMovimiento toEntity(
-            DetalleMovimientoRequest request,
-            Movimiento movimiento,
-            Producto producto) {
-
-        DetalleMovimiento detalle = new DetalleMovimiento();
-
-        detalle.setMovimiento(movimiento);
-        detalle.setProducto(producto);
-        detalle.setCantidad(request.cantidad());
-
-        return detalle;
-    }
-
-    public DetalleMovimientoResponse toResponse(
-            DetalleMovimiento detalle,
-            ProductoResponse producto) {
-
+    public DetalleMovimientoResponse entityToDto(DetalleMovimiento detalle, ProductoResponse producto) {
+        if (detalle == null) {
+            return null;
+        }
         return new DetalleMovimientoResponse(
                 detalle.getIdDetalle(),
                 producto,
                 detalle.getCantidad()
         );
+    }
+
+    public DetalleMovimiento DtoToEntity(DetalleMovimientoRequest dto, Movimiento movimiento, Producto producto) {
+        if (dto == null) {
+            return null;
+        }
+        DetalleMovimiento detalle = new DetalleMovimiento();
+        detalle.setMovimiento(movimiento);
+        detalle.setProducto(producto);
+        detalle.setCantidad(dto.cantidad());
+        return detalle;
     }
 }

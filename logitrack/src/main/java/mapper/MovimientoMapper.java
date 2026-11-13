@@ -15,37 +15,23 @@ import java.util.List;
 @Component
 public class MovimientoMapper {
 
-    public Movimiento toEntity(
-            MovimientoRequest request,
-            Usuario usuario,
-            Bodega bodegaOrigen,
-            Bodega bodegaDestino) {
-
-        Movimiento movimiento = new Movimiento();
-
-        movimiento.setTipoMovimiento(request.tipoMovimiento());
-        movimiento.setUsuario(usuario);
-        movimiento.setBodegaOrigen(bodegaOrigen);
-        movimiento.setBodegaDestino(bodegaDestino);
-
-        return movimiento;
+    public MovimientoResponse entityToDto(Movimiento movimiento, UsuarioResponse usuario, BodegaResponse origen, BodegaResponse destino,
+            List<DetalleMovimientoResponse> detalles) {
+        if (movimiento == null) {
+            return null;
+        }
+        return new MovimientoResponse(movimiento.getIdMovimiento(), movimiento.getFecha(), movimiento.getTipoMovimiento(), usuario, origen, destino, detalles);
     }
 
-    public MovimientoResponse toResponse(
-            Movimiento movimiento,
-            UsuarioResponse usuario,
-            BodegaResponse bodegaOrigen,
-            BodegaResponse bodegaDestino,
-            List<DetalleMovimientoResponse> detalles) {
-
-        return new MovimientoResponse(
-                movimiento.getIdMovimiento(),
-                movimiento.getFecha(),
-                movimiento.getTipoMovimiento(),
-                usuario,
-                bodegaOrigen,
-                bodegaDestino,
-                detalles
-        );
+    public Movimiento DtoToEntity(MovimientoRequest dto, Usuario usuario, Bodega origen, Bodega destino) {
+        if (dto == null) {
+            return null;
+        }
+        Movimiento movimiento = new Movimiento();
+        movimiento.setTipoMovimiento(dto.tipoMovimiento());
+        movimiento.setUsuario(usuario);
+        movimiento.setBodegaOrigen(origen);
+        movimiento.setBodegaDestino(destino);
+        return movimiento;
     }
 }

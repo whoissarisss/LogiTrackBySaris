@@ -8,24 +8,29 @@ import org.springframework.stereotype.Component;
 @Component
 public class CiudadMapper {
 
-    public Ciudad toEntity(CiudadRequest request) {
-
-        Ciudad ciudad = new Ciudad();
-
-        ciudad.setNombre(request.nombre());
-        ciudad.setDepartamento(request.departamento());
-        ciudad.setPais(request.pais());
-
-        return ciudad;
-    }
-
-    public CiudadResponse toResponse(Ciudad ciudad) {
-
+    public CiudadResponse entityToDto(Ciudad ciudad) {
+        if (ciudad == null) return null;
         return new CiudadResponse(
                 ciudad.getIdCiudad(),
                 ciudad.getNombre(),
                 ciudad.getDepartamento(),
                 ciudad.getPais()
         );
+    }
+
+    public Ciudad DtoToEntity(CiudadRequest dto) {
+        if (dto == null) return null;
+        Ciudad ciudad = new Ciudad();
+        ciudad.setNombre(dto.nombre());
+        ciudad.setDepartamento(dto.departamento());
+        ciudad.setPais(dto.pais());
+        return ciudad;
+    }
+
+    public void updateEntityFromDto(CiudadRequest dto, Ciudad ciudad) {
+        if (dto == null || ciudad == null) return;
+        ciudad.setNombre(dto.nombre());
+        ciudad.setDepartamento(dto.departamento());
+        ciudad.setPais(dto.pais());
     }
 }

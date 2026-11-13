@@ -1,8 +1,8 @@
 package com.saris.logitrack.mapper;
 
 import com.saris.logitrack.dto.request.ProductoRequest;
-import com.saris.logitrack.dto.response.CategoriaResponse;
 import com.saris.logitrack.dto.response.MarcaResponse;
+import com.saris.logitrack.dto.response.CategoriaResponse;
 import com.saris.logitrack.dto.response.ProductoResponse;
 import com.saris.logitrack.model.Categoria;
 import com.saris.logitrack.model.Marca;
@@ -12,27 +12,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class ProductoMapper {
 
-    public Producto toEntity(
-            ProductoRequest request,
-            Marca marca,
-            Categoria categoria) {
-
-        Producto producto = new Producto();
-
-        producto.setNombre(request.nombre());
-        producto.setDescripcion(request.descripcion());
-        producto.setEstado(true);
-        producto.setMarca(marca);
-        producto.setCategoria(categoria);
-
-        return producto;
-    }
-
-    public ProductoResponse toResponse(
-            Producto producto,
-            MarcaResponse marca,
-            CategoriaResponse categoria) {
-
+    public ProductoResponse entityToDto(Producto producto, MarcaResponse marca, CategoriaResponse categoria) {
+        if (producto == null) {
+            return null;
+        }
         return new ProductoResponse(
                 producto.getIdProducto(),
                 producto.getNombre(),
@@ -41,5 +24,29 @@ public class ProductoMapper {
                 marca,
                 categoria
         );
+    }
+
+    public Producto DtoToEntity(ProductoRequest dto, Marca marca, Categoria categoria) {
+        if (dto == null) {
+            return null;
+        }
+        Producto producto = new Producto();
+        producto.setNombre(dto.nombre());
+        producto.setDescripcion(dto.descripcion());
+        producto.setEstado(true);
+        producto.setMarca(marca);
+        producto.setCategoria(categoria);
+
+        return producto;
+    }
+
+    public void updateEntityFromDto(ProductoRequest dto, Producto producto, Marca marca, Categoria categoria) {
+        if (dto == null || producto == null) {
+            return;
+        }
+        producto.setNombre(dto.nombre());
+        producto.setDescripcion(dto.descripcion());
+        producto.setMarca(marca);
+        producto.setCategoria(categoria);
     }
 }

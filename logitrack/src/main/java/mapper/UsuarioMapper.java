@@ -10,22 +10,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class UsuarioMapper {
 
-    public Usuario toEntity(UsuarioRequest request) {
-
-        Usuario usuario = new Usuario();
-
-        usuario.setNombre(request.nombre());
-        usuario.setApellido(request.apellido());
-        usuario.setCorreo(request.correo());
-        usuario.setPassword(request.password());
-        usuario.setRol(Rol.EMPLEADO);
-        usuario.setEstadoSolicitud(EstadoSolicitud.PENDIENTE);
-
-        return usuario;
-    }
-
-    public UsuarioResponse toResponse(Usuario usuario) {
-
+    public UsuarioResponse entityToDto(Usuario usuario) {
+        if (usuario == null) return null;
         return new UsuarioResponse(
                 usuario.getIdUsuario(),
                 usuario.getNombre(),
@@ -35,5 +21,17 @@ public class UsuarioMapper {
                 usuario.getEstadoSolicitud(),
                 usuario.getFechaRegistro()
         );
+    }
+
+    public Usuario DtoToEntity(UsuarioRequest dto) {
+        if (dto == null) return null;
+        Usuario usuario = new Usuario();
+        usuario.setNombre(dto.nombre());
+        usuario.setApellido(dto.apellido());
+        usuario.setCorreo(dto.correo());
+        usuario.setPassword(dto.password());
+        usuario.setRol(Rol.EMPLEADO);
+        usuario.setEstadoSolicitud(EstadoSolicitud.PENDIENTE);
+        return usuario;
     }
 }

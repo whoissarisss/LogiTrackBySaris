@@ -8,20 +8,23 @@ import org.springframework.stereotype.Component;
 @Component
 public class CategoriaMapper {
 
-    public Categoria toEntity(CategoriaRequest request) {
-
-        Categoria categoria = new Categoria();
-
-        categoria.setNombre(request.nombre());
-
-        return categoria;
-    }
-
-    public CategoriaResponse toResponse(Categoria categoria) {
-
+    public CategoriaResponse entityToDto(Categoria categoria) {
+        if (categoria == null) return null;
         return new CategoriaResponse(
                 categoria.getIdCategoria(),
                 categoria.getNombre()
         );
+    }
+
+    public Categoria DtoToEntity(CategoriaRequest dto) {
+        if (dto == null) return null;
+        Categoria categoria = new Categoria();
+        categoria.setNombre(dto.nombre());
+        return categoria;
+    }
+
+    public void updateEntityFromDto(CategoriaRequest dto, Categoria categoria) {
+        if (dto == null || categoria == null) return;
+        categoria.setNombre(dto.nombre());
     }
 }

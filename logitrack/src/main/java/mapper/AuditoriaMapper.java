@@ -8,9 +8,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class AuditoriaMapper {
 
-    public AuditoriaResponse toResponse(
-            Auditoria auditoria,
-            UsuarioResponse usuario) {
+    public AuditoriaResponse entityToDto(Auditoria auditoria, UsuarioResponse usuario) {
+        if (auditoria == null) {
+            return null;
+        }
 
         return new AuditoriaResponse(
                 auditoria.getIdAuditoria(),
