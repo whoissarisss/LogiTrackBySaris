@@ -1,6 +1,6 @@
-package com.saris.logitrack.dto.response;
+package dto.response;
 
-import com.saris.logitrack.model.TipoMovimiento;
+import model.TipoMovimiento;
 
 import java.time.LocalDateTime;
 import java.util.List;

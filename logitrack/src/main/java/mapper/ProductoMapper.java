@@ -1,12 +1,12 @@
-package com.saris.logitrack.mapper;
+package mapper;
 
-import com.saris.logitrack.dto.request.ProductoRequest;
-import com.saris.logitrack.dto.response.CategoriaResponse;
-import com.saris.logitrack.dto.response.MarcaResponse;
-import com.saris.logitrack.dto.response.ProductoResponse;
-import com.saris.logitrack.model.Categoria;
-import com.saris.logitrack.model.Marca;
-import com.saris.logitrack.model.Producto;
+import dto.request.ProductoRequest;
+import dto.response.CategoriaResponse;
+import dto.response.MarcaResponse;
+import dto.response.ProductoResponse;
+import model.Categoria;
+import model.Marca;
+import model.Producto;
 import org.springframework.stereotype.Component;
 
 @Component

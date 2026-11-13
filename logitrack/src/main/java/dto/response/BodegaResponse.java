@@ -1,4 +1,4 @@
-package com.saris.logitrack.dto.response;
+package dto.response;
 
 
 public record BodegaResponse(

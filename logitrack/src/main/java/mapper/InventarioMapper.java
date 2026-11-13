@@ -1,12 +1,12 @@
-package com.saris.logitrack.mapper;
+package mapper;
 
-import com.saris.logitrack.dto.request.InventarioRequest;
-import com.saris.logitrack.dto.response.BodegaResponse;
-import com.saris.logitrack.dto.response.InventarioResponse;
-import com.saris.logitrack.dto.response.ProductoResponse;
-import com.saris.logitrack.model.Bodega;
-import com.saris.logitrack.model.Inventario;
-import com.saris.logitrack.model.Producto;
+import dto.request.InventarioRequest;
+import dto.response.BodegaResponse;
+import dto.response.InventarioResponse;
+import dto.response.ProductoResponse;
+import model.Bodega;
+import model.Inventario;
+import model.Producto;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;

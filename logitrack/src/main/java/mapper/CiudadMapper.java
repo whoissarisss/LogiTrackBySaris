@@ -1,8 +1,8 @@
-package com.saris.logitrack.mapper;
+package mapper;
 
-import com.saris.logitrack.dto.request.CiudadRequest;
-import com.saris.logitrack.dto.response.CiudadResponse;
-import com.saris.logitrack.model.Ciudad;
+import dto.request.CiudadRequest;
+import dto.response.CiudadResponse;
+import model.Ciudad;
 import org.springframework.stereotype.Component;
 
 @Component

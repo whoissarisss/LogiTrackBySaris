@@ -1,7 +1,7 @@
-package com.saris.logitrack.dto.response;
+package dto.response;
 
-import com.saris.logitrack.model.EstadoSolicitud;
-import com.saris.logitrack.model.Rol;
+import model.EstadoSolicitud;
+import model.Rol;
 
 import java.time.LocalDateTime;
 

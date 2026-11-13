@@ -1,13 +1,13 @@
-package com.saris.logitrack.mapper;
+package mapper;
 
-import com.saris.logitrack.dto.request.MovimientoRequest;
-import com.saris.logitrack.dto.response.BodegaResponse;
-import com.saris.logitrack.dto.response.DetalleMovimientoResponse;
-import com.saris.logitrack.dto.response.MovimientoResponse;
-import com.saris.logitrack.dto.response.UsuarioResponse;
-import com.saris.logitrack.model.Bodega;
-import com.saris.logitrack.model.Movimiento;
-import com.saris.logitrack.model.Usuario;
+import dto.request.MovimientoRequest;
+import dto.response.BodegaResponse;
+import dto.response.DetalleMovimientoResponse;
+import dto.response.MovimientoResponse;
+import dto.response.UsuarioResponse;
+import model.Bodega;
+import model.Movimiento;
+import model.Usuario;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

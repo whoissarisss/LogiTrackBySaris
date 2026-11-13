@@ -1,12 +1,12 @@
-package com.saris.logitrack.mapper;
+package mapper;
 
-import com.saris.logitrack.dto.request.BodegaRequest;
-import com.saris.logitrack.dto.response.BodegaResponse;
-import com.saris.logitrack.dto.response.CiudadResponse;
-import com.saris.logitrack.dto.response.UsuarioResponse;
-import com.saris.logitrack.model.Bodega;
-import com.saris.logitrack.model.Ciudad;
-import com.saris.logitrack.model.Usuario;
+import dto.request.BodegaRequest;
+import dto.response.BodegaResponse;
+import dto.response.CiudadResponse;
+import dto.response.UsuarioResponse;
+import model.Bodega;
+import model.Ciudad;
+import model.Usuario;
 import org.springframework.stereotype.Component;
 
 @Component

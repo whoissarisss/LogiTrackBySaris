@@ -1,6 +1,6 @@
-package com.saris.logitrack.dto.response;
+package dto.response;
 
-import com.saris.logitrack.model.Operacion;
+import model.Operacion;
 
 import java.time.LocalDateTime;
 

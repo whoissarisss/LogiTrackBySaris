@@ -1,4 +1,4 @@
-package com.saris.logitrack.dto.request;
+package dto.request;
 
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;

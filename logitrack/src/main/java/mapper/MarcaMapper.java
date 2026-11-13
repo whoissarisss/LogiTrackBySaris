@@ -1,8 +1,8 @@
-package com.saris.logitrack.mapper;
+package mapper;
 
-import com.saris.logitrack.dto.request.MarcaRequest;
-import com.saris.logitrack.dto.response.MarcaResponse;
-import com.saris.logitrack.model.Marca;
+import dto.request.MarcaRequest;
+import dto.response.MarcaResponse;
+import model.Marca;
 import org.springframework.stereotype.Component;
 
 @Component
