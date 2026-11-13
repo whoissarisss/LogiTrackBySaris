@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import com.saris.logitrack.model.Rol;
+import com.saris.logitrack.model.EstadoSolicitud;
 
 import java.time.LocalDateTime;
 
@@ -33,11 +35,11 @@ public class Usuario {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private com.saris.logitrack.model.Rol rol;
+    private Rol rol;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "estado_solicitud", nullable = false)
-    private com.saris.logitrack.model.EstadoSolicitud estadoSolicitud;
+    private EstadoSolicitud estadoSolicitud;
 
     @Column(name = "fecha_registro", nullable = false,
             insertable = false, updatable = false)

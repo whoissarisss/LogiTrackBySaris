@@ -5,7 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+import com.saris.logitrack.model.TipoMovimiento;
+import com.saris.logitrack.model.Usuario;
+import com.saris.logitrack.model.Bodega;
 import java.time.LocalDateTime;
 
 @Entity
@@ -24,17 +26,17 @@ public class Movimiento {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "tipo_movimiento", nullable = false)
-    private com.saris.logitrack.model.TipoMovimiento tipoMovimiento;
+    private TipoMovimiento tipoMovimiento;
 
     @ManyToOne
     @JoinColumn(name = "id_usuario", nullable = false)
-    private com.saris.logitrack.model.Usuario usuario;
+    private Usuario usuario;
 
     @ManyToOne
     @JoinColumn(name = "id_bodega_origen")
-    private com.saris.logitrack.model.Bodega bodegaOrigen;
+    private Bodega bodegaOrigen;
 
     @ManyToOne
     @JoinColumn(name = "id_bodega_destino")
-    private com.saris.logitrack.model.Bodega bodegaDestino;
+    private Bodega bodegaDestino;
 }

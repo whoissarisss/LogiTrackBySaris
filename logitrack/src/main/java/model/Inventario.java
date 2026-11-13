@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import com.saris.logitrack.model.Bodega;
+import com.saris.logitrack.model.Producto;
 
 import java.math.BigDecimal;
 
@@ -24,11 +26,11 @@ public class Inventario {
 
     @ManyToOne
     @JoinColumn(name = "id_bodega", nullable = false)
-    private com.saris.logitrack.model.Bodega bodega;
+    private Bodega bodega;
 
     @ManyToOne
     @JoinColumn(name = "id_producto", nullable = false)
-    private com.saris.logitrack.model.Producto producto;
+    private Producto producto;
 
     @Column(name = "stock_actual", nullable = false, precision = 12, scale = 3)
     private BigDecimal stockActual;

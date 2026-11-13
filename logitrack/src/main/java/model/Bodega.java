@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import com.saris.logitrack.model.Usuario;
+import com.saris.logitrack.model.Ciudad;
 
 @Entity
 @Table(name = "bodega")
@@ -25,9 +27,9 @@ public class Bodega {
 
     @ManyToOne
     @JoinColumn(name = "id_ciudad", nullable = false)
-    private com.saris.logitrack.model.Ciudad ciudad;
+    private Ciudad ciudad;
 
     @ManyToOne
     @JoinColumn(name = "id_encargado", nullable = false)
-    private com.saris.logitrack.model.Usuario encargado;
+    private Usuario encargado;
 }

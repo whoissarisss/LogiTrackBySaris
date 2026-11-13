@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import com.saris.logitrack.model.Marca;
+import com.saris.logitrack.model.Categoria;
 
 @Entity
 @Table(name = "producto")
@@ -28,9 +30,9 @@ public class Producto {
 
     @ManyToOne
     @JoinColumn(name = "id_marca", nullable = false)
-    private com.saris.logitrack.model.Marca marca;
+    private Marca marca;
 
     @ManyToOne
     @JoinColumn(name = "id_categoria", nullable = false)
-    private com.saris.logitrack.model.Categoria categoria;
+    private Categoria categoria;
 }

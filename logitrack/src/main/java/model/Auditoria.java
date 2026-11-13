@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import com.saris.logitrack.model.Usuario;
+import com.saris.logitrack.model.Operacion;
 
 import java.time.LocalDateTime;
 
@@ -25,11 +27,11 @@ public class Auditoria {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private com.saris.logitrack.model.Operacion operacion;
+    private Operacion operacion;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id", nullable = false)
-    private com.saris.logitrack.model.Usuario usuario;
+    private Usuario usuario;
 
     @Column(name = "tabla_afectada", nullable = false, length = 100)
     private String tablaAfectada;
