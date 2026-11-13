@@ -1,8 +1,6 @@
 package com.saris.logitrack.dto.request;
 
 import com.saris.logitrack.model.TipoMovimiento;
-import com.saris.logitrack.dto.request.DetalleMovimientoRequest;
-
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;

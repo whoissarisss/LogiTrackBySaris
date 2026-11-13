@@ -5,8 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import com.saris.logitrack.model.Rol;
-import com.saris.logitrack.model.EstadoSolicitud;
 
 import java.time.LocalDateTime;
 

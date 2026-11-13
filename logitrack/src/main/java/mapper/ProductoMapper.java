@@ -1,8 +1,8 @@
 package com.saris.logitrack.mapper;
 
 import com.saris.logitrack.dto.request.ProductoRequest;
-import com.saris.logitrack.dto.response.MarcaResponse;
 import com.saris.logitrack.dto.response.CategoriaResponse;
+import com.saris.logitrack.dto.response.MarcaResponse;
 import com.saris.logitrack.dto.response.ProductoResponse;
 import com.saris.logitrack.model.Categoria;
 import com.saris.logitrack.model.Marca;

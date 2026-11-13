@@ -1,7 +1,6 @@
 package com.saris.logitrack.dto.response;
 
 import com.saris.logitrack.model.Operacion;
-import com.saris.logitrack.dto.response.UsuarioResponse;
 
 import java.time.LocalDateTime;
 

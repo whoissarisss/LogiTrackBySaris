@@ -1,4 +1,4 @@
-package com.saris.logitrack.repository;
+package repository;
 
 import com.saris.logitrack.model.Producto;
 import org.springframework.data.jpa.repository.JpaRepository;
