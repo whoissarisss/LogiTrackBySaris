@@ -122,14 +122,16 @@ public class ProductoServiceImpl implements ProductoService {
     }
 
     @Override
-    public void desactivarProducto(Long idProducto) {
+    public ProductoResponse desactivarProducto(Long idProducto) {
 
         Producto producto = productoRepository.findById(idProducto)
                 .orElseThrow(() -> new IllegalArgumentException("Producto no encontrado"));
 
         producto.setEstado(false);
 
-        productoRepository.save(producto);
+        Producto productoActualizado = productoRepository.save(producto);
+
+        return convertirARespuesta(productoActualizado);
     }
 
     private ProductoResponse convertirARespuesta(Producto producto) {
@@ -141,4 +143,3 @@ public class ProductoServiceImpl implements ProductoService {
         );
     }
 }
-
