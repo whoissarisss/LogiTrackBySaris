@@ -1,4 +1,3 @@
-
 package config;
 
 import jakarta.servlet.FilterChain;
@@ -37,6 +36,9 @@ public class JwtFilter extends OncePerRequestFilter {
             String username = jwtService.validateToken(token);
             String rol = jwtService.extractRole(token);
 
+            System.out.println("JWT USERNAME: " + username);
+            System.out.println("JWT ROLE: " + rol);
+
             if (username != null
                     && rol != null
                     && SecurityContextHolder.getContext().getAuthentication() == null) {
@@ -51,6 +53,7 @@ public class JwtFilter extends OncePerRequestFilter {
                         );
 
                 SecurityContextHolder.getContext().setAuthentication(auth);
+                System.out.println("JWT AUTHORITY: " + auth.getAuthorities());
             }
         }
 

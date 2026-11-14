@@ -44,3 +44,4 @@ public class Auditoria {
     @Column(name = "valores_nuevos", columnDefinition = "JSON")
     private String valoresNuevos;
 }
+
