@@ -15,4 +15,6 @@ public interface MovimientoRepository extends JpaRepository<Movimiento, Long> {
     List<Movimiento> findByBodegaOrigen_IdBodega(Long idBodega);
 
     List<Movimiento> findByBodegaDestino_IdBodega(Long idBodega);
+
+    List<Movimiento> findByBodegaOrigen_IdBodegaOrBodegaDestino_IdBodega(Long idBodegaOrigen, Long idBodegaDestino);
 }

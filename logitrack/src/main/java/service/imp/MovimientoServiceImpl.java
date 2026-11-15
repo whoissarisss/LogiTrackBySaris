@@ -313,17 +313,12 @@ public class MovimientoServiceImpl implements MovimientoService {
             throw new IllegalArgumentException("Bodega no encontrada");
         }
 
-        List<Movimiento> movimientos = movimientoRepository.findAll().stream()
-                .filter(movimiento ->
-                        (movimiento.getBodegaOrigen() != null
-                                && movimiento.getBodegaOrigen()
-                                .getIdBodega() == idBodega)
-                                ||
-                                (movimiento.getBodegaDestino() != null
-                                        && movimiento.getBodegaDestino()
-                                        .getIdBodega() == idBodega)
-                )
-                .toList();
+        List<Movimiento> movimientos =
+                movimientoRepository
+                        .findByBodegaOrigen_IdBodegaOrBodegaDestino_IdBodega(
+                                idBodega,
+                                idBodega
+                        );
 
         return movimientos.stream()
                 .map(this::convertirARespuesta)
