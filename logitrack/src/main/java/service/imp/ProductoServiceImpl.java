@@ -115,10 +115,14 @@ public class ProductoServiceImpl implements ProductoService {
     }
 
     @Override
+    @Transactional
     public ProductoResponse actualizarProducto(Long idProducto, ProductoRequest dto) {
 
         Producto producto = productoRepository.findById(idProducto)
                 .orElseThrow(() -> new IllegalArgumentException("Producto no encontrado"));
+
+        // Guardar los valores anteriores
+        ProductoResponse valoresAnteriores = convertirARespuesta(producto);
 
         Marca marca = marcaRepository.findById(dto.idMarca())
                 .orElseThrow(() -> new IllegalArgumentException("Marca no encontrada"));
@@ -130,22 +134,41 @@ public class ProductoServiceImpl implements ProductoService {
 
         Producto productoActualizado = productoRepository.save(producto);
 
+        // Registrar auditoría
+        auditoriaRegistroService.registrar(
+                Operacion.UPDATE,
+                "producto",
+                productoActualizado.getIdProducto(),
+                valoresAnteriores,
+                convertirARespuesta(productoActualizado)
+        );
+
         return convertirARespuesta(productoActualizado);
     }
 
     @Override
+    @Transactional
     public ProductoResponse desactivarProducto(Long idProducto) {
 
         Producto producto = productoRepository.findById(idProducto)
                 .orElseThrow(() -> new IllegalArgumentException("Producto no encontrado"));
 
+        ProductoResponse valoresAnteriores = convertirARespuesta(producto);
+
         producto.setEstado(false);
 
         Producto productoActualizado = productoRepository.save(producto);
 
+        auditoriaRegistroService.registrar(
+                Operacion.UPDATE,
+                "producto",
+                productoActualizado.getIdProducto(),
+                valoresAnteriores,
+                convertirARespuesta(productoActualizado)
+        );
+
         return convertirARespuesta(productoActualizado);
     }
-
     private ProductoResponse convertirARespuesta(Producto producto) {
 
         return productoMapper.entityToDto(
