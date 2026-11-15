@@ -2,12 +2,15 @@ package service.imp;
 
 import dto.request.ProductoRequest;
 import dto.response.ProductoResponse;
+import jakarta.transaction.Transactional;
 import mapper.CategoriaMapper;
 import mapper.MarcaMapper;
 import mapper.ProductoMapper;
 import model.Categoria;
 import model.Marca;
 import model.Producto;
+import model.Operacion;
+import service.AuditoriaRegistroService;
 import repository.CategoriaRepository;
 import repository.MarcaRepository;
 import repository.ProductoRepository;
@@ -28,8 +31,10 @@ public class ProductoServiceImpl implements ProductoService {
     private final ProductoMapper productoMapper;
     private final MarcaMapper marcaMapper;
     private final CategoriaMapper categoriaMapper;
+    private final AuditoriaRegistroService auditoriaRegistroService;
 
     @Override
+    @Transactional
     public ProductoResponse registrarProducto(ProductoRequest dto) {
 
         Marca marca = marcaRepository.findById(dto.idMarca())
@@ -42,9 +47,16 @@ public class ProductoServiceImpl implements ProductoService {
 
         Producto productoGuardado = productoRepository.save(producto);
 
+        auditoriaRegistroService.registrar(
+                Operacion.INSERT,
+                "producto",
+                productoGuardado.getIdProducto(),
+                null,
+                productoGuardado
+        );
+
         return convertirARespuesta(productoGuardado);
     }
-
     @Override
     public List<ProductoResponse> listarProductos() {
 
