@@ -24,6 +24,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import jakarta.persistence.EntityManager;
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -50,6 +51,7 @@ public class MovimientoServiceImpl implements MovimientoService {
     private final ProductoMapper productoMapper;
     private final MarcaMapper marcaMapper;
     private final CategoriaMapper categoriaMapper;
+    private final EntityManager entityManager;
 
 
     @Override
@@ -82,6 +84,10 @@ public class MovimientoServiceImpl implements MovimientoService {
         );
 
         Movimiento movimientoGuardado = movimientoRepository.save(movimiento);
+
+        movimientoRepository.flush();
+
+        entityManager.refresh(movimientoGuardado);
 
         for (DetalleMovimientoRequest detalle : dto.detalles()) {
 
