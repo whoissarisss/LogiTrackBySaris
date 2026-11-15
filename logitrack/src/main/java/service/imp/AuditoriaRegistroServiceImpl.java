@@ -14,13 +14,14 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 @Service
 @RequiredArgsConstructor
 public class AuditoriaRegistroServiceImpl implements AuditoriaRegistroService {
 
     private final AuditoriaRepository auditoriaRepository;
     private final UsuarioRepository usuarioRepository;
-    private final ObjectMapper objectMapper;
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
     @Transactional
@@ -68,8 +69,11 @@ public class AuditoriaRegistroServiceImpl implements AuditoriaRegistroService {
         try {
             return objectMapper.writeValueAsString(valores);
         } catch (JsonProcessingException e) {
+            e.printStackTrace();
+
             throw new IllegalArgumentException(
-                    "No fue posible convertir los datos de auditoría a JSON", e
+                    "No fue posible convertir los datos de auditoría a JSON: "
+                            + e.getOriginalMessage(), e
             );
         }
     }

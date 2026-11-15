@@ -18,6 +18,7 @@ import mapper.UsuarioMapper;
 import model.*;
 import repository.*;
 import service.MovimientoService;
+import service.AuditoriaRegistroService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -39,6 +40,7 @@ public class MovimientoServiceImpl implements MovimientoService {
     private final BodegaRepository bodegaRepository;
     private final ProductoRepository productoRepository;
     private final UsuarioRepository usuarioRepository;
+    private final AuditoriaRegistroService auditoriaRegistroService;
 
     private final MovimientoMapper movimientoMapper;
     private final DetalleMovimientoMapper detalleMovimientoMapper;
@@ -48,6 +50,7 @@ public class MovimientoServiceImpl implements MovimientoService {
     private final ProductoMapper productoMapper;
     private final MarcaMapper marcaMapper;
     private final CategoriaMapper categoriaMapper;
+
 
     @Override
     @Transactional
@@ -112,7 +115,18 @@ public class MovimientoServiceImpl implements MovimientoService {
             detalleMovimientoRepository.save(detalleMovimiento);
         }
 
-        return convertirARespuesta(movimientoGuardado);
+        MovimientoResponse respuesta =
+                convertirARespuesta(movimientoGuardado);
+
+        auditoriaRegistroService.registrar(
+                Operacion.INSERT,
+                "movimiento",
+                movimientoGuardado.getIdMovimiento(),
+                null,
+                dto
+        );
+
+        return respuesta;
     }
 
     private void validarDetalles(List<DetalleMovimientoRequest> detalles) {
@@ -139,10 +153,7 @@ public class MovimientoServiceImpl implements MovimientoService {
         }
     }
 
-    private void validarBodegas(
-            TipoMovimiento tipo,
-            Bodega origen,
-            Bodega destino) {
+    private void validarBodegas(TipoMovimiento tipo, Bodega origen, Bodega destino) {
 
         if (tipo == null) {
             throw new IllegalArgumentException(
@@ -161,9 +172,7 @@ public class MovimientoServiceImpl implements MovimientoService {
                     "Una salida requiere únicamente una bodega de origen");
         }
 
-        if (tipo == TipoMovimiento.TRANSFERENCIA
-                && (origen == null || destino == null
-                || origen.getIdBodega() == destino.getIdBodega())) {
+        if (tipo == TipoMovimiento.TRANSFERENCIA && (origen == null || destino == null || origen.getIdBodega() == destino.getIdBodega())) {
             throw new IllegalArgumentException(
                     "La transferencia requiere dos bodegas diferentes");
         }
