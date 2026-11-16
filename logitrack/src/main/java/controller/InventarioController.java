@@ -3,6 +3,7 @@ package controller;
 import dto.response.InventarioResponse;
 import service.InventarioService;
 import lombok.RequiredArgsConstructor;
+import java.math.BigDecimal;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -50,6 +51,16 @@ public class InventarioController {
 
         List<InventarioResponse> inventarios =
                 inventarioService.listarInventarioPorProducto(idProducto);
+
+        return ResponseEntity.ok(inventarios);
+    }
+
+    @GetMapping("/stock-bajo")
+    public ResponseEntity<List<InventarioResponse>> listarInventarioStockBajo(
+            @RequestParam BigDecimal limite) {
+
+        List<InventarioResponse> inventarios =
+                inventarioService.listarInventarioStockBajo(limite);
 
         return ResponseEntity.ok(inventarios);
     }

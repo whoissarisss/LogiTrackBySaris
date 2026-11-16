@@ -15,6 +15,7 @@ import repository.BodegaRepository;
 import repository.InventarioRepository;
 import repository.ProductoRepository;
 import service.InventarioService;
+import java.math.BigDecimal;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -40,6 +41,21 @@ public class InventarioServiceImpl implements InventarioService {
     public List<InventarioResponse> listarInventarios() {
 
         List<Inventario> inventarios = inventarioRepository.findAll();
+
+        return inventarios.stream()
+                .map(this::convertirARespuesta)
+                .toList();
+    }
+
+    @Override
+    public List<InventarioResponse> listarInventarioStockBajo(BigDecimal limite) {
+
+        if (limite == null || limite.compareTo(BigDecimal.ZERO) < 0) {
+            throw new IllegalArgumentException("El límite de stock debe ser mayor o igual a cero");
+        }
+
+        List<Inventario> inventarios =
+                inventarioRepository.findByStockActualLessThanEqualOrderByStockActualAsc(limite);
 
         return inventarios.stream()
                 .map(this::convertirARespuesta)

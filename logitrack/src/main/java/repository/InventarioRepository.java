@@ -3,6 +3,7 @@ package repository;
 import model.Inventario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,4 +14,7 @@ public interface InventarioRepository extends JpaRepository<Inventario, Long> {
     List<Inventario> findByBodega_IdBodega(Long idBodega);
 
     List<Inventario> findByProducto_IdProducto(Long idProducto);
+
+    List<Inventario> findByStockActualLessThanEqualOrderByStockActualAsc(
+            BigDecimal limite);
 }

@@ -1,6 +1,7 @@
 package service;
 
 import dto.response.InventarioResponse;
+import java.math.BigDecimal;
 
 import java.util.List;
 
@@ -13,4 +14,6 @@ public interface InventarioService {
     List<InventarioResponse> listarInventarioPorProducto(Long idProducto);
 
     InventarioResponse obtenerInventarioPorId(Long idInventario);
+
+    List<InventarioResponse> listarInventarioStockBajo(BigDecimal limite);
 }
