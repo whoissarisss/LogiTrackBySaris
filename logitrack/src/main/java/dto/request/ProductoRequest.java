@@ -8,9 +8,8 @@ import jakarta.validation.constraints.Size;
 public record ProductoRequest(
 
         @NotBlank(message = "El nombre del producto es obligatorio")
-        @Size(max = 150, message = "El nombre no puede superar los 150 caracteres")
+        @Size(max = 120, message = "El nombre no puede superar los 120 caracteres")
         String nombre,
-
         String descripcion,
 
         @NotNull(message = "La marca es obligatoria")

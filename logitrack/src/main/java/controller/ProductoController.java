@@ -1,4 +1,3 @@
-
 package controller;
 
 import dto.request.ProductoRequest;
@@ -84,14 +83,13 @@ public class ProductoController {
         return ResponseEntity.ok(respuesta);
     }
 
-    @PatchMapping("/{idProducto}/desactivar")
-    public ResponseEntity<ProductoResponse> desactivarProducto(
+    @DeleteMapping("/{idProducto}")
+    public ResponseEntity<Void> eliminarProducto(
             @PathVariable Long idProducto) {
 
-        ProductoResponse respuesta =
-                productoService.desactivarProducto(idProducto);
+        productoService.eliminarProducto(idProducto);
 
-        return ResponseEntity.ok(respuesta);
+        return ResponseEntity.noContent().build();
     }
 }
 

@@ -10,6 +10,8 @@ import model.Categoria;
 import model.Marca;
 import model.Producto;
 import model.Operacion;
+import repository.InventarioRepository;
+import repository.DetalleMovimientoRepository;
 import service.AuditoriaRegistroService;
 import repository.CategoriaRepository;
 import repository.MarcaRepository;
@@ -32,6 +34,8 @@ public class ProductoServiceImpl implements ProductoService {
     private final MarcaMapper marcaMapper;
     private final CategoriaMapper categoriaMapper;
     private final AuditoriaRegistroService auditoriaRegistroService;
+    private final InventarioRepository inventarioRepository;
+    private final DetalleMovimientoRepository detalleMovimientoRepository;
 
     @Override
     @Transactional
@@ -146,29 +150,38 @@ public class ProductoServiceImpl implements ProductoService {
         return convertirARespuesta(productoActualizado);
     }
 
+
     @Override
     @Transactional
-    public ProductoResponse desactivarProducto(Long idProducto) {
+    public void eliminarProducto(Long idProducto) {
 
         Producto producto = productoRepository.findById(idProducto)
                 .orElseThrow(() -> new IllegalArgumentException("Producto no encontrado"));
 
+        if (!inventarioRepository.findByProducto_IdProducto(idProducto).isEmpty()) {
+            throw new IllegalArgumentException(
+                    "No se puede eliminar el producto porque tiene registros de inventario");
+        }
+
+        if (!detalleMovimientoRepository.findByProducto_IdProducto(idProducto).isEmpty()) {
+            throw new IllegalArgumentException(
+                    "No se puede eliminar el producto porque tiene movimientos registrados");
+        }
+
         ProductoResponse valoresAnteriores = convertirARespuesta(producto);
 
-        producto.setEstado(false);
-
-        Producto productoActualizado = productoRepository.save(producto);
-
         auditoriaRegistroService.registrar(
-                Operacion.UPDATE,
+                Operacion.DELETE,
                 "producto",
-                productoActualizado.getIdProducto(),
+                producto.getIdProducto(),
                 valoresAnteriores,
-                convertirARespuesta(productoActualizado)
+                null
         );
 
-        return convertirARespuesta(productoActualizado);
+        productoRepository.delete(producto);
     }
+
+
     private ProductoResponse convertirARespuesta(Producto producto) {
 
         return productoMapper.entityToDto(
