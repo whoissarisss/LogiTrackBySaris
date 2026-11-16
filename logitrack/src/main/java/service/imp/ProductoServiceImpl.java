@@ -56,7 +56,7 @@ public class ProductoServiceImpl implements ProductoService {
                 "producto",
                 productoGuardado.getIdProducto(),
                 null,
-                productoGuardado
+                convertirARespuesta(productoGuardado)
         );
 
         return convertirARespuesta(productoGuardado);

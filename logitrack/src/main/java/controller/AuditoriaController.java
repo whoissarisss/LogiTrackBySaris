@@ -1,6 +1,7 @@
 package controller;
 
 import dto.response.AuditoriaResponse;
+import model.Operacion;
 import service.AuditoriaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -50,6 +51,17 @@ public class AuditoriaController {
 
         List<AuditoriaResponse> auditorias =
                 auditoriaService.listarAuditoriasPorTabla(tablaAfectada);
+
+        return ResponseEntity.ok(auditorias);
+    }
+
+    // Consultar auditorías por tipo de operación
+    @GetMapping("/operacion/{operacion}")
+    public ResponseEntity<List<AuditoriaResponse>> listarAuditoriasPorOperacion(
+            @PathVariable Operacion operacion) {
+
+        List<AuditoriaResponse> auditorias =
+                auditoriaService.listarAuditoriasPorOperacion(operacion);
 
         return ResponseEntity.ok(auditorias);
     }

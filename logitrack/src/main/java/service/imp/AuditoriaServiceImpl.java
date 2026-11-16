@@ -4,6 +4,7 @@ import dto.response.AuditoriaResponse;
 import mapper.AuditoriaMapper;
 import mapper.UsuarioMapper;
 import model.Auditoria;
+import model.Operacion;
 import repository.AuditoriaRepository;
 import repository.UsuarioRepository;
 import service.AuditoriaService;
@@ -67,6 +68,19 @@ public class AuditoriaServiceImpl implements AuditoriaService {
 
         List<Auditoria> auditorias =
                 auditoriaRepository.findByTablaAfectada(tablaAfectada);
+
+        return auditorias.stream()
+                .map(this::convertirARespuesta)
+                .toList();
+    }
+
+    // Consultar auditorías por tipo de operación
+    @Override
+    @Transactional(readOnly = true)
+    public List<AuditoriaResponse> listarAuditoriasPorOperacion(Operacion operacion) {
+
+        List<Auditoria> auditorias =
+                auditoriaRepository.findByOperacion(operacion);
 
         return auditorias.stream()
                 .map(this::convertirARespuesta)
