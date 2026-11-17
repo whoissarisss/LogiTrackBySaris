@@ -1,6 +1,7 @@
 package service.imp;
 
 import dto.response.BodegaResponse;
+import dto.response.ResumenStockBodegaResponse;
 import dto.response.InventarioResponse;
 import dto.response.ProductoResponse;
 import mapper.BodegaMapper;
@@ -116,5 +117,10 @@ public class InventarioServiceImpl implements InventarioService {
         );
 
         return inventarioMapper.entityToDto(inventario, bodega, producto);
+    }
+
+    @Override
+    public List<ResumenStockBodegaResponse> listarResumenStockPorBodega() {
+        return inventarioRepository.obtenerResumenStockPorBodega();
     }
 }

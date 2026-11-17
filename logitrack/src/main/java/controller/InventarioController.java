@@ -1,5 +1,6 @@
 package controller;
 
+import dto.response.ResumenStockBodegaResponse;
 import dto.response.InventarioResponse;
 import service.InventarioService;
 import lombok.RequiredArgsConstructor;
@@ -63,5 +64,14 @@ public class InventarioController {
                 inventarioService.listarInventarioStockBajo(limite);
 
         return ResponseEntity.ok(inventarios);
+    }
+
+    @GetMapping("/resumen-por-bodega")
+    public ResponseEntity<List<ResumenStockBodegaResponse>> listarResumenStockPorBodega() {
+
+        List<ResumenStockBodegaResponse> resumen =
+                inventarioService.listarResumenStockPorBodega();
+
+        return ResponseEntity.ok(resumen);
     }
 }
