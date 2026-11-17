@@ -17,6 +17,7 @@ import mapper.ProductoMapper;
 import mapper.UsuarioMapper;
 import model.*;
 import repository.*;
+import dto.response.ProductoMayorMovimientoResponse;
 import service.MovimientoService;
 import service.AuditoriaRegistroService;
 import java.time.LocalDateTime;
@@ -401,5 +402,12 @@ public class MovimientoServiceImpl implements MovimientoService {
                 marcaMapper.entityToDto(producto.getMarca()),
                 categoriaMapper.entityToDto(producto.getCategoria())
         );
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<ProductoMayorMovimientoResponse> listarProductosConMayorMovimiento() {
+
+        return detalleMovimientoRepository.obtenerProductosConMayorMovimiento();
     }
 }

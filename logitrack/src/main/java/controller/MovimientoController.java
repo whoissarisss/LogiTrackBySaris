@@ -2,6 +2,7 @@ package controller;
 
 import dto.request.MovimientoRequest;
 import dto.response.MovimientoResponse;
+import dto.response.ProductoMayorMovimientoResponse;
 import model.TipoMovimiento;
 import service.MovimientoService;
 import jakarta.validation.Valid;
@@ -91,5 +92,14 @@ public class MovimientoController {
                 );
 
         return ResponseEntity.ok(movimientos);
+    }
+
+    @GetMapping("/productos-mayor-movimiento")
+    public ResponseEntity<List<ProductoMayorMovimientoResponse>> listarProductosConMayorMovimiento() {
+
+        List<ProductoMayorMovimientoResponse> productos =
+                movimientoService.listarProductosConMayorMovimiento();
+
+        return ResponseEntity.ok(productos);
     }
 }
