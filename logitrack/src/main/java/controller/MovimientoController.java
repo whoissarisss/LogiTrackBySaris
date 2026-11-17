@@ -5,6 +5,7 @@ import dto.response.MovimientoResponse;
 import model.TipoMovimiento;
 import service.MovimientoService;
 import jakarta.validation.Valid;
+import java.time.LocalDateTime;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -74,6 +75,20 @@ public class MovimientoController {
 
         List<MovimientoResponse> movimientos =
                 movimientoService.listarMovimientosPorBodega(idBodega);
+
+        return ResponseEntity.ok(movimientos);
+    }
+
+    @GetMapping("/fechas")
+    public ResponseEntity<List<MovimientoResponse>> listarMovimientosEntreFechas(
+            @RequestParam LocalDateTime fechaInicio,
+            @RequestParam LocalDateTime fechaFin) {
+
+        List<MovimientoResponse> movimientos =
+                movimientoService.listarMovimientosEntreFechas(
+                        fechaInicio,
+                        fechaFin
+                );
 
         return ResponseEntity.ok(movimientos);
     }

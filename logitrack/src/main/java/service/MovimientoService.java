@@ -2,6 +2,7 @@ package service;
 
 import dto.request.MovimientoRequest;
 import dto.response.MovimientoResponse;
+import java.time.LocalDateTime;
 
 import java.util.List;
 
@@ -18,4 +19,6 @@ public interface MovimientoService {
     List<MovimientoResponse> listarMovimientosPorTipo(String tipoMovimiento);
 
     List<MovimientoResponse> listarMovimientosPorBodega(Long idBodega);
+
+    List<MovimientoResponse> listarMovimientosEntreFechas(LocalDateTime fechaInicio, LocalDateTime fechaFin);
 }

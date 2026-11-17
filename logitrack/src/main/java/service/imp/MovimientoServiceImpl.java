@@ -19,6 +19,7 @@ import model.*;
 import repository.*;
 import service.MovimientoService;
 import service.AuditoriaRegistroService;
+import java.time.LocalDateTime;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -319,6 +320,33 @@ public class MovimientoServiceImpl implements MovimientoService {
                                 idBodega,
                                 idBodega
                         );
+
+        return movimientos.stream()
+                .map(this::convertirARespuesta)
+                .toList();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<MovimientoResponse> listarMovimientosEntreFechas(
+            LocalDateTime fechaInicio,
+            LocalDateTime fechaFin) {
+
+        if (fechaInicio == null || fechaFin == null) {
+            throw new IllegalArgumentException(
+                    "Debe indicar la fecha de inicio y la fecha de fin");
+        }
+
+        if (fechaInicio.isAfter(fechaFin)) {
+            throw new IllegalArgumentException(
+                    "La fecha de inicio no puede ser posterior a la fecha de fin");
+        }
+
+        List<Movimiento> movimientos =
+                movimientoRepository.findByFechaBetweenOrderByFechaDesc(
+                        fechaInicio,
+                        fechaFin
+                );
 
         return movimientos.stream()
                 .map(this::convertirARespuesta)

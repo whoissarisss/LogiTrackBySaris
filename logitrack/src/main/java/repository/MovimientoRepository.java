@@ -2,6 +2,7 @@ package repository;
 
 import model.Movimiento;
 import model.TipoMovimiento;
+import java.time.LocalDateTime;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -17,4 +18,6 @@ public interface MovimientoRepository extends JpaRepository<Movimiento, Long> {
     List<Movimiento> findByBodegaDestino_IdBodega(Long idBodega);
 
     List<Movimiento> findByBodegaOrigen_IdBodegaOrBodegaDestino_IdBodega(Long idBodegaOrigen, Long idBodegaDestino);
+
+    List<Movimiento> findByFechaBetweenOrderByFechaDesc(LocalDateTime fechaInicio, LocalDateTime fechaFin);
 }
