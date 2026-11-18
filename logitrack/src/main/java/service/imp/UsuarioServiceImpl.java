@@ -4,6 +4,7 @@ import dto.request.UsuarioRequest;
 import dto.response.UsuarioResponse;
 import mapper.UsuarioMapper;
 import model.EstadoSolicitud;
+import model.Rol;
 import model.Usuario;
 import repository.UsuarioRepository;
 import service.UsuarioService;
@@ -31,6 +32,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
         Usuario usuario = usuarioMapper.DtoToEntity(dto);
         usuario.setPassword(passwordEncoder.encode(dto.password()));
+        usuario.setEstadoSolicitud(EstadoSolicitud.PENDIENTE);
 
         Usuario usuarioGuardado = usuarioRepository.save(usuario);
 
@@ -45,6 +47,19 @@ public class UsuarioServiceImpl implements UsuarioService {
         );
 
         return usuarios.stream()
+                .map(usuarioMapper::entityToDto)
+                .toList();
+    }
+
+    @Override
+    public List<UsuarioResponse> listarUsuariosAprobados() {
+
+        List<Usuario> usuarios = usuarioRepository.findByEstadoSolicitud(
+                EstadoSolicitud.APROBADO
+        );
+
+        return usuarios.stream()
+                .filter(usuario -> usuario.getRol() == Rol.EMPLEADO)
                 .map(usuarioMapper::entityToDto)
                 .toList();
     }

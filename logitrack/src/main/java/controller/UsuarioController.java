@@ -1,4 +1,3 @@
-
 package controller;
 
 import dto.request.UsuarioRequest;
@@ -37,7 +36,16 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarios);
     }
 
-    @PatchMapping("/{idUsuario}/aprobar")
+    @GetMapping("/empleados-aprobados")
+    public ResponseEntity<List<UsuarioResponse>> listarEmpleadosAprobados() {
+
+        List<UsuarioResponse> usuarios =
+                usuarioService.listarUsuariosAprobados();
+
+        return ResponseEntity.ok(usuarios);
+    }
+
+    @PutMapping("/{idUsuario}/aprobar")
     public ResponseEntity<UsuarioResponse> aprobarSolicitud(
             @PathVariable Long idUsuario) {
 
@@ -47,7 +55,7 @@ public class UsuarioController {
         return ResponseEntity.ok(respuesta);
     }
 
-    @PatchMapping("/{idUsuario}/rechazar")
+    @PutMapping("/{idUsuario}/rechazar")
     public ResponseEntity<UsuarioResponse> rechazarSolicitud(
             @PathVariable Long idUsuario,
             @RequestParam String motivo) {

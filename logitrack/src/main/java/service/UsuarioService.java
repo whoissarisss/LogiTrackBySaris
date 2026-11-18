@@ -11,6 +11,8 @@ public interface UsuarioService {
 
     List<UsuarioResponse> listarSolicitudesPendientes();
 
+    List<UsuarioResponse> listarUsuariosAprobados();
+
     UsuarioResponse aprobarSolicitud(Long idUsuario);
 
     UsuarioResponse rechazarSolicitud(Long idUsuario, String motivo);
