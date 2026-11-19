@@ -2,12 +2,20 @@
 
 ### Sistema web de gestión y control de inventario para panaderías
 
-\<p align="center">   \<strong>Organiza. Controla. Administra.\</strong>   \<br>   Una solución web para gestionar productos, bodegas, existencias y movimientos de inventario de manera centralizada. \</p>
 
-\<p align="center">   \<img src="assets/bake-track-logo.png" alt="Logo Bake Track" width="190"> \</p>
+<p align="center">
+  <strong>Organiza. Controla. Administra.</strong>
+  <br>
+  Una solución web para gestionar productos, bodegas, existencias y movimientos de inventario de manera centralizada.
+</p>
 
-\<p align="center">   \<img src="[https://img.shields.io/badge/Java-Spring%20Boot-805841?style=for-the-badge](https://img.shields.io/badge/Java-Spring%20Boot-805841?style=for-the-badge)" alt="Java Spring Boot">   \<img src="[https://img.shields.io/badge/Base%20de%20datos-MySQL-397B70?style=for-the-badge](https://img.shields.io/badge/Base%20de%20datos-MySQL-397B70?style=for-the-badge)" alt="MySQL">   \<img src="[https://img.shields.io/badge/Frontend-HTML%20%7C%20CSS%20%7C%20JS-D99B85?style=for-the-badge](https://img.shields.io/badge/Frontend-HTML%20%7C%20CSS%20%7C%20JS-D99B85?style=for-the-badge)" alt="Frontend">   \<img src="[https://img.shields.io/badge/API-REST-805841?style=for-the-badge](https://img.shields.io/badge/API-REST-805841?style=for-the-badge)" alt="API REST">   \<img src="[https://img.shields.io/badge/Documentación-Swagger-6B9B83?style=for-the-badge](https://img.shields.io/badge/Documentación-Swagger-6B9B83?style=for-the-badge)" alt="Swagger"> \</p>
-
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-Spring%20Boot-805841?style=for-the-badge" alt="Java Spring Boot">
+  <img src="https://img.shields.io/badge/Base%20de%20datos-MySQL-397B70?style=for-the-badge" alt="MySQL">
+  <img src="https://img.shields.io/badge/Frontend-HTML%20%7C%20CSS%20%7C%20JS-D99B85?style=for-the-badge" alt="Frontend">
+  <img src="https://img.shields.io/badge/API-REST-805841?style=for-the-badge" alt="API REST">
+  <img src="https://img.shields.io/badge/Documentación-Swagger-6B9B83?style=for-the-badge" alt="Swagger">
+</p>
 ---
 
 ## CONTENIDO
