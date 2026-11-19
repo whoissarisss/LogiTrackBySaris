@@ -32,18 +32,6 @@ Una plataforma web para administrar productos, bodegas, existencias y movimiento
 
 ---
 
-<div align="center">
-
-## UNA FORMA MÁS INTELIGENTE DE GESTIONAR
-
-| **11** | **MÓDULOS** | **1** | **PLATAFORMA CENTRALIZADA** |
-|:---:|:---:|:---:|:---:|
-| Áreas funcionales | Gestión integral | Sistema web | Información organizada |
-
-</div>
-
----
-
 ## ÍNDICE
 
 | | Sección | | Sección |
