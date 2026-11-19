@@ -23,24 +23,33 @@ public class SecurityConfig {
     private final JwtFilter jwtFilter;
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http)
+            throws Exception {
 
         http
-                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                .cors(cors ->
+                        cors.configurationSource(corsConfigurationSource())
+                )
 
                 .csrf(csrf -> csrf.disable())
 
                 .sessionManagement(session ->
-                        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                        session.sessionCreationPolicy(
+                                SessionCreationPolicy.STATELESS
+                        )
                 )
 
                 .authorizeHttpRequests(auth -> auth
 
                         // Permitir solicitudes CORS preliminares
-                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                        .requestMatchers(
+                                HttpMethod.OPTIONS,
+                                "/**"
+                        ).permitAll()
 
                         // Registro e inicio de sesión públicos
-                        .requestMatchers(HttpMethod.POST,
+                        .requestMatchers(
+                                HttpMethod.POST,
                                 "/api/usuarios/registro",
                                 "/api/auth/**"
                         ).permitAll()
@@ -53,14 +62,66 @@ public class SecurityConfig {
                         ).permitAll()
 
                         // Administración exclusiva
-                        .requestMatchers("/api/usuarios/**").hasRole("ADMIN")
-                        .requestMatchers("/api/auditorias/**").hasRole("ADMIN")
+                        .requestMatchers(
+                                "/api/usuarios/**"
+                        ).hasRole("ADMIN")
+
+                        .requestMatchers(
+                                "/api/auditorias/**"
+                        ).hasRole("ADMIN")
+
+                        // Administración de productos: solo ADMIN
+                        .requestMatchers(
+                                HttpMethod.POST,
+                                "/api/productos",
+                                "/api/productos/**"
+                        ).hasRole("ADMIN")
+
+                        .requestMatchers(
+                                HttpMethod.PUT,
+                                "/api/productos",
+                                "/api/productos/**"
+                        ).hasRole("ADMIN")
+
+                        .requestMatchers(
+                                HttpMethod.DELETE,
+                                "/api/productos",
+                                "/api/productos/**"
+                        ).hasRole("ADMIN")
+
+                        // Administración de bodegas: solo ADMIN
+                        .requestMatchers(
+                                HttpMethod.POST,
+                                "/api/bodegas",
+                                "/api/bodegas/**"
+                        ).hasRole("ADMIN")
+
+                        .requestMatchers(
+                                HttpMethod.PUT,
+                                "/api/bodegas",
+                                "/api/bodegas/**"
+                        ).hasRole("ADMIN")
+
+                        .requestMatchers(
+                                HttpMethod.DELETE,
+                                "/api/bodegas",
+                                "/api/bodegas/**"
+                        ).hasRole("ADMIN")
+
+                        // Solo ADMIN puede registrar movimientos
+                        .requestMatchers(
+                                HttpMethod.POST,
+                                "/api/movimientos"
+                        ).hasRole("ADMIN")
 
                         // Las demás rutas requieren autenticación
                         .anyRequest().authenticated()
                 )
 
-                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(
+                        jwtFilter,
+                        UsernamePasswordAuthenticationFilter.class
+                );
 
         return http.build();
     }
@@ -68,20 +129,36 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
 
-        CorsConfiguration configuration = new CorsConfiguration();
+        CorsConfiguration configuration =
+                new CorsConfiguration();
 
-        configuration.setAllowedOrigins(List.of("http://127.0.0.1:5500", "http://localhost:5500"));
+        configuration.setAllowedOrigins(List.of(
+                "http://127.0.0.1:5500",
+                "http://localhost:5500"
+        ));
 
-        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedMethods(List.of(
+                "GET",
+                "POST",
+                "PUT",
+                "DELETE",
+                "OPTIONS"
+        ));
 
-        configuration.setAllowedHeaders(List.of("Authorization", "Content-Type"));
+        configuration.setAllowedHeaders(List.of(
+                "Authorization",
+                "Content-Type"
+        ));
 
         configuration.setAllowCredentials(false);
 
         UrlBasedCorsConfigurationSource source =
                 new UrlBasedCorsConfigurationSource();
 
-        source.registerCorsConfiguration("/**", configuration);
+        source.registerCorsConfiguration(
+                "/**",
+                configuration
+        );
 
         return source;
     }

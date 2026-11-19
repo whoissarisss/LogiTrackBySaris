@@ -6,6 +6,7 @@ import dto.response.BodegaResponse;
 import dto.response.DetalleMovimientoResponse;
 import dto.response.MovimientoResponse;
 import dto.response.ProductoResponse;
+import dto.response.ProductoMayorMovimientoResponse;
 import dto.response.UsuarioResponse;
 import mapper.BodegaMapper;
 import mapper.CategoriaMapper;
@@ -17,21 +18,22 @@ import mapper.ProductoMapper;
 import mapper.UsuarioMapper;
 import model.*;
 import repository.*;
-import dto.response.ProductoMayorMovimientoResponse;
 import service.MovimientoService;
 import service.AuditoriaRegistroService;
 import java.time.LocalDateTime;
-import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import jakarta.persistence.EntityManager;
-
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.Objects;
+import jakarta.persistence.EntityManager;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 @Service
 @RequiredArgsConstructor
@@ -53,8 +55,12 @@ public class MovimientoServiceImpl implements MovimientoService {
     private final ProductoMapper productoMapper;
     private final MarcaMapper marcaMapper;
     private final CategoriaMapper categoriaMapper;
+
     private final EntityManager entityManager;
 
+    // ==========================================
+    // REGISTRAR MOVIMIENTO
+    // ==========================================
 
     @Override
     @Transactional
@@ -85,7 +91,8 @@ public class MovimientoServiceImpl implements MovimientoService {
                 dto, usuario, origen, destino
         );
 
-        Movimiento movimientoGuardado = movimientoRepository.save(movimiento);
+        Movimiento movimientoGuardado =
+                movimientoRepository.save(movimiento);
 
         movimientoRepository.flush();
 
@@ -117,7 +124,9 @@ public class MovimientoServiceImpl implements MovimientoService {
 
             DetalleMovimiento detalleMovimiento =
                     detalleMovimientoMapper.DtoToEntity(
-                            detalle, movimientoGuardado, producto
+                            detalle,
+                            movimientoGuardado,
+                            producto
                     );
 
             detalleMovimientoRepository.save(detalleMovimiento);
@@ -136,6 +145,10 @@ public class MovimientoServiceImpl implements MovimientoService {
 
         return respuesta;
     }
+
+    // ==========================================
+    // VALIDAR DETALLES DEL MOVIMIENTO
+    // ==========================================
 
     private void validarDetalles(List<DetalleMovimientoRequest> detalles) {
 
@@ -161,7 +174,14 @@ public class MovimientoServiceImpl implements MovimientoService {
         }
     }
 
-    private void validarBodegas(TipoMovimiento tipo, Bodega origen, Bodega destino) {
+    // ==========================================
+    // VALIDAR BODEGAS
+    // ==========================================
+
+    private void validarBodegas(
+            TipoMovimiento tipo,
+            Bodega origen,
+            Bodega destino) {
 
         if (tipo == null) {
             throw new IllegalArgumentException(
@@ -180,11 +200,19 @@ public class MovimientoServiceImpl implements MovimientoService {
                     "Una salida requiere únicamente una bodega de origen");
         }
 
-        if (tipo == TipoMovimiento.TRANSFERENCIA && (origen == null || destino == null || origen.getIdBodega() == destino.getIdBodega())) {
+        if (tipo == TipoMovimiento.TRANSFERENCIA
+                && (origen == null
+                || destino == null
+                || Objects.equals(origen.getIdBodega(), destino.getIdBodega()))) {
+
             throw new IllegalArgumentException(
                     "La transferencia requiere dos bodegas diferentes");
         }
     }
+
+    // ==========================================
+    // REGISTRAR ENTRADA DE INVENTARIO
+    // ==========================================
 
     private void registrarEntrada(
             Bodega bodega,
@@ -210,6 +238,10 @@ public class MovimientoServiceImpl implements MovimientoService {
 
         inventarioRepository.save(inventario);
     }
+
+    // ==========================================
+    // REGISTRAR SALIDA DE INVENTARIO
+    // ==========================================
 
     private void registrarSalida(
             Bodega bodega,
@@ -237,6 +269,10 @@ public class MovimientoServiceImpl implements MovimientoService {
         inventarioRepository.save(inventario);
     }
 
+    // ==========================================
+    // OBTENER USUARIO AUTENTICADO
+    // ==========================================
+
     private Usuario obtenerUsuarioAutenticado() {
 
         Authentication authentication =
@@ -254,14 +290,82 @@ public class MovimientoServiceImpl implements MovimientoService {
                         "No se encontró el usuario autenticado"));
     }
 
+    // ==========================================
+    // VALIDAR SI ES ADMINISTRADOR
+    // ==========================================
+
+    private boolean esAdministrador() {
+
+        Authentication authentication =
+                SecurityContextHolder.getContext().getAuthentication();
+
+        return authentication != null
+                && authentication.getAuthorities().stream()
+                .anyMatch(authority ->
+                        "ROLE_ADMIN".equals(authority.getAuthority()));
+    }
+
+    // ==========================================
+    // VALIDAR ACCESO A MOVIMIENTOS DE UN USUARIO
+    // ==========================================
+
+    private void validarAccesoUsuario(Long idUsuario) {
+
+        if (esAdministrador()) {
+            return;
+        }
+
+        Usuario usuario = obtenerUsuarioAutenticado();
+
+        if (!Objects.equals(usuario.getIdUsuario(), idUsuario)) {            throw new ResponseStatusException(
+                    HttpStatus.FORBIDDEN,
+                    "No tienes permiso para consultar los movimientos de otro usuario"
+            );
+        }
+    }
+
+    // ==========================================
+    // FILTRAR MOVIMIENTOS SEGÚN EL USUARIO
+    // ==========================================
+
+    private List<Movimiento> filtrarMovimientosDelUsuario(
+            List<Movimiento> movimientos) {
+
+        if (esAdministrador()) {
+            return movimientos;
+        }
+
+        Long idUsuario = obtenerUsuarioAutenticado().getIdUsuario();
+
+        return movimientos.stream()
+                .filter(movimiento ->
+                        movimiento.getUsuario() != null
+                                && idUsuario.equals(
+                                movimiento.getUsuario().getIdUsuario()))
+                .toList();
+    }
+
+    // ==========================================
+    // LISTAR MOVIMIENTOS
+    // ADMIN: TODOS
+    // EMPLEADO: SOLO LOS PROPIOS
+    // ==========================================
+
     @Override
     @Transactional(readOnly = true)
     public List<MovimientoResponse> listarMovimientos() {
 
-        return movimientoRepository.findAll().stream()
+        List<Movimiento> movimientos =
+                filtrarMovimientosDelUsuario(movimientoRepository.findAll());
+
+        return movimientos.stream()
                 .map(this::convertirARespuesta)
                 .toList();
     }
+
+    // ==========================================
+    // OBTENER MOVIMIENTO POR ID
+    // ==========================================
 
     @Override
     @Transactional(readOnly = true)
@@ -271,25 +375,39 @@ public class MovimientoServiceImpl implements MovimientoService {
                 .orElseThrow(() -> new IllegalArgumentException(
                         "Movimiento no encontrado"));
 
+        validarAccesoUsuario(movimiento.getUsuario().getIdUsuario());
+
         return convertirARespuesta(movimiento);
     }
 
+    // ==========================================
+    // LISTAR MOVIMIENTOS POR USUARIO
+    // ==========================================
+
     @Override
     @Transactional(readOnly = true)
-    public List<MovimientoResponse> listarMovimientosPorUsuario(Long idUsuario) {
+    public List<MovimientoResponse> listarMovimientosPorUsuario(
+            Long idUsuario) {
 
         if (!usuarioRepository.existsById(idUsuario)) {
             throw new IllegalArgumentException("Usuario no encontrado");
         }
+
+        validarAccesoUsuario(idUsuario);
 
         return movimientoRepository.findByUsuario_IdUsuario(idUsuario).stream()
                 .map(this::convertirARespuesta)
                 .toList();
     }
 
+    // ==========================================
+    // LISTAR MOVIMIENTOS POR TIPO
+    // ==========================================
+
     @Override
     @Transactional(readOnly = true)
-    public List<MovimientoResponse> listarMovimientosPorTipo(String tipoMovimiento) {
+    public List<MovimientoResponse> listarMovimientosPorTipo(
+            String tipoMovimiento) {
 
         TipoMovimiento tipo;
 
@@ -302,14 +420,21 @@ public class MovimientoServiceImpl implements MovimientoService {
                     "Tipo de movimiento no válido");
         }
 
-        return movimientoRepository.findByTipoMovimiento(tipo).stream()
+        return filtrarMovimientosDelUsuario(
+                movimientoRepository.findByTipoMovimiento(tipo)
+        ).stream()
                 .map(this::convertirARespuesta)
                 .toList();
     }
 
+    // ==========================================
+    // LISTAR MOVIMIENTOS POR BODEGA
+    // ==========================================
+
     @Override
     @Transactional(readOnly = true)
-    public List<MovimientoResponse> listarMovimientosPorBodega(Long idBodega) {
+    public List<MovimientoResponse> listarMovimientosPorBodega(
+            Long idBodega) {
 
         if (!bodegaRepository.existsById(idBodega)) {
             throw new IllegalArgumentException("Bodega no encontrada");
@@ -322,10 +447,14 @@ public class MovimientoServiceImpl implements MovimientoService {
                                 idBodega
                         );
 
-        return movimientos.stream()
+        return filtrarMovimientosDelUsuario(movimientos).stream()
                 .map(this::convertirARespuesta)
                 .toList();
     }
+
+    // ==========================================
+    // LISTAR MOVIMIENTOS ENTRE FECHAS
+    // ==========================================
 
     @Override
     @Transactional(readOnly = true)
@@ -349,10 +478,14 @@ public class MovimientoServiceImpl implements MovimientoService {
                         fechaFin
                 );
 
-        return movimientos.stream()
+        return filtrarMovimientosDelUsuario(movimientos).stream()
                 .map(this::convertirARespuesta)
                 .toList();
     }
+
+    // ==========================================
+    // CONVERTIR MOVIMIENTO A RESPUESTA
+    // ==========================================
 
     private MovimientoResponse convertirARespuesta(Movimiento movimiento) {
 
@@ -386,6 +519,10 @@ public class MovimientoServiceImpl implements MovimientoService {
         );
     }
 
+    // ==========================================
+    // CONVERTIR BODEGA A RESPUESTA
+    // ==========================================
+
     private BodegaResponse convertirBodega(Bodega bodega) {
 
         return bodegaMapper.entityToDto(
@@ -394,6 +531,10 @@ public class MovimientoServiceImpl implements MovimientoService {
                 usuarioMapper.entityToDto(bodega.getEncargado())
         );
     }
+
+    // ==========================================
+    // CONVERTIR PRODUCTO A RESPUESTA
+    // ==========================================
 
     private ProductoResponse convertirProducto(Producto producto) {
 
@@ -404,9 +545,21 @@ public class MovimientoServiceImpl implements MovimientoService {
         );
     }
 
+    // ==========================================
+    // PRODUCTOS CON MAYOR MOVIMIENTO
+    // SOLO ADMINISTRADOR
+    // ==========================================
+
     @Override
     @Transactional(readOnly = true)
     public List<ProductoMayorMovimientoResponse> listarProductosConMayorMovimiento() {
+
+        if (!esAdministrador()) {
+            throw new ResponseStatusException(
+                    HttpStatus.FORBIDDEN,
+                    "No tienes permiso para consultar este reporte"
+            );
+        }
 
         return detalleMovimientoRepository.obtenerProductosConMayorMovimiento();
     }
