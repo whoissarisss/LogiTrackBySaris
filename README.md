@@ -1,10 +1,12 @@
-<!-- ================================================== -->
-<!--                    BAKE TRACK                    -->
-<!-- ================================================== -->
+\<!-- ================================================== -->
 
-<div align="center">
+\<!--                    BAKE TRACK                    -->
 
-<img src="assets/bake-track-logo.png" alt="Bake Track" width="210">
+\<!-- ================================================== -->
+
+\<div align="center">
+
+\<img src="assets/bake-track-logo.png" alt="Bake Track" width="210">
 
 # BAKE TRACK
 
@@ -14,38 +16,50 @@
 
 Una plataforma web para administrar productos, bodegas, existencias y movimientos de inventario de una panadería.
 
-<br>
+\<br>
 
-<a href="#sobre-el-proyecto"><img src="https://img.shields.io/badge/CONOCE_EL_PROYECTO-805841?style=for-the-badge" alt="Conoce el proyecto"></a>
-<a href="#instalación"><img src="https://img.shields.io/badge/INSTALACIÓN-D9A18B?style=for-the-badge" alt="Instalación"></a>
-<a href="#documentación-api"><img src="https://img.shields.io/badge/DOCUMENTACIÓN-6B9B83?style=for-the-badge" alt="Documentación"></a>
+\<a href="#sobre-el-proyecto">\<img src="[https://img.shields.io/badge/CONOCE_EL_PROYECTO-805841?style=for-the-badge](https://img.shields.io/badge/CONOCE_EL_PROYECTO-805841?style=for-the-badge)" alt="Conoce el proyecto">\</a>
+\<a href="#instalación">\<img src="[https://img.shields.io/badge/INSTALACIÓN-D9A18B?style=for-the-badge](https://img.shields.io/badge/INSTALACIÓN-D9A18B?style=for-the-badge)" alt="Instalación">\</a>
+\<a href="#documentación-api">\<img src="[https://img.shields.io/badge/DOCUMENTACIÓN-6B9B83?style=for-the-badge](https://img.shields.io/badge/DOCUMENTACIÓN-6B9B83?style=for-the-badge)" alt="Documentación">\</a>
 
-<br><br>
+\<br>\<br>
 
-<img src="https://img.shields.io/badge/JAVA-SPRING_BOOT-805841?style=flat-square">
-<img src="https://img.shields.io/badge/BASE_DE_DATOS-MYSQL-397B70?style=flat-square">
-<img src="https://img.shields.io/badge/FRONTEND-HTML5_%7C_CSS3_%7C_JS-D99B85?style=flat-square">
-<img src="https://img.shields.io/badge/SEGURIDAD-JWT-805841?style=flat-square">
-<img src="https://img.shields.io/badge/API-SWAGGER-6B9B83?style=flat-square">
+\<img src="[https://img.shields.io/badge/JAVA-SPRING_BOOT-805841?style=flat-square](https://img.shields.io/badge/JAVA-SPRING_BOOT-805841?style=flat-square)">
+\<img src="[https://img.shields.io/badge/BASE_DE_DATOS-MYSQL-397B70?style=flat-square](https://img.shields.io/badge/BASE_DE_DATOS-MYSQL-397B70?style=flat-square)">
+\<img src="[https://img.shields.io/badge/FRONTEND-HTML5\_%7C_CSS3\_%7C_JS-D99B85?style=flat-square](https://img.shields.io/badge/FRONTEND-HTML5_%7C_CSS3_%7C_JS-D99B85?style=flat-square)">
+\<img src="[https://img.shields.io/badge/SEGURIDAD-JWT-805841?style=flat-square](https://img.shields.io/badge/SEGURIDAD-JWT-805841?style=flat-square)">
+\<img src="[https://img.shields.io/badge/API-SWAGGER-6B9B83?style=flat-square](https://img.shields.io/badge/API-SWAGGER-6B9B83?style=flat-square)">
 
-</div>
+\</div>
+
+---
+
+\<div align="center">
+
+## UNA FORMA MÁS INTELIGENTE DE GESTIONAR
+
+|       **11**      |    **MÓDULOS**   |    **1**    | **PLATAFORMA CENTRALIZADA** |
+| :---------------: | :--------------: | :---------: | :-------------------------: |
+| Áreas funcionales | Gestión integral | Sistema web |    Información organizada   |
+
+\</div>
 
 ---
 
 ## ÍNDICE
 
-| | Sección | | Sección |
-|:---:|---|:---:|---|
-| 01 | [Sobre el proyecto](#01--sobre-el-proyecto) | 07 | [Arquitectura](#07--arquitectura-del-sistema) |
-| 02 | [Objetivos](#02--objetivos) | 08 | [Estructura](#08--estructura-del-proyecto) |
-| 03 | [Funcionalidades](#03--funcionalidades) | 09 | [Base de datos](#09--base-de-datos) |
-| 04 | [Tecnologías](#04--tecnologías) | 10 | [Instalación](#10--instalación) |
-| 05 | [Seguridad](#05--seguridad) | 11 | [Documentación API](#11--documentación-api) |
-| 06 | [Módulos](#06--módulos-del-sistema) | 12 | [Autora](#12--autora) |
+|     | Sección                                     |     | Sección                                       |
+| :-: | ------------------------------------------- | :-: | --------------------------------------------- |
+|  01 | [Sobre el proyecto](#01--sobre-el-proyecto) |  07 | [Arquitectura](#07--arquitectura-del-sistema) |
+|  02 | [Objetivos](#02--objetivos)                 |  08 | [Estructura](#08--estructura-del-proyecto)    |
+|  03 | [Funcionalidades](#03--funcionalidades)     |  09 | [Base de datos](#09--base-de-datos)           |
+|  04 | [Tecnologías](#04--tecnologías)             |  10 | [Instalación](#10--instalación)               |
+|  05 | [Seguridad](#05--seguridad)                 |  11 | [Documentación API](#11--documentación-api)   |
+|  06 | [Módulos](#06--módulos-del-sistema)         |  12 | [Autora](#12--autora)                         |
 
 ---
 
-<a id="01--sobre-el-proyecto"></a>
+\<a id="01--sobre-el-proyecto">\</a>
 
 # 01 / SOBRE EL PROYECTO
 
@@ -57,17 +71,17 @@ La plataforma centraliza la información de productos, marcas, categorías, bode
 
 Su propósito es ofrecer una herramienta organizada que contribuya al control de los recursos y a la gestión de las actividades diarias del inventario.
 
-<div align="center">
+\<div align="center">
 
-| GESTIÓN | CONTROL | TRAZABILIDAD |
-|:---:|:---:|:---:|
+|           GESTIÓN           |           CONTROL          |       TRAZABILIDAD      |
+| :-------------------------: | :------------------------: | :---------------------: |
 | Administración centralizada | Seguimiento de existencias | Registro de operaciones |
 
-</div>
+\</div>
 
 ---
 
-<a id="02--objetivos"></a>
+\<a id="02--objetivos">\</a>
 
 # 02 / OBJETIVOS
 
@@ -87,14 +101,13 @@ Desarrollar un sistema web para gestionar y controlar el inventario de una panad
 
 ---
 
-<a id="03--funcionalidades"></a>
+\<a id="03--funcionalidades">\</a>
 
 # 03 / FUNCIONALIDADES
 
 El sistema integra diferentes herramientas para administrar los procesos relacionados con el inventario.
 
-<details open>
-<summary><strong>01 — Administración de información</strong></summary>
+\<details open> \<summary>\<strong>01 — Administración de información\</strong>\</summary>
 
 - Gestión de usuarios.
 - Administración de productos.
@@ -103,10 +116,9 @@ El sistema integra diferentes herramientas para administrar los procesos relacio
 - Administración de ciudades.
 - Gestión de bodegas.
 
-</details>
+\</details>
 
-<details open>
-<summary><strong>02 — Control de inventario</strong></summary>
+\<details open> \<summary>\<strong>02 — Control de inventario\</strong>\</summary>
 
 - Consulta general de existencias.
 - Consulta por producto.
@@ -114,10 +126,10 @@ El sistema integra diferentes herramientas para administrar los procesos relacio
 - Identificación de productos con stock bajo.
 - Resumen de existencias por bodega.
 
-</details>
+\</details>
 
-<details open>
-<summary><strong>03 — Movimientos de inventario</strong></summary>
+\<details open>
+\<summary>\<strong>03 — Movimientos de inventario\</strong>\</summary>
 
 - Registro de entradas.
 - Registro de salidas.
@@ -127,10 +139,10 @@ El sistema integra diferentes herramientas para administrar los procesos relacio
 - Consulta por bodega.
 - Consulta por rango de fechas.
 
-</details>
+\</details>
 
-<details open>
-<summary><strong>04 — Reportes y auditoría</strong></summary>
+\<details open>
+\<summary>\<strong>04 — Reportes y auditoría\</strong>\</summary>
 
 - Reporte general de inventario.
 - Reportes por producto y bodega.
@@ -139,43 +151,39 @@ El sistema integra diferentes herramientas para administrar los procesos relacio
 - Productos con mayor movimiento.
 - Seguimiento de actividades registradas.
 
-</details>
+\</details>
 
 ---
 
-<a id="04--tecnologías"></a>
+\<a id="04--tecnologías">\</a>
 
 # 04 / TECNOLOGÍAS
 
 ### Herramientas que hacen posible Bake Track.
 
-<div align="center">
+\<div align="center">
 
-| BACKEND | FRONTEND | BASE DE DATOS |
-|:---:|:---:|:---:|
-| Java | HTML5 | MySQL |
-| Spring Boot | CSS3 | |
-| Spring Web | JavaScript | |
-| Spring Data JPA | | |
-| Spring Security | | |
-| JWT | | |
-| Maven | | |
+|     BACKEND     |  FRONTEND  | BASE DE DATOS |
+| :-------------: | :--------: | :-----------: |
+|       Java      |    HTML5   |     MySQL     |
+|   Spring Boot   |    CSS3    |               |
+|    Spring Web   | JavaScript |               |
+| Spring Data JPA |            |               |
+| Spring Security |            |               |
+|       JWT       |            |               |
+|      Maven      |            |               |
 
-<br>
+\<br>
 
 **Herramientas complementarias**
 
-<img src="https://img.shields.io/badge/Swagger-Documentación-6B9B83?style=flat-square">
-<img src="https://img.shields.io/badge/Postman-Pruebas-D99B85?style=flat-square">
-<img src="https://img.shields.io/badge/Git-Control_de_versiones-805841?style=flat-square">
-<img src="https://img.shields.io/badge/GitHub-Repositorio-805841?style=flat-square">
-<img src="https://img.shields.io/badge/VS_Code-Desarrollo-397B70?style=flat-square">
+\<img src="[https://img.shields.io/badge/Swagger-Documentación-6B9B83?style=flat-square](https://img.shields.io/badge/Swagger-Documentación-6B9B83?style=flat-square)"> \<img src="[https://img.shields.io/badge/Postman-Pruebas-D99B85?style=flat-square](https://img.shields.io/badge/Postman-Pruebas-D99B85?style=flat-square)"> \<img src="[https://img.shields.io/badge/Git-Control_de_versiones-805841?style=flat-square](https://img.shields.io/badge/Git-Control_de_versiones-805841?style=flat-square)"> \<img src="[https://img.shields.io/badge/GitHub-Repositorio-805841?style=flat-square](https://img.shields.io/badge/GitHub-Repositorio-805841?style=flat-square)"> \<img src="[https://img.shields.io/badge/VS_Code-Desarrollo-397B70?style=flat-square](https://img.shields.io/badge/VS_Code-Desarrollo-397B70?style=flat-square)">
 
-</div>
+\</div>
 
 ---
 
-<a id="05--seguridad"></a>
+\<a id="05--seguridad">\</a>
 
 # 05 / SEGURIDAD
 
@@ -183,10 +191,10 @@ El sistema integra diferentes herramientas para administrar los procesos relacio
 
 Bake Track implementa autenticación mediante JWT y autorización basada en roles.
 
-| ROL | RESPONSABILIDAD |
-|---|---|
-| **ADMIN** | Administración de usuarios y funcionalidades administrativas del sistema. |
-| **EMPLEADO** | Acceso a las funcionalidades habilitadas según sus permisos. |
+| ROL          | RESPONSABILIDAD                                                           |
+| ------------ | ------------------------------------------------------------------------- |
+| **ADMIN**    | Administración de usuarios y funcionalidades administrativas del sistema. |
+| **EMPLEADO** | Acceso a las funcionalidades habilitadas según sus permisos.              |
 
 ### Proceso de aprobación de usuarios
 
@@ -202,29 +210,29 @@ Los usuarios registrados permanecen pendientes hasta que el administrador revise
 
 ---
 
-<a id="06--módulos-del-sistema"></a>
+\<a id="06--módulos-del-sistema">\</a>
 
 # 06 / MÓDULOS DEL SISTEMA
 
 ### Una plataforma, diferentes áreas de gestión.
 
-| MÓDULO | FUNCIÓN |
-|---|---|
-| Usuarios | Registro y administración de cuentas. |
+| MÓDULO        | FUNCIÓN                                  |
+| ------------- | ---------------------------------------- |
+| Usuarios      | Registro y administración de cuentas.    |
 | Autenticación | Inicio de sesión y validación de acceso. |
-| Productos | Gestión de productos. |
-| Marcas | Administración de marcas. |
-| Categorías | Organización de productos. |
-| Ciudades | Gestión de ciudades. |
-| Bodegas | Administración de bodegas y capacidad. |
-| Inventario | Control de existencias. |
-| Movimientos | Entradas, salidas y transferencias. |
-| Reportes | Consultas de inventario y movimientos. |
-| Auditoría | Seguimiento de actividades registradas. |
+| Productos     | Gestión de productos.                    |
+| Marcas        | Administración de marcas.                |
+| Categorías    | Organización de productos.               |
+| Ciudades      | Gestión de ciudades.                     |
+| Bodegas       | Administración de bodegas y capacidad.   |
+| Inventario    | Control de existencias.                  |
+| Movimientos   | Entradas, salidas y transferencias.      |
+| Reportes      | Consultas de inventario y movimientos.   |
+| Auditoría     | Seguimiento de actividades registradas.  |
 
 ---
 
-<a id="07--arquitectura-del-sistema"></a>
+\<a id="07--arquitectura-del-sistema">\</a>
 
 # 07 / ARQUITECTURA DEL SISTEMA
 
@@ -258,18 +266,18 @@ flowchart TB
 
 ### Responsabilidad de cada capa
 
-| CAPA | RESPONSABILIDAD |
-|---|---|
-| Controller | Recibe las solicitudes HTTP y entrega respuestas. |
-| Service | Gestiona la lógica de negocio. |
-| Repository | Realiza las operaciones de acceso a datos. |
-| Model | Representa las entidades del sistema. |
-| DTO | Estructura la información intercambiada entre componentes. |
-| Auth | Agrupa los componentes de autenticación y seguridad. |
+| CAPA       | RESPONSABILIDAD                                            |
+| ---------- | ---------------------------------------------------------- |
+| Controller | Recibe las solicitudes HTTP y entrega respuestas.          |
+| Service    | Gestiona la lógica de negocio.                             |
+| Repository | Realiza las operaciones de acceso a datos.                 |
+| Model      | Representa las entidades del sistema.                      |
+| DTO        | Estructura la información intercambiada entre componentes. |
+| Auth       | Agrupa los componentes de autenticación y seguridad.       |
 
 ---
 
-<a id="08--estructura-del-proyecto"></a>
+\<a id="08--estructura-del-proyecto">\</a>
 
 # 08 / ESTRUCTURA DEL PROYECTO
 
@@ -312,201 +320,181 @@ BAKE-TRACK/
 
 ---
 
-<a id="09--base-de-datos"></a>
+\<a id="09--base-de-datos">\</a>
 
-09 / BASE DE DATOS
+# 09 / BASE DE DATOS
 
-MySQL — Gestión y almacenamiento de información
+### MySQL — Gestión y almacenamiento de información
 
 Bake Track utiliza MySQL como sistema de gestión de bases de datos.
 
-Nombre de la base de datos
+**Nombre de la base de datos**
 
+```sql
 logitrack_sararami
+```
 
-Entidades principales
+### Entidades principales
 
-Usuario
+- Usuario
+- Producto
+- Marca
+- Categoría
+- Ciudad
+- Bodega
+- Inventario
+- Movimiento
+- Auditoría
 
-Producto
-
-Marca
-
-Categoría
-
-Ciudad
-
-Bodega
-
-Inventario
-
-Movimiento
-
-Auditoría
-
-Configuración de conexión
+### Configuración de conexión
 
 La conexión se configura en:
 
-src/main/resources/application.properties
+`src/main/resources/application.properties`
 
 Ejemplo:
 
+```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/logitrack_sararami
 spring.datasource.username=TU_USUARIO
 spring.datasource.password=TU_CONTRASEÑA
 
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
+```
 
-Importante: utiliza tus propias credenciales locales. Nunca publiques contraseñas reales en GitHub.
+> **Importante:** utiliza tus propias credenciales locales. Nunca publiques contraseñas reales en GitHub.
 
-<a id="10--instalación"></a>
+---
 
-10 / INSTALACIÓN
+\<a id="10--instalación">\</a>
 
-Cómo ejecutar Bake Track en un entorno local
+# 10 / INSTALACIÓN
 
-Requisitos previos
+### Cómo ejecutar Bake Track en un entorno local
 
-Java instalado.
+#### Requisitos previos
 
-MySQL instalado y activo.
+- Java instalado.
+- MySQL instalado y activo.
+- Git.
+- Visual Studio Code o un entorno compatible.
+- Navegador web.
 
-Git.
+### PASO 01 — Clonar el repositorio
 
-Visual Studio Code o un entorno compatible.
-
-Navegador web.
-
-PASO 01 — Clonar el repositorio
-
+```bash
 git clone https://github.com/whoissarisss/LogiTrackBySaris.git
+```
 
-PASO 02 — Ingresar al proyecto
+### PASO 02 — Ingresar al proyecto
 
+```bash
 cd LogiTrackBySaris
+```
 
-PASO 03 — Crear la base de datos
+### PASO 03 — Crear la base de datos
 
+```sql
 CREATE DATABASE logitrack_sararami;
+```
 
-PASO 04 — Configurar la conexión
+### PASO 04 — Configurar la conexión
 
 Editar el archivo:
 
+```text
 src/main/resources/application.properties
+```
 
 Agregar las credenciales correspondientes a la instalación local.
 
-PASO 05 — Compilar
+### PASO 05 — Compilar
 
 En Windows:
 
+```powershell
 .\mvnw.cmd clean compile
+```
 
-PASO 06 — Ejecutar el backend
+### PASO 06 — Ejecutar el backend
 
+```powershell
 .\mvnw.cmd spring-boot:run
+```
 
 El backend se ejecutará en:
 
+```text
 http://localhost:8080
+```
 
-PASO 07 — Ejecutar el frontend
+### PASO 07 — Ejecutar el frontend
 
 Abrir el frontend con Live Server desde Visual Studio Code o mediante un servidor web local.
 
-<a id="11--documentación-api"></a>
+---
 
-11 / DOCUMENTACIÓN API
+\<a id="11--documentación-api">\</a>
 
-Swagger — Exploración de servicios REST
+# 11 / DOCUMENTACIÓN API
+
+### Swagger — Exploración de servicios REST
 
 Bake Track incorpora Swagger / OpenAPI para consultar y probar los servicios disponibles.
 
-<div align="center">
+\<div align="center">
 
-<a href="http://localhost:8080/swagger-ui/index.html">
+\<a href="[http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)">
 
-<img src="https://img.shields.io/badge/ABRIR_SWAGGER_UI-805841?style=for-the-badge" alt="Abrir Swagger UI">
+\<img src="[https://img.shields.io/badge/ABRIR_SWAGGER_UI-805841?style=for-the-badge](https://img.shields.io/badge/ABRIR_SWAGGER_UI-805841?style=for-the-badge)" alt="Abrir Swagger UI">
 
-</a>
+\</a>
 
-Dirección local:
+**Dirección local:**
 
-http://localhost:8080/swagger-ui/index.html
+`http://localhost:8080/swagger-ui/index.html`
 
-</div>
+\</div>
 
-Controladores documentados
+### Controladores documentados
 
-CONTROLADOR
+| CONTROLADOR           | DESCRIPCIÓN                         |
+| --------------------- | ----------------------------------- |
+| Usuario Controller    | Administración de usuarios.         |
+| Producto Controller   | Gestión de productos.               |
+| Marca Controller      | Gestión de marcas.                  |
+| Ciudad Controller     | Administración de ciudades.         |
+| Categoría Controller  | Clasificación de productos.         |
+| Bodega Controller     | Administración de bodegas.          |
+| Movimiento Controller | Registro y consulta de movimientos. |
+| Auth Controller       | Autenticación.                      |
+| Inventario Controller | Consultas de existencias.           |
+| Auditoría Controller  | Consulta de actividades.            |
+| Reporte Controller    | Consultas y reportes del sistema.   |
 
-DESCRIPCIÓN
+---
 
-Usuario Controller
+\<a id="12--autora">\</a>
 
-Administración de usuarios.
+# 12 / AUTORA
 
-Producto Controller
+\<div align="center">
 
-Gestión de productos.
+### SARA SOFIA RAMIREZ PEDRAZA
 
-Marca Controller
-
-Gestión de marcas.
-
-Ciudad Controller
-
-Administración de ciudades.
-
-Categoría Controller
-
-Clasificación de productos.
-
-Bodega Controller
-
-Administración de bodegas.
-
-Movimiento Controller
-
-Registro y consulta de movimientos.
-
-Auth Controller
-
-Autenticación.
-
-Inventario Controller
-
-Consultas de existencias.
-
-Auditoría Controller
-
-Consulta de actividades.
-
-Reporte Controller
-
-Consultas y reportes del sistema.
-
-<a id="12--autora"></a>
-
-12 / AUTORA
-
-<div align="center">
-
-SARAI ANDREA PEDRAZA ROSAL
-
-Desarrollo y construcción del proyecto Bake Track.
+Desarrollo y construcción del proyecto **Bake Track**.
 
 Proyecto académico de desarrollo de software.
 
-<br>
+\<br>
 
-BAKE TRACK
+---
 
-Gestión organizada para una mejor administración del inventario.
+**BAKE TRACK**
 
-<img src="https://img.shields.io/badge/HECHO_CON-DEDICACIÓN-805841?style=for-the-badge">
+*Gestión organizada para una mejor administración del inventario.*
 
-</div>
+\<img src="[https://img.shields.io/badge/HECHO_CON-DEDICACIÓN-805841?style=for-the-badge](https://img.shields.io/badge/HECHO_CON-DEDICACIÓN-805841?style=for-the-badge)">
+
+\</div>
