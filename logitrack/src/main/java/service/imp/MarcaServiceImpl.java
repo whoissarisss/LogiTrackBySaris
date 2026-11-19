@@ -22,7 +22,8 @@ public class MarcaServiceImpl implements MarcaService {
     public MarcaResponse registrarMarca(MarcaRequest dto) {
 
         if (marcaRepository.existsByNombre(dto.nombre())) {
-            throw new IllegalArgumentException("La marca ya se encuentra registrada");
+            throw new IllegalArgumentException(
+                    "La marca ya se encuentra registrada");
         }
 
         Marca marca = marcaMapper.DtoToEntity(dto);
@@ -43,24 +44,27 @@ public class MarcaServiceImpl implements MarcaService {
     }
 
     @Override
-    public MarcaResponse obtenerMarcaPorId(Long idMarca) {
+    public MarcaResponse obtenerMarcaPorId(Integer idMarca) {
 
         Marca marca = marcaRepository.findById(idMarca)
-                .orElseThrow(() -> new IllegalArgumentException("Marca no encontrada"));
+                .orElseThrow(() ->
+                        new IllegalArgumentException("Marca no encontrada"));
 
         return marcaMapper.entityToDto(marca);
     }
 
     @Override
-    public MarcaResponse actualizarMarca(Long idMarca, MarcaRequest dto) {
+    public MarcaResponse actualizarMarca(Integer idMarca, MarcaRequest dto) {
 
         Marca marca = marcaRepository.findById(idMarca)
-                .orElseThrow(() -> new IllegalArgumentException("Marca no encontrada"));
+                .orElseThrow(() ->
+                        new IllegalArgumentException("Marca no encontrada"));
 
         boolean existe = marcaRepository.existsByNombre(dto.nombre());
 
         if (existe && !marca.getNombre().equals(dto.nombre())) {
-            throw new IllegalArgumentException("Ya existe una marca con ese nombre");
+            throw new IllegalArgumentException(
+                    "Ya existe una marca con ese nombre");
         }
 
         marcaMapper.updateEntityFromDto(dto, marca);
@@ -71,10 +75,11 @@ public class MarcaServiceImpl implements MarcaService {
     }
 
     @Override
-    public void eliminarMarca(Long idMarca) {
+    public void eliminarMarca(Integer idMarca) {
 
         Marca marca = marcaRepository.findById(idMarca)
-                .orElseThrow(() -> new IllegalArgumentException("Marca no encontrada"));
+                .orElseThrow(() ->
+                        new IllegalArgumentException("Marca no encontrada"));
 
         marcaRepository.delete(marca);
     }

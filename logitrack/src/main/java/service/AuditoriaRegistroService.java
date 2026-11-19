@@ -7,7 +7,7 @@ public interface AuditoriaRegistroService {
     void registrar(
             Operacion operacion,
             String tablaAfectada,
-            Long registroId,
+            Integer registroId,
             Object valoresAnteriores,
             Object valoresNuevos
     );

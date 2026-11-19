@@ -1,6 +1,5 @@
 package model;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,23 +8,25 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "producto")
-@Setter @Getter
-@AllArgsConstructor @NoArgsConstructor
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Producto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_producto")
-    private long idProducto;
+    private Integer idProducto;
 
-    @Column(nullable = false, length = 120)
+    @Column(nullable = false, length = 150)
     private String nombre;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(length = 300)
     private String descripcion;
 
     @Column(nullable = false)
-    private Boolean estado;
+    private Boolean estado = true;
 
     @ManyToOne
     @JoinColumn(name = "id_marca", nullable = false)

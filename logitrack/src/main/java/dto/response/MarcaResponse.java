@@ -2,7 +2,7 @@ package dto.response;
 
 public record MarcaResponse(
 
-        Long idMarca,
+        Integer idMarca,
         String nombre
 
 ) {

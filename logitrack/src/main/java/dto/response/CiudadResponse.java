@@ -2,7 +2,7 @@ package dto.response;
 
 public record CiudadResponse(
 
-        Long idCiudad,
+        Integer idCiudad,
         String nombre,
         String departamento,
         String pais

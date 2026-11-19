@@ -11,10 +11,9 @@ public interface CategoriaService {
 
     List<CategoriaResponse> listarCategorias();
 
-    CategoriaResponse obtenerCategoriaPorId(Long idCategoria);
+    CategoriaResponse obtenerCategoriaPorId(Integer idCategoria);
 
-    CategoriaResponse actualizarCategoria(Long idCategoria, CategoriaRequest dto);
+    CategoriaResponse actualizarCategoria(Integer idCategoria, CategoriaRequest dto);
 
-    void eliminarCategoria(Long idCategoria);
+    void eliminarCategoria(Integer idCategoria);
 }
-

@@ -60,7 +60,7 @@ public class ReporteController {
     })
     public ResponseEntity<List<InventarioResponse>> obtenerInventarioPorBodega(
             @Parameter(description = "Identificador de la bodega", example = "1")
-            @PathVariable Long idBodega) {
+            @PathVariable Integer idBodega) {
 
         return ResponseEntity.ok(
                 reporteService.obtenerInventarioPorBodega(idBodega)
@@ -78,7 +78,7 @@ public class ReporteController {
     })
     public ResponseEntity<List<InventarioResponse>> obtenerInventarioPorProducto(
             @Parameter(description = "Identificador del producto", example = "1")
-            @PathVariable Long idProducto) {
+            @PathVariable Integer idProducto) {
 
         return ResponseEntity.ok(
                 reporteService.obtenerInventarioPorProducto(idProducto)
@@ -121,7 +121,7 @@ public class ReporteController {
     @ApiResponse(responseCode = "200", description = "Reporte de movimientos por usuario obtenido exitosamente")
     public ResponseEntity<List<MovimientoResponse>> obtenerMovimientosPorUsuario(
             @Parameter(description = "Identificador del usuario", example = "1")
-            @PathVariable Long idUsuario) {
+            @PathVariable Integer idUsuario) {
 
         return ResponseEntity.ok(
                 reporteService.obtenerMovimientosPorUsuario(idUsuario)
@@ -151,7 +151,7 @@ public class ReporteController {
     @ApiResponse(responseCode = "200", description = "Reporte de movimientos por bodega obtenido exitosamente")
     public ResponseEntity<List<MovimientoResponse>> obtenerMovimientosPorBodega(
             @Parameter(description = "Identificador de la bodega", example = "1")
-            @PathVariable Long idBodega) {
+            @PathVariable Integer idBodega) {
 
         return ResponseEntity.ok(
                 reporteService.obtenerMovimientosPorBodega(idBodega)

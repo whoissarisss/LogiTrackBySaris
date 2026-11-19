@@ -157,7 +157,7 @@ public class MovimientoServiceImpl implements MovimientoService {
                     "El movimiento debe contener al menos un producto");
         }
 
-        Set<Long> productos = new HashSet<>();
+        Set<Integer> productos = new HashSet<>();
 
         for (DetalleMovimientoRequest detalle : detalles) {
 
@@ -309,7 +309,7 @@ public class MovimientoServiceImpl implements MovimientoService {
     // VALIDAR ACCESO A MOVIMIENTOS DE UN USUARIO
     // ==========================================
 
-    private void validarAccesoUsuario(Long idUsuario) {
+    private void validarAccesoUsuario(Integer idUsuario) {
 
         if (esAdministrador()) {
             return;
@@ -317,7 +317,8 @@ public class MovimientoServiceImpl implements MovimientoService {
 
         Usuario usuario = obtenerUsuarioAutenticado();
 
-        if (!Objects.equals(usuario.getIdUsuario(), idUsuario)) {            throw new ResponseStatusException(
+        if (!Objects.equals(usuario.getIdUsuario(), idUsuario)) {
+            throw new ResponseStatusException(
                     HttpStatus.FORBIDDEN,
                     "No tienes permiso para consultar los movimientos de otro usuario"
             );
@@ -335,7 +336,7 @@ public class MovimientoServiceImpl implements MovimientoService {
             return movimientos;
         }
 
-        Long idUsuario = obtenerUsuarioAutenticado().getIdUsuario();
+        Integer idUsuario = obtenerUsuarioAutenticado().getIdUsuario();
 
         return movimientos.stream()
                 .filter(movimiento ->
@@ -369,7 +370,7 @@ public class MovimientoServiceImpl implements MovimientoService {
 
     @Override
     @Transactional(readOnly = true)
-    public MovimientoResponse obtenerMovimientoPorId(Long idMovimiento) {
+    public MovimientoResponse obtenerMovimientoPorId(Integer idMovimiento) {
 
         Movimiento movimiento = movimientoRepository.findById(idMovimiento)
                 .orElseThrow(() -> new IllegalArgumentException(
@@ -387,7 +388,7 @@ public class MovimientoServiceImpl implements MovimientoService {
     @Override
     @Transactional(readOnly = true)
     public List<MovimientoResponse> listarMovimientosPorUsuario(
-            Long idUsuario) {
+            Integer idUsuario) {
 
         if (!usuarioRepository.existsById(idUsuario)) {
             throw new IllegalArgumentException("Usuario no encontrado");
@@ -434,7 +435,7 @@ public class MovimientoServiceImpl implements MovimientoService {
     @Override
     @Transactional(readOnly = true)
     public List<MovimientoResponse> listarMovimientosPorBodega(
-            Long idBodega) {
+            Integer idBodega) {
 
         if (!bodegaRepository.existsById(idBodega)) {
             throw new IllegalArgumentException("Bodega no encontrada");

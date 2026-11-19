@@ -30,7 +30,7 @@ public class UsuarioServiceImpl implements UsuarioService {
             throw new IllegalArgumentException("El correo ya se encuentra registrado");
         }
 
-        Usuario usuario = usuarioMapper.DtoToEntity(dto);
+        Usuario usuario = usuarioMapper.dtoToEntity(dto);
         usuario.setPassword(passwordEncoder.encode(dto.password()));
         usuario.setEstadoSolicitud(EstadoSolicitud.PENDIENTE);
 
@@ -65,7 +65,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public UsuarioResponse aprobarSolicitud(Long idUsuario) {
+    public UsuarioResponse aprobarSolicitud(Integer idUsuario) {
 
         Usuario usuario = usuarioRepository.findById(idUsuario)
                 .orElseThrow(() -> new IllegalArgumentException("Usuario no encontrado"));
@@ -84,7 +84,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public UsuarioResponse rechazarSolicitud(Long idUsuario, String motivo) {
+    public UsuarioResponse rechazarSolicitud(Integer idUsuario, String motivo) {
 
         Usuario usuario = usuarioRepository.findById(idUsuario)
                 .orElseThrow(() -> new IllegalArgumentException("Usuario no encontrado"));
@@ -107,7 +107,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public UsuarioResponse obtenerUsuarioPorId(Long idUsuario) {
+    public UsuarioResponse obtenerUsuarioPorId(Integer idUsuario) {
 
         Usuario usuario = usuarioRepository.findById(idUsuario)
                 .orElseThrow(() -> new IllegalArgumentException("Usuario no encontrado"));

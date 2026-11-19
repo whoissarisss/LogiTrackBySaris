@@ -2,7 +2,7 @@ package dto.response;
 
 public record CategoriaResponse(
 
-        Long idCategoria,
+        Integer idCategoria,
         String nombre
 
 ) {

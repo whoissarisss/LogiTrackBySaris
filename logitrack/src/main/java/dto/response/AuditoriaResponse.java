@@ -1,17 +1,16 @@
 package dto.response;
 
 import model.Operacion;
-
 import java.time.LocalDateTime;
 
 public record AuditoriaResponse(
 
-        Long idAuditoria,
+        Integer idAuditoria,
         LocalDateTime fechaHora,
         Operacion operacion,
         UsuarioResponse usuario,
         String tablaAfectada,
-        Long registroId,
+        Integer registroId,
         String valoresAnteriores,
         String valoresNuevos
 

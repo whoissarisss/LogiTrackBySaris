@@ -10,7 +10,7 @@ public record DetalleMovimientoRequest(
 
         @NotNull(message = "El producto es obligatorio")
         @Positive(message = "El identificador del producto debe ser positivo")
-        Long idProducto,
+        Integer idProducto,
 
         @NotNull(message = "La cantidad es obligatoria")
         @DecimalMin(value = "0.001", message = "La cantidad debe ser mayor que cero")

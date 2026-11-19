@@ -2,7 +2,7 @@ package dto.response;
 
 public record ProductoResponse(
 
-        Long idProducto,
+        Integer idProducto,
         String nombre,
         String descripcion,
         Boolean estado,

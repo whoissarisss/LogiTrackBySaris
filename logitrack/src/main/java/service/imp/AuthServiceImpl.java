@@ -25,12 +25,17 @@ public class AuthServiceImpl implements AuthService {
         // Buscar usuario por correo
         Usuario usuario = usuarioRepository.findByCorreo(request.correo())
                 .orElseThrow(() ->
-                        new IllegalArgumentException("Correo o contraseña incorrectos")
+                        new IllegalArgumentException(
+                                "Correo o contraseña incorrectos")
                 );
 
         // Verificar contraseña
-        if (!passwordEncoder.matches(request.password(), usuario.getPassword())) {
-            throw new IllegalArgumentException("Correo o contraseña incorrectos");
+        if (!passwordEncoder.matches(
+                request.password(),
+                usuario.getPassword())) {
+
+            throw new IllegalArgumentException(
+                    "Correo o contraseña incorrectos");
         }
 
         // Verificar aprobación de la solicitud

@@ -3,7 +3,7 @@ package dto.response;
 import java.math.BigDecimal;
 
 public record ResumenStockBodegaResponse(
-        Long idBodega,
+        Integer idBodega,
         String nombreBodega,
         Integer capacidad,
         BigDecimal totalStock,

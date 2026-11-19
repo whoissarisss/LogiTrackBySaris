@@ -51,7 +51,7 @@ public class InventarioController {
     })
     public ResponseEntity<InventarioResponse> obtenerInventarioPorId(
             @Parameter(description = "Identificador del inventario", example = "1")
-            @PathVariable Long idInventario) {
+            @PathVariable Integer idInventario) {
 
         InventarioResponse respuesta =
                 inventarioService.obtenerInventarioPorId(idInventario);
@@ -67,7 +67,7 @@ public class InventarioController {
     @ApiResponse(responseCode = "200", description = "Inventario de la bodega obtenido exitosamente")
     public ResponseEntity<List<InventarioResponse>> listarInventarioPorBodega(
             @Parameter(description = "Identificador de la bodega", example = "1")
-            @PathVariable Long idBodega) {
+            @PathVariable Integer idBodega) {
 
         List<InventarioResponse> inventarios =
                 inventarioService.listarInventarioPorBodega(idBodega);
@@ -83,7 +83,7 @@ public class InventarioController {
     @ApiResponse(responseCode = "200", description = "Inventario del producto obtenido exitosamente")
     public ResponseEntity<List<InventarioResponse>> listarInventarioPorProducto(
             @Parameter(description = "Identificador del producto", example = "1")
-            @PathVariable Long idProducto) {
+            @PathVariable Integer idProducto) {
 
         List<InventarioResponse> inventarios =
                 inventarioService.listarInventarioPorProducto(idProducto);
@@ -98,10 +98,7 @@ public class InventarioController {
     )
     @ApiResponse(responseCode = "200", description = "Consulta de stock bajo realizada exitosamente")
     public ResponseEntity<List<InventarioResponse>> listarInventarioStockBajo(
-            @Parameter(
-                    description = "Límite de stock para realizar el filtro",
-                    example = "10"
-            )
+            @Parameter(description = "Límite de stock para realizar el filtro", example = "10")
             @RequestParam BigDecimal limite) {
 
         List<InventarioResponse> inventarios =

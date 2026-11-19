@@ -13,13 +13,13 @@ public interface ProductoService {
 
     List<ProductoResponse> listarProductosActivos();
 
-    ProductoResponse obtenerProductoPorId(Long idProducto);
+    ProductoResponse obtenerProductoPorId(Integer idProducto);
 
-    List<ProductoResponse> listarProductosPorMarca(Long idMarca);
+    List<ProductoResponse> listarProductosPorMarca(Integer idMarca);
 
-    List<ProductoResponse> listarProductosPorCategoria(Long idCategoria);
+    List<ProductoResponse> listarProductosPorCategoria(Integer idCategoria);
 
-    ProductoResponse actualizarProducto(Long idProducto, ProductoRequest dto);
+    ProductoResponse actualizarProducto(Integer idProducto, ProductoRequest dto);
 
-    void eliminarProducto(Long idProducto);
+    void eliminarProducto(Integer idProducto);
 }

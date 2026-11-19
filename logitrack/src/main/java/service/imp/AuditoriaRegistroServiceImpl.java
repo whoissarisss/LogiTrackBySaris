@@ -30,7 +30,7 @@ public class AuditoriaRegistroServiceImpl implements AuditoriaRegistroService {
     public void registrar(
             Operacion operacion,
             String tablaAfectada,
-            Long registroId,
+            Integer registroId,
             Object valoresAnteriores,
             Object valoresNuevos
     ) {

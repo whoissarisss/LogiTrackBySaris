@@ -47,7 +47,7 @@ public class BodegaServiceImpl implements BodegaService {
         Usuario encargado = usuarioRepository.findById(dto.idEncargado())
                 .orElseThrow(() -> new IllegalArgumentException("Encargado no encontrado"));
 
-        Bodega bodega = bodegaMapper.DtoToEntity(dto, ciudad, encargado);
+        Bodega bodega = bodegaMapper.dtoToEntity(dto, ciudad, encargado);
 
         Bodega bodegaGuardada = bodegaRepository.save(bodega);
 
@@ -73,7 +73,7 @@ public class BodegaServiceImpl implements BodegaService {
     }
 
     @Override
-    public BodegaResponse obtenerBodegaPorId(Long idBodega) {
+    public BodegaResponse obtenerBodegaPorId(Integer idBodega) {
 
         Bodega bodega = bodegaRepository.findById(idBodega)
                 .orElseThrow(() -> new IllegalArgumentException("Bodega no encontrada"));
@@ -82,7 +82,7 @@ public class BodegaServiceImpl implements BodegaService {
     }
 
     @Override
-    public List<BodegaResponse> listarBodegasPorCiudad(Long idCiudad) {
+    public List<BodegaResponse> listarBodegasPorCiudad(Integer idCiudad) {
 
         if (!ciudadRepository.existsById(idCiudad)) {
             throw new IllegalArgumentException("Ciudad no encontrada");
@@ -97,7 +97,7 @@ public class BodegaServiceImpl implements BodegaService {
 
     @Override
     @Transactional
-    public BodegaResponse actualizarBodega(Long idBodega, BodegaRequest dto) {
+    public BodegaResponse actualizarBodega(Integer idBodega, BodegaRequest dto) {
 
         Bodega bodega = bodegaRepository.findById(idBodega)
                 .orElseThrow(() -> new IllegalArgumentException("Bodega no encontrada"));
@@ -127,7 +127,7 @@ public class BodegaServiceImpl implements BodegaService {
 
     @Override
     @Transactional
-    public void eliminarBodega(Long idBodega) {
+    public void eliminarBodega(Integer idBodega) {
 
         Bodega bodega = bodegaRepository.findById(idBodega)
                 .orElseThrow(() -> new IllegalArgumentException("Bodega no encontrada"));
@@ -159,7 +159,8 @@ public class BodegaServiceImpl implements BodegaService {
 
     private BodegaResponse convertirARespuesta(Bodega bodega) {
 
-        return bodegaMapper.entityToDto(bodega,
+        return bodegaMapper.entityToDto(
+                bodega,
                 ciudadMapper.entityToDto(bodega.getCiudad()),
                 usuarioMapper.entityToDto(bodega.getEncargado())
         );

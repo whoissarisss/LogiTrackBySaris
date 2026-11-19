@@ -101,25 +101,16 @@ public class MovimientoController {
             description = "Obtiene los detalles de un movimiento específico, validando los permisos del usuario."
     )
     @ApiResponses(value = {
-            @ApiResponse(
-                    responseCode = "200",
-                    description = "Movimiento encontrado"
-            ),
-            @ApiResponse(
-                    responseCode = "403",
-                    description = "No tiene permiso para consultar este movimiento"
-            ),
-            @ApiResponse(
-                    responseCode = "404",
-                    description = "Movimiento no encontrado"
-            )
+            @ApiResponse(responseCode = "200", description = "Movimiento encontrado"),
+            @ApiResponse(responseCode = "403", description = "No tiene permiso para consultar este movimiento"),
+            @ApiResponse(responseCode = "404", description = "Movimiento no encontrado")
     })
     public ResponseEntity<MovimientoResponse> obtenerMovimientoPorId(
             @Parameter(
                     description = "Identificador del movimiento",
                     example = "1"
             )
-            @PathVariable("idMovimiento") Long idMovimiento) {
+            @PathVariable("idMovimiento") Integer idMovimiento) {
 
         MovimientoResponse respuesta =
                 movimientoService.obtenerMovimientoPorId(idMovimiento);
@@ -155,7 +146,7 @@ public class MovimientoController {
                     description = "Identificador del usuario",
                     example = "1"
             )
-            @PathVariable("idUsuario") Long idUsuario) {
+            @PathVariable("idUsuario") Integer idUsuario) {
 
         List<MovimientoResponse> movimientos =
                 movimientoService.listarMovimientosPorUsuario(idUsuario);
@@ -221,7 +212,7 @@ public class MovimientoController {
                     description = "Identificador de la bodega",
                     example = "1"
             )
-            @PathVariable("idBodega") Long idBodega) {
+            @PathVariable("idBodega") Integer idBodega) {
 
         List<MovimientoResponse> movimientos =
                 movimientoService.listarMovimientosPorBodega(idBodega);

@@ -7,7 +7,7 @@ import java.util.List;
 
 public record MovimientoResponse(
 
-        Long idMovimiento,
+        Integer idMovimiento,
         LocalDateTime fecha,
         TipoMovimiento tipoMovimiento,
         UsuarioResponse usuario,

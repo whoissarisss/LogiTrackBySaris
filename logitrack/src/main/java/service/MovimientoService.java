@@ -13,13 +13,13 @@ public interface MovimientoService {
 
     List<MovimientoResponse> listarMovimientos();
 
-    MovimientoResponse obtenerMovimientoPorId(Long idMovimiento);
+    MovimientoResponse obtenerMovimientoPorId(Integer idMovimiento);
 
-    List<MovimientoResponse> listarMovimientosPorUsuario(Long idUsuario);
+    List<MovimientoResponse> listarMovimientosPorUsuario(Integer idUsuario);
 
     List<MovimientoResponse> listarMovimientosPorTipo(String tipoMovimiento);
 
-    List<MovimientoResponse> listarMovimientosPorBodega(Long idBodega);
+    List<MovimientoResponse> listarMovimientosPorBodega(Integer idBodega);
 
     List<MovimientoResponse> listarMovimientosEntreFechas(LocalDateTime fechaInicio, LocalDateTime fechaFin);
 

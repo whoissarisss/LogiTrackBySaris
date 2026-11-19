@@ -10,19 +10,21 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "bodega")
-@Setter @Getter
-@AllArgsConstructor @NoArgsConstructor
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Bodega {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_bodega")
-    private long idBodega;
+    private Integer idBodega;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 120)
     private String nombre;
 
-    @Column(nullable = false, precision = 12, scale = 2)
+    @Column(nullable = false)
     private Integer capacidad;
 
     @ManyToOne

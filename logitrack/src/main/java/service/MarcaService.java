@@ -11,9 +11,9 @@ public interface MarcaService {
 
     List<MarcaResponse> listarMarcas();
 
-    MarcaResponse obtenerMarcaPorId(Long idMarca);
+    MarcaResponse obtenerMarcaPorId(Integer idMarca);
 
-    MarcaResponse actualizarMarca(Long idMarca, MarcaRequest dto);
+    MarcaResponse actualizarMarca(Integer idMarca, MarcaRequest dto);
 
-    void eliminarMarca(Long idMarca);
+    void eliminarMarca(Integer idMarca);
 }

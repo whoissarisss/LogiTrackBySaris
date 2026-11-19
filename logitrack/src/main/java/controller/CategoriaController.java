@@ -76,7 +76,7 @@ public class CategoriaController {
     })
     public ResponseEntity<CategoriaResponse> obtenerCategoriaPorId(
             @Parameter(description = "Identificador de la categoría", example = "1")
-            @PathVariable Long idCategoria) {
+            @PathVariable Integer idCategoria) {
 
         CategoriaResponse respuesta =
                 categoriaService.obtenerCategoriaPorId(idCategoria);
@@ -96,7 +96,7 @@ public class CategoriaController {
     })
     public ResponseEntity<CategoriaResponse> actualizarCategoria(
             @Parameter(description = "Identificador de la categoría", example = "1")
-            @PathVariable Long idCategoria,
+            @PathVariable Integer idCategoria,
 
             @Valid @RequestBody CategoriaRequest dto) {
 
@@ -117,7 +117,7 @@ public class CategoriaController {
     })
     public ResponseEntity<Void> eliminarCategoria(
             @Parameter(description = "Identificador de la categoría", example = "1")
-            @PathVariable Long idCategoria) {
+            @PathVariable Integer idCategoria) {
 
         categoriaService.eliminarCategoria(idCategoria);
 

@@ -8,14 +8,16 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "categoria")
-@Setter @Getter
-@AllArgsConstructor @NoArgsConstructor
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_categoria")
-    private long idCategoria;
+    private Integer idCategoria;
 
     @Column(nullable = false, length = 100, unique = true)
     private String nombre;

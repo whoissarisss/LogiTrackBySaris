@@ -12,6 +12,7 @@ public class UsuarioMapper {
 
     public UsuarioResponse entityToDto(Usuario usuario) {
         if (usuario == null) return null;
+
         return new UsuarioResponse(
                 usuario.getIdUsuario(),
                 usuario.getNombre(),
@@ -23,8 +24,9 @@ public class UsuarioMapper {
         );
     }
 
-    public Usuario DtoToEntity(UsuarioRequest dto) {
+    public Usuario dtoToEntity(UsuarioRequest dto) {
         if (dto == null) return null;
+
         Usuario usuario = new Usuario();
         usuario.setNombre(dto.nombre());
         usuario.setApellido(dto.apellido());
@@ -32,6 +34,7 @@ public class UsuarioMapper {
         usuario.setPassword(dto.password());
         usuario.setRol(Rol.EMPLEADO);
         usuario.setEstadoSolicitud(EstadoSolicitud.PENDIENTE);
+
         return usuario;
     }
 }

@@ -1,3 +1,4 @@
+
 package service.imp;
 
 import dto.request.CategoriaRequest;
@@ -43,7 +44,7 @@ public class CategoriaServiceImpl implements CategoriaService {
     }
 
     @Override
-    public CategoriaResponse obtenerCategoriaPorId(Long idCategoria) {
+    public CategoriaResponse obtenerCategoriaPorId(Integer idCategoria) {
 
         Categoria categoria = categoriaRepository.findById(idCategoria)
                 .orElseThrow(() -> new IllegalArgumentException("Categoría no encontrada"));
@@ -52,7 +53,7 @@ public class CategoriaServiceImpl implements CategoriaService {
     }
 
     @Override
-    public CategoriaResponse actualizarCategoria(Long idCategoria, CategoriaRequest dto) {
+    public CategoriaResponse actualizarCategoria(Integer idCategoria, CategoriaRequest dto) {
 
         Categoria categoria = categoriaRepository.findById(idCategoria)
                 .orElseThrow(() -> new IllegalArgumentException("Categoría no encontrada"));
@@ -71,7 +72,7 @@ public class CategoriaServiceImpl implements CategoriaService {
     }
 
     @Override
-    public void eliminarCategoria(Long idCategoria) {
+    public void eliminarCategoria(Integer idCategoria) {
 
         Categoria categoria = categoriaRepository.findById(idCategoria)
                 .orElseThrow(() -> new IllegalArgumentException("Categoría no encontrada"));

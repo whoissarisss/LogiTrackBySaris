@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public record DetalleMovimientoResponse(
 
-        Long idDetalle,
+        Integer idDetalle,
         ProductoResponse producto,
         BigDecimal cantidad
 

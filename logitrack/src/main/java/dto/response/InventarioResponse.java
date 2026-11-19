@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public record InventarioResponse(
 
-        Long idInventario,
+        Integer idInventario,
         BodegaResponse bodega,
         ProductoResponse producto,
         BigDecimal stockActual

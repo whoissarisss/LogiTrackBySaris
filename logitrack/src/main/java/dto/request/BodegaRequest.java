@@ -15,11 +15,11 @@ public record BodegaRequest(
 
         @NotNull(message = "La ciudad es obligatoria")
         @Positive(message = "El identificador de la ciudad debe ser positivo")
-        Long idCiudad,
+        Integer idCiudad,
 
         @NotNull(message = "El encargado es obligatorio")
         @Positive(message = "El identificador del encargado debe ser positivo")
-        Long idEncargado
+        Integer idEncargado
 
 ) {
 }

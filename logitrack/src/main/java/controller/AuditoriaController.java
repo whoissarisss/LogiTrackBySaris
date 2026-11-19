@@ -20,7 +20,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/auditorias")
 @RequiredArgsConstructor
-@Tag(name = "Auditorías", description = "Consultas del historial de operaciones y registros de auditoría del sistema")
+@Tag(
+        name = "Auditorías",
+        description = "Consultas del historial de operaciones y registros de auditoría del sistema"
+)
 public class AuditoriaController {
 
     private final AuditoriaService auditoriaService;
@@ -50,7 +53,7 @@ public class AuditoriaController {
     })
     public ResponseEntity<AuditoriaResponse> obtenerAuditoriaPorId(
             @Parameter(description = "Identificador del registro de auditoría", example = "1")
-            @PathVariable Long idAuditoria) {
+            @PathVariable Integer idAuditoria) {
 
         AuditoriaResponse respuesta =
                 auditoriaService.obtenerAuditoriaPorId(idAuditoria);
@@ -66,7 +69,7 @@ public class AuditoriaController {
     @ApiResponse(responseCode = "200", description = "Auditorías del usuario obtenidas exitosamente")
     public ResponseEntity<List<AuditoriaResponse>> listarAuditoriasPorUsuario(
             @Parameter(description = "Identificador del usuario", example = "1")
-            @PathVariable Long idUsuario) {
+            @PathVariable Integer idUsuario) {
 
         List<AuditoriaResponse> auditorias =
                 auditoriaService.listarAuditoriasPorUsuario(idUsuario);

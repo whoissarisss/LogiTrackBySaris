@@ -37,7 +37,7 @@ public class AuditoriaServiceImpl implements AuditoriaService {
 
     @Override
     @Transactional(readOnly = true)
-    public AuditoriaResponse obtenerAuditoriaPorId(Long idAuditoria) {
+    public AuditoriaResponse obtenerAuditoriaPorId(Integer idAuditoria) {
 
         Auditoria auditoria = auditoriaRepository.findById(idAuditoria)
                 .orElseThrow(() -> new IllegalArgumentException(
@@ -48,7 +48,7 @@ public class AuditoriaServiceImpl implements AuditoriaService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<AuditoriaResponse> listarAuditoriasPorUsuario(Long idUsuario) {
+    public List<AuditoriaResponse> listarAuditoriasPorUsuario(Integer idUsuario) {
 
         if (!usuarioRepository.existsById(idUsuario)) {
             throw new IllegalArgumentException("Usuario no encontrado");
@@ -74,7 +74,6 @@ public class AuditoriaServiceImpl implements AuditoriaService {
                 .toList();
     }
 
-    // Consultar auditorías por tipo de operación
     @Override
     @Transactional(readOnly = true)
     public List<AuditoriaResponse> listarAuditoriasPorOperacion(Operacion operacion) {

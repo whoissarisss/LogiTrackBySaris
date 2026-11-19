@@ -61,6 +61,7 @@ public class ProductoServiceImpl implements ProductoService {
 
         return convertirARespuesta(productoGuardado);
     }
+
     @Override
     public List<ProductoResponse> listarProductos() {
 
@@ -82,7 +83,7 @@ public class ProductoServiceImpl implements ProductoService {
     }
 
     @Override
-    public ProductoResponse obtenerProductoPorId(Long idProducto) {
+    public ProductoResponse obtenerProductoPorId(Integer idProducto) {
 
         Producto producto = productoRepository.findById(idProducto)
                 .orElseThrow(() -> new IllegalArgumentException("Producto no encontrado"));
@@ -91,7 +92,7 @@ public class ProductoServiceImpl implements ProductoService {
     }
 
     @Override
-    public List<ProductoResponse> listarProductosPorMarca(Long idMarca) {
+    public List<ProductoResponse> listarProductosPorMarca(Integer idMarca) {
 
         if (!marcaRepository.existsById(idMarca)) {
             throw new IllegalArgumentException("Marca no encontrada");
@@ -105,7 +106,7 @@ public class ProductoServiceImpl implements ProductoService {
     }
 
     @Override
-    public List<ProductoResponse> listarProductosPorCategoria(Long idCategoria) {
+    public List<ProductoResponse> listarProductosPorCategoria(Integer idCategoria) {
 
         if (!categoriaRepository.existsById(idCategoria)) {
             throw new IllegalArgumentException("Categoría no encontrada");
@@ -120,12 +121,11 @@ public class ProductoServiceImpl implements ProductoService {
 
     @Override
     @Transactional
-    public ProductoResponse actualizarProducto(Long idProducto, ProductoRequest dto) {
+    public ProductoResponse actualizarProducto(Integer idProducto, ProductoRequest dto) {
 
         Producto producto = productoRepository.findById(idProducto)
                 .orElseThrow(() -> new IllegalArgumentException("Producto no encontrado"));
 
-        // Guardar los valores anteriores
         ProductoResponse valoresAnteriores = convertirARespuesta(producto);
 
         Marca marca = marcaRepository.findById(dto.idMarca())
@@ -138,7 +138,6 @@ public class ProductoServiceImpl implements ProductoService {
 
         Producto productoActualizado = productoRepository.save(producto);
 
-        // Registrar auditoría
         auditoriaRegistroService.registrar(
                 Operacion.UPDATE,
                 "producto",
@@ -150,10 +149,9 @@ public class ProductoServiceImpl implements ProductoService {
         return convertirARespuesta(productoActualizado);
     }
 
-
     @Override
     @Transactional
-    public void eliminarProducto(Long idProducto) {
+    public void eliminarProducto(Integer idProducto) {
 
         Producto producto = productoRepository.findById(idProducto)
                 .orElseThrow(() -> new IllegalArgumentException("Producto no encontrado"));
@@ -180,7 +178,6 @@ public class ProductoServiceImpl implements ProductoService {
 
         productoRepository.delete(producto);
     }
-
 
     private ProductoResponse convertirARespuesta(Producto producto) {
 

@@ -1,7 +1,5 @@
 package model;
 
-import model.TipoMovimiento;
-import model.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,14 +10,16 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "movimiento")
-@Setter @Getter
-@AllArgsConstructor @NoArgsConstructor
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Movimiento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_movimiento")
-    private long idMovimiento;
+    private Integer idMovimiento;
 
     @Column(nullable = false, insertable = false, updatable = false)
     private LocalDateTime fecha;

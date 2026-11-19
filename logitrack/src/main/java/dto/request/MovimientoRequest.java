@@ -14,10 +14,10 @@ public record MovimientoRequest(
         TipoMovimiento tipoMovimiento,
 
         @Positive(message = "El identificador de la bodega de origen debe ser positivo")
-        Long idBodegaOrigen,
+        Integer idBodegaOrigen,
 
         @Positive(message = "El identificador de la bodega de destino debe ser positivo")
-        Long idBodegaDestino,
+        Integer idBodegaDestino,
 
         @NotEmpty(message = "El movimiento debe contener al menos un producto")
         List<@Valid DetalleMovimientoRequest> detalles

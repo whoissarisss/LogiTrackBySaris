@@ -1,3 +1,4 @@
+
 package service.imp;
 
 import dto.response.BodegaResponse;
@@ -64,7 +65,7 @@ public class InventarioServiceImpl implements InventarioService {
     }
 
     @Override
-    public List<InventarioResponse> listarInventarioPorBodega(Long idBodega) {
+    public List<InventarioResponse> listarInventarioPorBodega(Integer idBodega) {
 
         if (!bodegaRepository.existsById(idBodega)) {
             throw new IllegalArgumentException("Bodega no encontrada");
@@ -79,7 +80,7 @@ public class InventarioServiceImpl implements InventarioService {
     }
 
     @Override
-    public List<InventarioResponse> listarInventarioPorProducto(Long idProducto) {
+    public List<InventarioResponse> listarInventarioPorProducto(Integer idProducto) {
 
         if (!productoRepository.existsById(idProducto)) {
             throw new IllegalArgumentException("Producto no encontrado");
@@ -94,7 +95,7 @@ public class InventarioServiceImpl implements InventarioService {
     }
 
     @Override
-    public InventarioResponse obtenerInventarioPorId(Long idInventario) {
+    public InventarioResponse obtenerInventarioPorId(Integer idInventario) {
 
         Inventario inventario = inventarioRepository.findById(idInventario)
                 .orElseThrow(() -> new IllegalArgumentException("Inventario no encontrado"));

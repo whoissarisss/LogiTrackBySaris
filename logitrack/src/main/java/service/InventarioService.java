@@ -10,11 +10,11 @@ public interface InventarioService {
 
     List<InventarioResponse> listarInventarios();
 
-    List<InventarioResponse> listarInventarioPorBodega(Long idBodega);
+    List<InventarioResponse> listarInventarioPorBodega(Integer idBodega);
 
-    List<InventarioResponse> listarInventarioPorProducto(Long idProducto);
+    List<InventarioResponse> listarInventarioPorProducto(Integer idProducto);
 
-    InventarioResponse obtenerInventarioPorId(Long idInventario);
+    InventarioResponse obtenerInventarioPorId(Integer idInventario);
 
     List<InventarioResponse> listarInventarioStockBajo(BigDecimal limite);
 

@@ -1,4 +1,4 @@
-package service.impl;
+package service.imp;
 
 import dto.response.InventarioResponse;
 import dto.response.MovimientoResponse;
@@ -30,12 +30,12 @@ public class ReporteServiceImpl implements ReporteService {
     }
 
     @Override
-    public List<InventarioResponse> obtenerInventarioPorBodega(Long idBodega) {
+    public List<InventarioResponse> obtenerInventarioPorBodega(Integer idBodega) {
         return inventarioService.listarInventarioPorBodega(idBodega);
     }
 
     @Override
-    public List<InventarioResponse> obtenerInventarioPorProducto(Long idProducto) {
+    public List<InventarioResponse> obtenerInventarioPorProducto(Integer idProducto) {
         return inventarioService.listarInventarioPorProducto(idProducto);
     }
 
@@ -50,7 +50,7 @@ public class ReporteServiceImpl implements ReporteService {
     }
 
     @Override
-    public List<MovimientoResponse> obtenerMovimientosPorUsuario(Long idUsuario) {
+    public List<MovimientoResponse> obtenerMovimientosPorUsuario(Integer idUsuario) {
         return movimientoService.listarMovimientosPorUsuario(idUsuario);
     }
 
@@ -60,7 +60,7 @@ public class ReporteServiceImpl implements ReporteService {
     }
 
     @Override
-    public List<MovimientoResponse> obtenerMovimientosPorBodega(Long idBodega) {
+    public List<MovimientoResponse> obtenerMovimientosPorBodega(Integer idBodega) {
         return movimientoService.listarMovimientosPorBodega(idBodega);
     }
 

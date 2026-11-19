@@ -44,7 +44,7 @@ public class CiudadServiceImpl implements CiudadService {
     }
 
     @Override
-    public CiudadResponse obtenerCiudadPorId(Long idCiudad) {
+    public CiudadResponse obtenerCiudadPorId(Integer idCiudad) {
 
         Ciudad ciudad = ciudadRepository.findById(idCiudad)
                 .orElseThrow(() -> new IllegalArgumentException("Ciudad no encontrada"));
@@ -53,7 +53,7 @@ public class CiudadServiceImpl implements CiudadService {
     }
 
     @Override
-    public CiudadResponse actualizarCiudad(Long idCiudad, CiudadRequest dto) {
+    public CiudadResponse actualizarCiudad(Integer idCiudad, CiudadRequest dto) {
 
         Ciudad ciudad = ciudadRepository.findById(idCiudad)
                 .orElseThrow(() -> new IllegalArgumentException("Ciudad no encontrada"));
@@ -75,7 +75,7 @@ public class CiudadServiceImpl implements CiudadService {
     }
 
     @Override
-    public void eliminarCiudad(Long idCiudad) {
+    public void eliminarCiudad(Integer idCiudad) {
 
         Ciudad ciudad = ciudadRepository.findById(idCiudad)
                 .orElseThrow(() -> new IllegalArgumentException("Ciudad no encontrada"));

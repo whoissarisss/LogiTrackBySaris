@@ -66,7 +66,7 @@ public class BodegaController {
     })
     public ResponseEntity<BodegaResponse> obtenerBodegaPorId(
             @Parameter(description = "Identificador de la bodega", example = "1")
-            @PathVariable Long idBodega) {
+            @PathVariable Integer idBodega) {
 
         BodegaResponse respuesta = bodegaService.obtenerBodegaPorId(idBodega);
         return ResponseEntity.ok(respuesta);
@@ -80,7 +80,7 @@ public class BodegaController {
     @ApiResponse(responseCode = "200", description = "Bodegas de la ciudad obtenidas exitosamente")
     public ResponseEntity<List<BodegaResponse>> listarBodegasPorCiudad(
             @Parameter(description = "Identificador de la ciudad", example = "1")
-            @PathVariable Long idCiudad) {
+            @PathVariable Integer idCiudad) {
 
         List<BodegaResponse> bodegas =
                 bodegaService.listarBodegasPorCiudad(idCiudad);
@@ -100,7 +100,7 @@ public class BodegaController {
     })
     public ResponseEntity<BodegaResponse> actualizarBodega(
             @Parameter(description = "Identificador de la bodega", example = "1")
-            @PathVariable Long idBodega,
+            @PathVariable Integer idBodega,
             @Valid @RequestBody BodegaRequest dto) {
 
         BodegaResponse respuesta =
@@ -120,7 +120,7 @@ public class BodegaController {
     })
     public ResponseEntity<Void> eliminarBodega(
             @Parameter(description = "Identificador de la bodega", example = "1")
-            @PathVariable Long idBodega) {
+            @PathVariable Integer idBodega) {
 
         bodegaService.eliminarBodega(idBodega);
         return ResponseEntity.noContent().build();

@@ -92,7 +92,7 @@ public class ProductoController {
     })
     public ResponseEntity<ProductoResponse> obtenerProductoPorId(
             @Parameter(description = "Identificador del producto", example = "1")
-            @PathVariable Long idProducto) {
+            @PathVariable Integer idProducto) {
 
         ProductoResponse respuesta =
                 productoService.obtenerProductoPorId(idProducto);
@@ -111,7 +111,7 @@ public class ProductoController {
     })
     public ResponseEntity<List<ProductoResponse>> listarProductosPorMarca(
             @Parameter(description = "Identificador de la marca", example = "1")
-            @PathVariable Long idMarca) {
+            @PathVariable Integer idMarca) {
 
         List<ProductoResponse> productos =
                 productoService.listarProductosPorMarca(idMarca);
@@ -130,7 +130,7 @@ public class ProductoController {
     })
     public ResponseEntity<List<ProductoResponse>> listarProductosPorCategoria(
             @Parameter(description = "Identificador de la categoría", example = "1")
-            @PathVariable Long idCategoria) {
+            @PathVariable Integer idCategoria) {
 
         List<ProductoResponse> productos =
                 productoService.listarProductosPorCategoria(idCategoria);
@@ -150,7 +150,7 @@ public class ProductoController {
     })
     public ResponseEntity<ProductoResponse> actualizarProducto(
             @Parameter(description = "Identificador del producto", example = "1")
-            @PathVariable Long idProducto,
+            @PathVariable Integer idProducto,
 
             @Valid @RequestBody ProductoRequest dto) {
 
@@ -171,7 +171,7 @@ public class ProductoController {
     })
     public ResponseEntity<Void> eliminarProducto(
             @Parameter(description = "Identificador del producto", example = "1")
-            @PathVariable Long idProducto) {
+            @PathVariable Integer idProducto) {
 
         productoService.eliminarProducto(idProducto);
 

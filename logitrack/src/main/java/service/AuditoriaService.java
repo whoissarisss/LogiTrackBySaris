@@ -9,9 +9,9 @@ public interface AuditoriaService {
 
     List<AuditoriaResponse> listarAuditorias();
 
-    AuditoriaResponse obtenerAuditoriaPorId(Long idAuditoria);
+    AuditoriaResponse obtenerAuditoriaPorId(Integer idAuditoria);
 
-    List<AuditoriaResponse> listarAuditoriasPorUsuario(Long idUsuario);
+    List<AuditoriaResponse> listarAuditoriasPorUsuario(Integer idUsuario);
 
     List<AuditoriaResponse> listarAuditoriasPorTabla(String tablaAfectada);
 

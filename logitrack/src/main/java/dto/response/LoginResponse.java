@@ -6,7 +6,7 @@ public record LoginResponse(
 
         String token,
         String tipo,
-        Long idUsuario,
+        Integer idUsuario,
         String nombre,
         String apellido,
         String correo,

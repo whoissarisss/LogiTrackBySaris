@@ -24,10 +24,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/marcas")
 @RequiredArgsConstructor
-@Tag(
-        name = "Marcas",
-        description = "Administración y consulta de marcas asociadas a los productos de Bake Track"
-)
+@Tag(name = "Marcas", description = "Administración y consulta de marcas asociadas a los productos de Bake Track")
 public class MarcaController {
 
     private final MarcaService marcaService;
@@ -51,10 +48,7 @@ public class MarcaController {
     }
 
     @GetMapping
-    @Operation(
-            summary = "Listar marcas",
-            description = "Obtiene todas las marcas registradas en Bake Track."
-    )
+    @Operation(summary = "Listar marcas", description = "Obtiene todas las marcas registradas en Bake Track.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Marcas consultadas correctamente")
     })
@@ -76,7 +70,7 @@ public class MarcaController {
     })
     public ResponseEntity<MarcaResponse> obtenerMarcaPorId(
             @Parameter(description = "Identificador de la marca", example = "1")
-            @PathVariable Long idMarca) {
+            @PathVariable Integer idMarca) {
 
         MarcaResponse respuesta = marcaService.obtenerMarcaPorId(idMarca);
 
@@ -95,7 +89,7 @@ public class MarcaController {
     })
     public ResponseEntity<MarcaResponse> actualizarMarca(
             @Parameter(description = "Identificador de la marca", example = "1")
-            @PathVariable Long idMarca,
+            @PathVariable Integer idMarca,
 
             @Valid @RequestBody MarcaRequest dto) {
 
@@ -115,7 +109,7 @@ public class MarcaController {
     })
     public ResponseEntity<Void> eliminarMarca(
             @Parameter(description = "Identificador de la marca", example = "1")
-            @PathVariable Long idMarca) {
+            @PathVariable Integer idMarca) {
 
         marcaService.eliminarMarca(idMarca);
 

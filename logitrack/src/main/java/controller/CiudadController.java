@@ -76,7 +76,7 @@ public class CiudadController {
     })
     public ResponseEntity<CiudadResponse> obtenerCiudadPorId(
             @Parameter(description = "Identificador de la ciudad", example = "1")
-            @PathVariable Long idCiudad) {
+            @PathVariable Integer idCiudad) {
 
         CiudadResponse respuesta = ciudadService.obtenerCiudadPorId(idCiudad);
 
@@ -95,7 +95,7 @@ public class CiudadController {
     })
     public ResponseEntity<CiudadResponse> actualizarCiudad(
             @Parameter(description = "Identificador de la ciudad", example = "1")
-            @PathVariable Long idCiudad,
+            @PathVariable Integer idCiudad,
 
             @Valid @RequestBody CiudadRequest dto) {
 
@@ -115,7 +115,7 @@ public class CiudadController {
     })
     public ResponseEntity<Void> eliminarCiudad(
             @Parameter(description = "Identificador de la ciudad", example = "1")
-            @PathVariable Long idCiudad) {
+            @PathVariable Integer idCiudad) {
 
         ciudadService.eliminarCiudad(idCiudad);
 

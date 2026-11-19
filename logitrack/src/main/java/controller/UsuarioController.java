@@ -93,7 +93,7 @@ public class UsuarioController {
     })
     public ResponseEntity<UsuarioResponse> aprobarSolicitud(
             @Parameter(description = "Identificador del usuario", example = "1")
-            @PathVariable Long idUsuario) {
+            @PathVariable Integer idUsuario) {
 
         UsuarioResponse respuesta =
                 usuarioService.aprobarSolicitud(idUsuario);
@@ -113,7 +113,7 @@ public class UsuarioController {
     })
     public ResponseEntity<UsuarioResponse> rechazarSolicitud(
             @Parameter(description = "Identificador del usuario", example = "1")
-            @PathVariable Long idUsuario,
+            @PathVariable Integer idUsuario,
 
             @Parameter(description = "Motivo por el cual se rechaza la solicitud", example = "Información de registro incompleta")
             @RequestParam String motivo) {
@@ -135,7 +135,7 @@ public class UsuarioController {
     })
     public ResponseEntity<UsuarioResponse> obtenerUsuarioPorId(
             @Parameter(description = "Identificador del usuario", example = "1")
-            @PathVariable Long idUsuario) {
+            @PathVariable Integer idUsuario) {
 
         UsuarioResponse respuesta =
                 usuarioService.obtenerUsuarioPorId(idUsuario);

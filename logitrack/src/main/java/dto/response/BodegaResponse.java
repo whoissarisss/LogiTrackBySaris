@@ -1,9 +1,8 @@
 package dto.response;
 
-
 public record BodegaResponse(
 
-        Long idBodega,
+        Integer idBodega,
         String nombre,
         Integer capacidad,
         CiudadResponse ciudad,

@@ -11,11 +11,11 @@ public interface BodegaService {
 
     List<BodegaResponse> listarBodegas();
 
-    BodegaResponse obtenerBodegaPorId(Long idBodega);
+    BodegaResponse obtenerBodegaPorId(Integer idBodega);
 
-    List<BodegaResponse> listarBodegasPorCiudad(Long idCiudad);
+    List<BodegaResponse> listarBodegasPorCiudad(Integer idCiudad);
 
-    BodegaResponse actualizarBodega(Long idBodega, BodegaRequest dto);
+    BodegaResponse actualizarBodega(Integer idBodega, BodegaRequest dto);
 
-    void eliminarBodega(Long idBodega);
+    void eliminarBodega(Integer idBodega);
 }

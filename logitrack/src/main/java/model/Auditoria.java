@@ -12,16 +12,23 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "auditoria")
-@Setter @Getter
-@AllArgsConstructor @NoArgsConstructor
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Auditoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_auditoria")
-    private long idAuditoria;
+    private Integer idAuditoria;
 
-    @Column(name = "fecha_hora", nullable = false, insertable = false, updatable = false)
+    @Column(
+            name = "fecha_hora",
+            nullable = false,
+            insertable = false,
+            updatable = false
+    )
     private LocalDateTime fechaHora;
 
     @Enumerated(EnumType.STRING)
@@ -36,7 +43,7 @@ public class Auditoria {
     private String tablaAfectada;
 
     @Column(name = "registro_id", nullable = false)
-    private long registroId;
+    private Integer registroId;
 
     @Column(name = "valores_anteriores", columnDefinition = "JSON")
     private String valoresAnteriores;
@@ -44,4 +51,3 @@ public class Auditoria {
     @Column(name = "valores_nuevos", columnDefinition = "JSON")
     private String valoresNuevos;
 }
-

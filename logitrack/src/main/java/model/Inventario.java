@@ -1,6 +1,5 @@
 package model;
 
-import model.Producto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,18 +9,22 @@ import lombok.Setter;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "inventario",
+@Table(
+        name = "inventario",
         uniqueConstraints = {
                 @UniqueConstraint(columnNames = {"id_bodega", "id_producto"})
-        })
-@Setter @Getter
-@AllArgsConstructor @NoArgsConstructor
+        }
+)
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Inventario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_inventario")
-    private long idInventario;
+    private Integer idInventario;
 
     @ManyToOne
     @JoinColumn(name = "id_bodega", nullable = false)

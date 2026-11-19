@@ -11,9 +11,9 @@ public interface CiudadService {
 
     List<CiudadResponse> listarCiudades();
 
-    CiudadResponse obtenerCiudadPorId(Long idCiudad);
+    CiudadResponse obtenerCiudadPorId(Integer idCiudad);
 
-    CiudadResponse actualizarCiudad(Long idCiudad, CiudadRequest dto);
+    CiudadResponse actualizarCiudad(Integer idCiudad, CiudadRequest dto);
 
-    void eliminarCiudad(Long idCiudad);
+    void eliminarCiudad(Integer idCiudad);
 }

@@ -16,6 +16,7 @@ public class BodegaMapper {
         if (bodega == null) {
             return null;
         }
+
         return new BodegaResponse(
                 bodega.getIdBodega(),
                 bodega.getNombre(),
@@ -25,15 +26,17 @@ public class BodegaMapper {
         );
     }
 
-    public Bodega DtoToEntity(BodegaRequest dto, Ciudad ciudad, Usuario encargado) {
+    public Bodega dtoToEntity(BodegaRequest dto, Ciudad ciudad, Usuario encargado) {
         if (dto == null) {
             return null;
         }
+
         Bodega bodega = new Bodega();
         bodega.setNombre(dto.nombre());
         bodega.setCapacidad(dto.capacidad());
         bodega.setCiudad(ciudad);
         bodega.setEncargado(encargado);
+
         return bodega;
     }
 
@@ -41,6 +44,7 @@ public class BodegaMapper {
         if (dto == null || bodega == null) {
             return;
         }
+
         bodega.setNombre(dto.nombre());
         bodega.setCapacidad(dto.capacidad());
         bodega.setCiudad(ciudad);
