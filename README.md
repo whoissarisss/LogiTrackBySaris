@@ -395,13 +395,3 @@ El proyecto utiliza Git para el seguimiento de cambios y GitHub como plataforma 
 **Área:** Desarrollo de software
 
 **Tecnologías principales:** Java, Spring Boot, MySQL, HTML, CSS y JavaScript.
-
----
-
-\<p align="center">
-&#x20; \<strong>BAKE TRACK\</strong>
-&#x20; \<br>
-&#x20; Gestión organizada para una mejor administración del inventario.
-&#x20; \<br>\<br>
-&#x20; \<sub>Proyecto académico de desarrollo de software.\</sub>
-\</p>
