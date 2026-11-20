@@ -1,0 +1,406 @@
+
+/* =========================================
+   BAKETRACK - GESTIÓN DE CATEGORÍAS
+   Diseño visual heredado de Bodegas
+========================================= */
+
+/* CONTENEDOR DE CATEGORÍAS */
+
+.warehouse-page {
+    padding: 28px 0 20px;
+}
+
+/* ICONO DEL ENCABEZADO */
+
+.warehouse-heading .heading-icon {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+/* ICONOS DE INDICADORES */
+
+.warehouse-stat-icon img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+
+/* TABLA DE CATEGORÍAS */
+
+.category-table {
+    width: 100%;
+    min-width: 520px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.category-table th,
+.category-table td {
+    white-space: nowrap;
+}
+
+.category-table th:first-child,
+.category-table td:first-child {
+    width: 90px;
+}
+
+.category-table th:nth-child(2),
+.category-table td:nth-child(2) {
+    width: auto;
+}
+
+.category-table th:last-child,
+.category-table td:last-child {
+    width: 130px;
+}
+
+.category-table td {
+    vertical-align: middle;
+}
+
+/* FILAS */
+
+.category-table tbody tr {
+    transition: background 0.2s ease;
+}
+
+.category-table tbody tr:hover {
+    background: #FCF9FA;
+}
+
+.category-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ESTADOS DE LA TABLA */
+
+.category-table .table-loading,
+.category-table .table-empty {
+    padding: 35px !important;
+    text-align: center;
+    color: #A78370 !important;
+}
+
+.category-table .table-loading i {
+    margin-right: 8px;
+    color: #805841;
+}
+
+/* IDENTIFICADOR */
+
+.category-id {
+    color: #A78370;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+/* NOMBRE DE CATEGORÍA */
+
+.category-name {
+    color: #805841;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+/* ACCIONES */
+
+.category-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.category-action {
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #F0DED5;
+    border-radius: 9px;
+    background: #FFFFFF;
+    color: #805841;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.category-action:hover {
+    background: #F8E5EC;
+    border-color: #F0C9D5;
+    transform: translateY(-2px);
+}
+
+.category-action.delete {
+    color: #B94A50;
+}
+
+.category-action.delete:hover {
+    background: #FCEBEC;
+    border-color: #F3CACA;
+}
+
+/* PIE DE TABLA */
+
+.category-table-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 22px;
+    border-top: 1px solid #F0DED5;
+    color: #A78370;
+    font-size: 12px;
+}
+
+/* MODAL DE CATEGORÍAS */
+
+.category-modal {
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* CAMPOS DEL FORMULARIO */
+
+.category-modal .form-group {
+    margin-bottom: 19px;
+}
+
+.category-modal .form-group label {
+    display: block;
+    color: #805841;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.category-modal .form-group input {
+    width: 100%;
+    height: 45px;
+    padding: 0 13px;
+    border: 1px solid #F0DED5;
+    border-radius: 10px;
+    outline: none;
+    background: #FFFFFF;
+    color: #805841;
+    font-family: 'Amatic SC', cursive;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+.category-modal .form-group input:focus {
+    border-color: #B87988;
+    box-shadow: 0 0 0 3px rgba(184, 121, 136, 0.12);
+}
+
+.category-modal .form-group input::placeholder {
+    color: #B8A3A8;
+}
+
+/* MENSAJES DEL FORMULARIO */
+
+.category-modal .form-message {
+    display: none;
+    margin: 12px 0;
+    padding: 11px 13px;
+    border-radius: 9px;
+    font-size: 12px;
+}
+
+/* El JavaScript muestra el mensaje agregando texto y clase */
+
+.category-modal .form-message:not(:empty) {
+    display: block;
+}
+
+.category-modal .form-message.error {
+    background: #FCEBEC;
+    color: #A63F4D;
+}
+
+.category-modal .form-message.success {
+    background: #EAF5EF;
+    color: #347653;
+}
+
+/* BOTONES DEL MODAL */
+
+.category-modal button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+
+    .category-table {
+        min-width: 520px;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .category-table {
+        min-width: 480px;
+    }
+
+    .category-table-footer {
+        padding: 13px 16px;
+    }
+
+    .category-modal {
+        width: 100%;
+        padding: 21px;
+    }
+
+    .category-modal .modal-actions {
+        flex-direction: column-reverse;
+    }
+
+    .category-modal .modal-actions button {
+        width: 100%;
+    }
+
+}
+
+
+/* ==========================================
+   MENÚ RESPONSIVE - CATEGORÍAS
+========================================== */
+
+.menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid #F0DED5;
+    border-radius: 10px;
+    background: #FFFFFF;
+    color: #805841;
+    font-size: 20px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.sidebar-backdrop {
+    display: none;
+}
+
+@media (max-width: 760px) {
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 280px;
+        max-width: 85vw;
+        height: 100vh;
+        z-index: 1200;
+        overflow-y: auto;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    body.sidebar-open .sidebar {
+        transform: translateX(0);
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+    }
+
+    .sidebar-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 1100;
+        background: rgba(40, 25, 25, 0.45);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    body.sidebar-open .sidebar-backdrop {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    body.sidebar-open {
+        overflow: hidden;
+    }
+
+    .main-content {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .topbar {
+        gap: 12px;
+    }
+
+    .warehouse-page {
+        padding-top: 20px;
+    }
+
+    .warehouse-heading {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .warehouse-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .warehouse-toolbar {
+        flex-wrap: wrap;
+    }
+
+    .warehouse-search {
+        width: 100%;
+    }
+
+    .table-responsive {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .category-table {
+        min-width: 480px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .breadcrumb {
+        font-size: 12px;
+    }
+
+    .topbar-user {
+        gap: 6px;
+    }
+
+    .warehouse-heading .primary-button {
+        width: 100%;
+    }
+
+    .category-modal {
+        width: 100%;
+        max-width: calc(100vw - 30px);
+    }
+
+    .category-modal .modal-actions {
+        flex-direction: column-reverse;
+    }
+
+    .category-modal .modal-actions button {
+        width: 100%;
+    }
+}

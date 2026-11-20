@@ -1,0 +1,424 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bake Track | Productos</title>
+
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/ui.css">
+    <link rel="stylesheet" href="css/producto.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- MENÚ LATERAL -->
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <img src="assets/bake-track-logo.png" alt="Bake Track" class="brand-logo">
+
+            <div>
+                <h2>Bake Track</h2>
+                <span>GESTIÓN DE PANADERÍA</span>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <span class="section-label">PRINCIPAL</span>
+
+            <nav class="sidebar-menu">
+
+                <a href="admin.html" class="menu-item">
+                    <img src="assets/Dashboard.png" alt="" class="menu-icon">
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="bodega.html" class="menu-item">
+                    <img src="assets/Bodegas.png" alt="" class="menu-icon">
+                    <span>Bodegas</span>
+                </a>
+
+                <a href="producto.html" class="menu-item active">
+                    <img src="assets/Productos.png" alt="" class="menu-icon">
+                    <span>Productos</span>
+                </a>
+
+                <a href="categoria.html" class="menu-item">
+                    <img src="assets/Caja.png" alt="" class="menu-icon">
+                    <span>Categorías</span>
+                </a>
+
+                <a href="marca.html" class="menu-item">
+                    <img src="assets/Producto almacenado.png" alt="" class="menu-icon">
+                    <span>Marcas</span>
+                </a>
+
+                <a href="inventario.html" class="menu-item">
+                    <img src="assets/Inventario.png" alt="" class="menu-icon">
+                    <span>Inventario</span>
+                </a>
+
+            </nav>
+        </div>
+
+        <div class="sidebar-section">
+            <span class="section-label">OPERACIONES</span>
+
+            <nav class="sidebar-menu">
+
+                <a href="movimiento.html" class="menu-item">
+                    <img src="assets/Movimientos.png" alt="" class="menu-icon">
+                    <span>Movimientos</span>
+                </a>
+
+                <a href="reportes.html" class="menu-item">
+                    <img src="assets/Reportes.png" alt="" class="menu-icon">
+                    <span>Reportes</span>
+                </a>
+
+                <a href="auditoria.html" class="menu-item">
+                    <img src="assets/Auditoria.png" alt="" class="menu-icon">
+                    <span>Auditoría</span>
+                </a>
+
+            </nav>
+        </div>
+
+        <div class="sidebar-section">
+            <span class="section-label">ADMINISTRACIÓN</span>
+
+            <nav class="sidebar-menu">
+                <a href="usuarios.html" class="menu-item">
+                    <img src="assets/Usuarios.png" alt="" class="menu-icon">
+                    <span>Usuarios</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+
+            <div class="admin-profile">
+                <div class="profile-avatar" id="sidebarAdminInitials">AD</div>
+
+                <div class="profile-info">
+                    <strong id="sidebarAdminName">Administrador</strong>
+                    <span>Administrador del sistema</span>
+                </div>
+
+                <i class="fa-solid fa-ellipsis"></i>
+            </div>
+
+            <button class="logout-button" id="btnCerrarSesion">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                Cerrar sesión
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+
+        <!-- ENCABEZADO -->
+        <header class="topbar">
+
+            <div class="breadcrumb">
+                <span>Panel administrativo</span>
+                <i class="fa-solid fa-chevron-right"></i>
+                <strong>Gestión de productos</strong>
+            </div>
+
+            <div class="topbar-actions">
+                <div class="topbar-user">
+
+                    <div class="profile-avatar" id="topbarAdminInitials">AD</div>
+
+                    <div>
+                        <strong id="topbarAdminName">Administrador</strong>
+                        <span>ADMIN</span>
+                    </div>
+
+                </div>
+            </div>
+
+        </header>
+
+        <!-- BIENVENIDA -->
+        <section class="welcome-section">
+
+            <div class="welcome-content">
+
+                <span class="welcome-date" id="currentDate">
+                    GESTIÓN DE PRODUCTOS
+                </span>
+
+                <h1>Gestión de productos <span>✦</span></h1>
+
+                <p>
+                    Registra, consulta y administra los productos de Bake Track
+                    de manera organizada.
+                </p>
+
+            </div>
+
+            <div class="welcome-decoration">
+                <img src="assets/saris2.png" alt="Bake Track" class="welcome-mascot">
+            </div>
+
+        </section>
+
+        <!-- CONTENIDO DE PRODUCTOS -->
+        <section class="product-page">
+
+            <div class="product-heading">
+
+                <div>
+                    <h2>
+                        <img src="assets/Productos.png" alt="" class="product-heading-icon">
+                        Mis productos
+                    </h2>
+
+                    <p>Consulta y administra los productos registrados en Bake Track.</p>
+                </div>
+
+                <button class="primary-button" id="btnNuevoProducto">
+                    <i class="fa-solid fa-plus"></i>
+                    Nuevo producto
+                </button>
+
+            </div>
+
+            <!-- INDICADORES -->
+            <div class="product-stats">
+
+                <article class="product-stat">
+
+                    <div class="product-stat-icon lavender">
+                        <img src="assets/Productos.png" alt="">
+                    </div>
+
+                    <div>
+                        <span>Total de productos</span>
+                        <strong id="totalProductos">0</strong>
+                    </div>
+
+                </article>
+
+                <article class="product-stat">
+
+                    <div class="product-stat-icon pearl">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+
+                    <div>
+                        <span>Productos activos</span>
+                        <strong id="productosActivos">0</strong>
+                    </div>
+
+                </article>
+
+                <article class="product-stat">
+
+                    <div class="product-stat-icon yellow">
+                        <i class="fa-solid fa-circle-pause"></i>
+                    </div>
+
+                    <div>
+                        <span>Productos inactivos</span>
+                        <strong id="productosInactivos">0</strong>
+                    </div>
+
+                </article>
+
+            </div>
+
+            <!-- LISTADO -->
+            <section class="product-card">
+
+                <div class="product-card-heading">
+                    <div>
+                        <h3>Listado de productos</h3>
+                        <p>Consulta y administra los productos registrados.</p>
+                    </div>
+                </div>
+
+                <!-- FILTROS -->
+                <div class="product-filters">
+
+                    <div class="product-search">
+                        <img src="assets/Buscar.png" alt="" class="filter-icon">
+
+                        <input
+                            type="text"
+                            id="buscarProducto"
+                            placeholder="Buscar producto por nombre..."
+                        >
+                    </div>
+
+                    <select id="filtroMarca">
+                        <option value="">Todas las marcas</option>
+                    </select>
+
+                    <select id="filtroCategoria">
+                        <option value="">Todas las categorías</option>
+                    </select>
+
+                    <select id="filtroEstado">
+                        <option value="">Todos los estados</option>
+                        <option value="true">Activos</option>
+                        <option value="false">Inactivos</option>
+                    </select>
+
+                </div>
+
+                <!-- TABLA -->
+                <div class="product-table-wrap">
+
+                    <table class="products-table">
+
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>PRODUCTO</th>
+                                <th>DESCRIPCIÓN</th>
+                                <th>MARCA</th>
+                                <th>CATEGORÍA</th>
+                                <th>ESTADO</th>
+                                <th>ACCIONES</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tablaProductos">
+
+                            <tr>
+                                <td colspan="7" class="table-message">
+                                    <i class="fa-solid fa-spinner fa-spin"></i>
+                                    Cargando productos...
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <!-- CONTADOR -->
+                <div class="product-table-footer">
+                    <span id="contadorProductos">Mostrando 0 productos</span>
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- MODAL DE PRODUCTOS -->
+<div class="modal-overlay" id="modalProducto">
+
+    <div class="modal-container">
+
+        <div class="modal-header">
+
+            <div>
+                <h2 id="tituloModalProducto">Nuevo producto</h2>
+                <p>Completa la información del producto.</p>
+            </div>
+
+            <button class="modal-close" id="btnCerrarModal" type="button">
+                &times;
+            </button>
+
+        </div>
+
+        <form id="formProducto">
+
+            <input type="hidden" id="idProducto">
+
+            <div class="form-group">
+                <label for="nombreProducto">Nombre del producto</label>
+
+                <input
+                    type="text"
+                    id="nombreProducto"
+                    maxlength="120"
+                    placeholder="Ej. Batidora planetaria industrial"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="descripcionProducto">Descripción</label>
+
+                <textarea
+                    id="descripcionProducto"
+                    rows="3"
+                    placeholder="Descripción del producto..."
+                ></textarea>
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label for="marcaProducto">Marca</label>
+
+                    <select id="marcaProducto" required>
+                        <option value="">Selecciona una marca</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="categoriaProducto">Categoría</label>
+
+                    <select id="categoriaProducto" required>
+                        <option value="">Selecciona una categoría</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="modal-actions">
+
+                <button type="button" class="secondary-button" id="btnCancelarProducto">
+                    Cancelar
+                </button>
+
+                <button type="submit" class="primary-button" id="btnGuardarProducto">
+                    Guardar producto
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- NOTIFICACIONES -->
+<div id="toastContainer" class="toast-container"></div>
+
+<!-- SCRIPTS ORIGINALES: NO MODIFICAR -->
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/producto.js"></script>
+
+</body>
+</html>

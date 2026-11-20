@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bake Track | Reportes</title>
+
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/bodega.css">
+    <link rel="stylesheet" href="css/ui.css">
+    <link rel="stylesheet" href="css/reportes.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <img src="assets/bake-track-logo.png" alt="Bake Track" class="brand-logo">
+
+            <div>
+                <h2>Bake Track</h2>
+                <span>Control de inventario</span>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <span class="section-label">PRINCIPAL</span>
+
+            <nav class="sidebar-menu">
+
+                <a href="admin.html" class="menu-item">
+                    <img src="assets/Dashboard.png" alt="">
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="bodega.html" class="menu-item">
+                    <img src="assets/Bodegas.png" alt="">
+                    <span>Bodegas</span>
+                </a>
+
+                <a href="producto.html" class="menu-item">
+                    <img src="assets/Productos.png" alt="">
+                    <span>Productos</span>
+                </a>
+
+                <a href="categoria.html" class="menu-item">
+                    <img src="assets/Caja.png" alt="">
+                    <span>Categorías</span>
+                </a>
+
+                <a href="marca.html" class="menu-item">
+                    <img src="assets/Producto almacenado.png" alt="">
+                    <span>Marcas</span>
+                </a>
+
+                <a href="inventario.html" class="menu-item">
+                    <img src="assets/Inventario.png" alt="">
+                    <span>Inventario</span>
+                </a>
+
+            </nav>
+        </div>
+
+        <div class="sidebar-section">
+            <span class="section-label">OPERACIONES</span>
+
+            <nav class="sidebar-menu">
+
+                <a href="movimiento.html" class="menu-item">
+                    <img src="assets/Movimientos.png" alt="">
+                    <span>Movimientos</span>
+                </a>
+
+                <a href="reportes.html" class="menu-item active">
+                    <img src="assets/Reportes.png" alt="">
+                    <span>Reportes</span>
+                </a>
+
+                <a href="auditoria.html" class="menu-item">
+                    <img src="assets/Auditoria.png" alt="">
+                    <span>Auditoría</span>
+                </a>
+
+            </nav>
+        </div>
+
+        <div class="sidebar-section">
+            <span class="section-label">ADMINISTRACIÓN</span>
+
+            <nav class="sidebar-menu">
+
+                <a href="usuarios.html" class="menu-item">
+                    <img src="assets/Usuarios.png" alt="">
+                    <span>Usuarios</span>
+                </a>
+
+            </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+
+            <div class="admin-profile">
+                <div class="profile-avatar" id="sidebarAdminInitials">AD</div>
+
+                <div class="profile-info">
+                    <strong id="sidebarAdminName">Administrador</strong>
+                    <span>Administrador del sistema</span>
+                </div>
+            </div>
+
+            <button class="logout-button" id="logoutButton">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                Cerrar sesión
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- FONDO DEL MENÚ MÓVIL -->
+    <div class="sidebar-backdrop" aria-hidden="true"></div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Abrir menú"
+                aria-expanded="false">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+            <div class="breadcrumb">
+                <span>Panel administrativo</span>
+                <i class="fa-solid fa-chevron-right"></i>
+                <strong>Análisis y reportes</strong>
+            </div>
+
+            <div class="topbar-actions">
+
+                <div class="topbar-user">
+                    <div class="profile-avatar" id="topbarAdminInitials">AD</div>
+
+                    <div>
+                        <strong id="topbarAdminName">Administrador</strong>
+                        <span id="topbarAdminRole">ADMIN</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- BANNER -->
+        <section class="welcome-section">
+
+            <div class="welcome-content">
+
+                <span class="welcome-date" id="currentDate">
+                    BAKE TRACK · ANÁLISIS
+                </span>
+
+                <h1>Reportes <span>✦</span></h1>
+
+                <p>
+                    Análisis y reportes · Información centralizada
+                    para tomar mejores decisiones.
+                </p>
+
+            </div>
+
+            <div class="welcome-decoration">
+                <img src="assets/saris2.png" alt="Mascota Bake Track" class="welcome-mascot">
+            </div>
+
+        </section>
+
+        <!-- SECCIÓN DE REPORTES -->
+        <section class="section-block">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Panorama de operaciones</h2>
+                    <p>
+                        Indicadores construidos con los registros reales del sistema.
+                    </p>
+                </div>
+
+                <button class="secondary-button" id="refreshReports">
+                    <i class="fa-solid fa-rotate"></i>
+                    Actualizar
+                </button>
+
+            </div>
+
+            <!-- FILTROS -->
+            <div class="report-filter-panel">
+
+                <label>
+                    Desde
+                    <input type="date" id="startDate">
+                </label>
+
+                <label>
+                    Hasta
+                    <input type="date" id="endDate">
+                </label>
+
+                <button class="primary-button" id="applyReportFilters">
+                    <i class="fa-solid fa-filter"></i>
+                    Aplicar
+                </button>
+
+                <button class="secondary-button" id="clearReportFilters">
+                    Limpiar
+                </button>
+
+            </div>
+
+            <!-- TARJETAS DE INDICADORES -->
+            <div class="stats-grid report-stats">
+
+                <article class="stat-card">
+
+                    <div class="stat-top">
+                        <span>Movimientos</span>
+
+                        <div class="stat-icon">
+                            <i class="fa-solid fa-arrows-left-right"></i>
+                        </div>
+                    </div>
+
+                    <h3 id="totalMovements">—</h3>
+
+                    <span class="stat-description">
+                        En el periodo seleccionado
+                    </span>
+
+                </article>
+
+                <article class="stat-card">
+
+                    <div class="stat-top">
+                        <span>Entradas</span>
+
+                        <div class="stat-icon">
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </div>
+                    </div>
+
+                    <h3 id="totalEntries">—</h3>
+
+                    <span class="stat-description">
+                        Operaciones de ingreso
+                    </span>
+
+                </article>
+
+                <article class="stat-card">
+
+                    <div class="stat-top">
+                        <span>Salidas</span>
+
+                        <div class="stat-icon">
+                            <i class="fa-solid fa-arrow-up"></i>
+                        </div>
+                    </div>
+
+                    <h3 id="totalExits">—</h3>
+
+                    <span class="stat-description">
+                        Operaciones de retiro
+                    </span>
+
+                </article>
+
+                <article class="stat-card">
+
+                    <div class="stat-top">
+                        <span>Transferencias</span>
+
+                        <div class="stat-icon">
+                            <i class="fa-solid fa-right-left"></i>
+                        </div>
+                    </div>
+
+                    <h3 id="totalTransfers">—</h3>
+
+                    <span class="stat-description">
+                        Entre bodegas
+                    </span>
+
+                </article>
+
+            </div>
+
+            <!-- GRÁFICO Y PRODUCTOS -->
+            <div class="report-two-col">
+
+                <article class="warehouse-table-card report-panel">
+
+                    <div class="table-heading">
+                        <div>
+                            <h2>Distribución de movimientos</h2>
+                            <p>Comparativo por tipo de operación.</p>
+                        </div>
+                    </div>
+
+                    <div id="movementChart" class="report-chart">
+                        <p class="table-loading">Cargando datos...</p>
+                    </div>
+
+                </article>
+
+                <article class="warehouse-table-card report-panel">
+
+                    <div class="table-heading">
+                        <div>
+                            <h2>Productos más movilizados</h2>
+                            <p>Productos con mayor volumen registrado.</p>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+
+                        <table class="warehouse-table">
+
+                            <thead>
+                                <tr>
+                                    <th>PRODUCTO</th>
+                                    <th>TOTAL MOVILIZADO</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="topProductsBody">
+                                <tr>
+                                    <td colspan="2" class="table-loading">
+                                        Cargando...
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            <!-- INVENTARIO POR BODEGA -->
+            <article class="warehouse-table-card report-panel">
+
+                <div class="table-heading">
+                    <div>
+                        <h2>Inventario por bodega</h2>
+                        <p>
+                            Stock total y productos registrados por ubicación.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+
+                    <table class="warehouse-table">
+
+                        <thead>
+                            <tr>
+                                <th>BODEGA</th>
+                                <th>PRODUCTOS</th>
+                                <th>STOCK TOTAL</th>
+                                <th>CAPACIDAD</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="warehouseSummaryBody">
+                            <tr>
+                                <td colspan="4" class="table-loading">
+                                    Cargando...
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </article>
+
+            <!-- MOVIMIENTOS DEL PERIODO -->
+            <article class="warehouse-table-card report-panel">
+
+                <div class="table-heading">
+
+                    <div>
+                        <h2>Movimientos del periodo</h2>
+                        <p>
+                            Detalle de actividad dentro del rango seleccionado.
+                        </p>
+                    </div>
+
+                    <span class="report-count" id="movementResults">
+                        0 movimientos
+                    </span>
+
+                </div>
+
+                <div class="table-responsive">
+
+                    <table class="warehouse-table">
+
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>FECHA</th>
+                                <th>TIPO</th>
+                                <th>USUARIO</th>
+                                <th>DETALLES</th>
+                                <th>CANTIDAD</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="reportMovementsBody">
+                            <tr>
+                                <td colspan="6" class="table-loading">
+                                    Cargando...
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </article>
+
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="dashboard-footer">
+            <span>Bake Track © 2026</span>
+            <span>Control · Organización · Trazabilidad</span>
+        </footer>
+
+    </main>
+
+</div>
+
+<!-- SCRIPTS -->
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/reportes.js"></script>
+
+</body>
+</html>

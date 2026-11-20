@@ -1,0 +1,994 @@
+
+/* =========================================
+   BAKE TRACK - INVENTARIO
+   Diseño visual del módulo
+========================================= */
+
+:root {
+    --inventory-brown: #805841;
+    --inventory-brown-dark: #4b3025;
+    --inventory-bg: #fff3ed;
+    --inventory-cream: #fffaf2;
+    --inventory-pink: #ffd8d8;
+    --inventory-pink-light: #f8e5ec;
+    --inventory-yellow: #fff4cf;
+    --inventory-mint: #dcf7f3;
+    --inventory-text: #4b3025;
+    --inventory-muted: #92796b;
+    --inventory-border: #eee4dc;
+}
+
+/* =========================================
+   ESTRUCTURA GENERAL
+========================================= */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.dashboard-container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    width: calc(100% - 255px);
+    max-width: calc(100% - 255px);
+    overflow-x: hidden;
+}
+
+.warehouse-page {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+/* =========================================
+   MENÚ LATERAL
+========================================= */
+
+.sidebar {
+    width: 255px;
+    min-width: 255px;
+    min-height: 100vh;
+    height: 100vh;
+    flex: 0 0 255px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 25px 17px 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 8px 32px;
+    flex-shrink: 0;
+}
+
+.sidebar-logo {
+    display: block;
+    width: 100%;
+    max-width: 175px;
+    max-height: 85px;
+    object-fit: contain;
+}
+
+.sidebar-section {
+    display: block;
+    width: 100%;
+    flex-shrink: 0;
+    margin-bottom: 23px;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+
+.sidebar-menu .menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    width: 100%;
+    min-height: 43px;
+    padding: 8px 12px;
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.sidebar-menu .menu-icon {
+    display: block;
+    width: 23px;
+    height: 23px;
+    min-width: 23px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.sidebar-menu .menu-item span {
+    display: block;
+    white-space: nowrap;
+}
+
+.sidebar-bottom {
+    width: 100%;
+    margin-top: auto;
+    flex-shrink: 0;
+}
+
+/* =========================================
+   BARRA SUPERIOR
+========================================= */
+
+.topbar {
+    width: 100%;
+    min-width: 0;
+}
+
+/* =========================================
+   BANNER PRINCIPAL
+========================================= */
+
+.welcome-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    width: 100%;
+    height: 190px;
+    min-height: 190px;
+    max-height: 210px;
+
+    padding: 24px 36px;
+
+    background: var(--inventory-brown);
+    border-radius: 22px;
+
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.welcome-content {
+    position: relative;
+    z-index: 2;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.welcome-date {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff4e9;
+}
+
+.welcome-date-icon {
+    width: 19px;
+    height: 19px;
+    object-fit: contain;
+}
+
+.welcome-section h1 {
+    margin: 10px 0 8px;
+    color: #fffaf2;
+    font-family: "Amatic SC", cursive;
+    font-size: 36px;
+    line-height: 1.15;
+    font-weight: 700;
+}
+
+.welcome-section h1 span {
+    color: #ffd8d8;
+}
+
+.welcome-section p {
+    max-width: 520px;
+    margin: 0;
+    color: #fff4e9;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   CÍRCULO DECORATIVO Y MASCOTA
+========================================= */
+
+.welcome-decoration {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 120px;
+    height: 120px;
+    min-width: 120px;
+    flex: 0 0 120px;
+    background: rgba(255, 250, 242, 0.15);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.welcome-decoration .welcome-mascot {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 8px;
+    object-fit: contain;
+    object-position: center;
+}
+
+/* =========================================
+   ENCABEZADO DE CONTENIDO
+========================================= */
+
+.warehouse-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 24px;
+}
+
+.warehouse-heading h2 {
+    margin: 0 0 6px;
+    color: var(--inventory-brown);
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.warehouse-heading p {
+    margin: 0;
+    color: var(--inventory-muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   TARJETAS DE INDICADORES
+========================================= */
+
+.warehouse-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    width: 100%;
+    margin-bottom: 28px;
+}
+
+.warehouse-stats .warehouse-stat {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    min-width: 0;
+    min-height: 125px;
+    padding: 20px;
+
+    border: 1px solid var(--inventory-border);
+    border-radius: 20px;
+
+    box-shadow: 0 4px 14px rgba(75, 48, 37, 0.04);
+}
+
+.warehouse-stats .warehouse-stat:nth-child(1) {
+    background: var(--inventory-pink-light);
+}
+
+.warehouse-stats .warehouse-stat:nth-child(2) {
+    background: #fbe1df;
+}
+
+.warehouse-stats .warehouse-stat:nth-child(3) {
+    background: var(--inventory-yellow);
+}
+
+.warehouse-stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+
+    border-radius: 16px;
+}
+
+.warehouse-stat-icon.lavender {
+    background: #f9e8ee;
+    color: #d58b9d;
+}
+
+.warehouse-stat-icon.blue {
+    background: var(--inventory-mint);
+    color: #649b91;
+}
+
+.warehouse-stat-icon.cream {
+    background: #fff1ce;
+    color: #b18442;
+}
+
+.stat-custom-icon {
+    display: block;
+    width: 30px;
+    height: 30px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.warehouse-stat span {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--inventory-muted);
+    font-size: 12px;
+}
+
+.warehouse-stat strong {
+    display: block;
+    color: var(--inventory-brown);
+    font-size: 27px;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+}
+
+/* =========================================
+   BARRA DE BÚSQUEDA Y FILTROS
+========================================= */
+
+.inventory-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    margin-bottom: 22px;
+}
+
+.warehouse-search {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    flex: 1 1 260px;
+    min-width: 0;
+}
+
+.warehouse-search input {
+    width: 100%;
+    min-width: 0;
+}
+
+.inventory-filters {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    min-width: 0;
+}
+
+.inventory-filters select {
+    min-width: 175px;
+    height: 46px;
+    padding: 0 14px;
+
+    border: 1px solid var(--inventory-border);
+    border-radius: 12px;
+
+    background: var(--inventory-cream);
+    color: var(--inventory-text);
+
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.inventory-filters select:focus,
+.inventory-alert-controls input:focus {
+    border-color: var(--inventory-brown);
+    box-shadow: 0 0 0 3px rgba(128, 88, 65, 0.12);
+}
+
+/* =========================================
+   BOTONES
+========================================= */
+
+.inventory-filters button,
+.inventory-alert-controls button {
+    min-height: 44px;
+    white-space: nowrap;
+}
+
+/* =========================================
+   CONSULTA DE STOCK BAJO
+========================================= */
+
+.inventory-alert-card {
+    width: 100%;
+    margin-bottom: 24px;
+    padding: 22px 24px;
+
+    background: var(--inventory-cream);
+    border: 1px solid var(--inventory-border);
+    border-radius: 18px;
+
+    box-shadow: 0 4px 16px rgba(75, 48, 37, 0.045);
+}
+
+.inventory-alert-heading h2 {
+    margin: 0 0 7px;
+    color: var(--inventory-brown-dark);
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.inventory-alert-heading h2 i {
+    margin-right: 7px;
+    color: #c58a46;
+}
+
+.inventory-alert-heading p {
+    margin: 0;
+    color: var(--inventory-muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.inventory-alert-controls {
+    display: flex;
+    align-items: flex-end;
+    gap: 13px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.inventory-alert-controls .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 190px;
+    margin: 0;
+}
+
+.inventory-alert-controls label {
+    color: var(--inventory-brown);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.inventory-alert-controls input {
+    width: 100%;
+    height: 44px;
+    padding: 0 13px;
+
+    border: 1px solid var(--inventory-border);
+    border-radius: 11px;
+
+    outline: none;
+    background: #fff;
+    color: var(--inventory-text);
+
+    font-family: inherit;
+    font-size: 13px;
+    transition: 0.2s ease;
+}
+
+/* =========================================
+   TARJETAS DE TABLAS
+========================================= */
+
+.warehouse-table-card {
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 24px;
+
+    background: var(--inventory-cream);
+    border: 1px solid var(--inventory-border);
+    border-radius: 18px;
+
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(75, 48, 37, 0.035);
+}
+
+.table-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    padding: 22px 24px;
+}
+
+.table-heading h2 {
+    margin: 0 0 6px;
+    color: var(--inventory-brown-dark);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.table-heading p {
+    margin: 0;
+    color: var(--inventory-muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.inventory-heading-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+
+    background: var(--inventory-pink-light);
+    border-radius: 13px;
+}
+
+.inventory-heading-icon img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+
+/* =========================================
+   TABLAS
+========================================= */
+
+.table-responsive {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.inventory-table,
+.inventory-summary-table {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.inventory-table th,
+.inventory-summary-table th {
+    padding: 15px 17px;
+    background: #fff3ed;
+    color: var(--inventory-brown);
+    font-size: 11px;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.inventory-table td,
+.inventory-summary-table td {
+    padding: 14px 17px;
+    color: var(--inventory-text);
+    font-size: 12px;
+    vertical-align: middle;
+    border-bottom: 1px solid #f2e9e2;
+}
+
+.inventory-table tbody tr:hover,
+.inventory-summary-table tbody tr:hover {
+    background: #fff8f4;
+}
+
+.inventory-table tbody tr:last-child td,
+.inventory-summary-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* =========================================
+   ETIQUETAS DE STOCK
+========================================= */
+
+.inventory-stock {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 65px;
+    padding: 6px 11px;
+
+    border-radius: 9px;
+    background: var(--inventory-pink-light);
+    color: #98556a;
+
+    font-size: 12px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+.inventory-stock.low {
+    background: var(--inventory-yellow);
+    color: #a8752c;
+}
+
+.inventory-stock.zero {
+    background: #fde8e8;
+    color: #bd5050;
+}
+
+/* =========================================
+   NOMBRES DE PRODUCTOS Y BODEGAS
+========================================= */
+
+.inventory-product-name {
+    color: var(--inventory-brown-dark);
+    font-weight: 600;
+}
+
+.inventory-secondary-text {
+    display: block;
+    margin-top: 4px;
+    color: #a18b7d;
+    font-size: 11px;
+}
+
+/* =========================================
+   RESUMEN POR BODEGA
+========================================= */
+
+.inventory-summary-card {
+    margin-top: 26px;
+}
+
+.inventory-summary-table td {
+    font-variant-numeric: tabular-nums;
+}
+
+/* =========================================
+   PIE DE TABLAS
+========================================= */
+
+.inventory-table-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 15px 22px;
+
+    border-top: 1px solid var(--inventory-border);
+    color: var(--inventory-muted);
+    font-size: 12px;
+}
+
+/* =========================================
+   MENSAJES VACÍOS Y CARGA
+========================================= */
+
+.inventory-empty {
+    padding: 35px 20px;
+    text-align: center;
+    color: var(--inventory-muted);
+    font-size: 13px;
+}
+
+.inventory-empty i {
+    display: block;
+    margin-bottom: 10px;
+    color: #cbb5a8;
+    font-size: 25px;
+}
+
+.table-loading {
+    padding: 28px 15px !important;
+    text-align: center;
+    color: var(--inventory-muted);
+}
+
+.table-loading i {
+    margin-right: 7px;
+    color: var(--inventory-brown);
+}
+
+/* =========================================
+   PIE DE PÁGINA
+========================================= */
+
+.dashboard-footer {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* =========================================
+   RESPONSIVE - TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .inventory-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .inventory-filters {
+        width: 100%;
+    }
+
+    .inventory-filters select {
+        flex: 1;
+    }
+
+    .welcome-section {
+        height: 180px;
+        min-height: 180px;
+        padding: 22px 26px;
+    }
+
+    .welcome-decoration {
+        width: 120px;
+        height: 120px;
+        min-width: 120px;
+        flex-basis: 120px;
+    }
+}
+
+/* =========================================
+   RESPONSIVE - MÓVIL
+========================================= */
+
+@media (max-width: 768px) {
+
+    .main-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .welcome-section {
+        height: auto;
+        min-height: 155px;
+        max-height: 190px;
+        padding: 18px;
+        gap: 12px;
+    }
+
+    .welcome-section h1 {
+        font-size: 27px;
+    }
+
+    .welcome-section p {
+        font-size: 11px;
+    }
+
+    .welcome-decoration {
+        width: 85px;
+        height: 85px;
+        min-width: 85px;
+        flex-basis: 85px;
+    }
+
+    .warehouse-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .inventory-alert-card {
+        padding: 18px;
+    }
+
+    .inventory-alert-controls {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .inventory-alert-controls .form-group {
+        width: 100%;
+    }
+
+    .inventory-alert-controls button {
+        width: 100%;
+    }
+
+    .inventory-filters {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .inventory-filters select,
+    .inventory-filters button {
+        width: 100%;
+    }
+
+    .table-heading {
+        padding: 18px;
+    }
+
+    .inventory-table-footer {
+        padding: 13px 16px;
+    }
+}
+
+/* =========================================
+   RESPONSIVE - PANTALLAS PEQUEÑAS
+========================================= */
+
+@media (max-width: 420px) {
+
+    .welcome-decoration {
+        width: 65px;
+        height: 65px;
+        min-width: 65px;
+        flex-basis: 65px;
+    }
+
+    .welcome-section h1 {
+        font-size: 23px;
+    }
+
+    .welcome-section p {
+        font-size: 10px;
+    }
+
+    .warehouse-stat strong {
+        font-size: 23px;
+    }
+}
+
+
+/* ==========================================
+   MENÚ HAMBURGUESA - INVENTARIO
+========================================== */
+
+.menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid #eee4dc;
+    border-radius: 10px;
+    background: #fffaf2;
+    color: #805841;
+    font-size: 20px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.sidebar-backdrop {
+    display: none;
+}
+
+@media (max-width: 760px) {
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 255px;
+        min-width: 0;
+        max-width: 85vw;
+        height: 100vh;
+        min-height: 100vh;
+        flex: none;
+        z-index: 1200;
+        overflow-y: auto;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    body.sidebar-open .sidebar {
+        transform: translateX(0);
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+    }
+
+    .sidebar-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 1100;
+        background: rgba(40, 25, 25, 0.45);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    body.sidebar-open .sidebar-backdrop {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    body.sidebar-open {
+        overflow: hidden;
+    }
+
+    .dashboard-container {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .main-content {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        flex: 1 1 100%;
+    }
+
+    .topbar {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .breadcrumb {
+        min-width: 0;
+    }
+
+    .inventory-toolbar {
+        width: 100%;
+    }
+
+    .inventory-search,
+    .warehouse-search {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .inventory-filters {
+        width: 100%;
+    }
+
+    .table-responsive {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .inventory-table,
+    .inventory-summary-table {
+        min-width: 850px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .welcome-section {
+        width: 100%;
+    }
+
+    .welcome-decoration {
+        flex-shrink: 0;
+    }
+
+    .inventory-alert-controls .form-group {
+        min-width: 0;
+    }
+
+    .table-heading {
+        flex-wrap: wrap;
+    }
+
+    .table-heading button {
+        width: 100%;
+    }
+}

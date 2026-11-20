@@ -1,0 +1,404 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bake Track | Gestión de Bodegas</title>
+
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/ui.css">
+    <link rel="stylesheet" href="css/bodega.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- MENÚ LATERAL -->
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <img src="assets/bake-track-logo.png" alt="Bake Track" class="brand-logo">
+            <div>
+                <h2>Bake Track</h2>
+                <span>GESTIÓN DE PANADERÍA</span>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <span class="section-label">PRINCIPAL</span>
+
+            <nav class="sidebar-menu">
+
+                <a href="admin.html" class="menu-item">
+                    <img src="assets/Dashboard.png" alt="" class="menu-icon">
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="bodega.html" class="menu-item active">
+                    <img src="assets/Bodegas.png" alt="" class="menu-icon">
+                    <span>Bodegas</span>
+                </a>
+
+                <a href="producto.html" class="menu-item">
+                    <img src="assets/Productos.png" alt="" class="menu-icon">
+                    <span>Productos</span>
+                </a>
+
+                <a href="categoria.html" class="menu-item">
+                    <img src="assets/Caja.png" alt="" class="menu-icon">
+                    <span>Categorías</span>
+                </a>
+
+                <a href="marca.html" class="menu-item">
+                    <img src="assets/Producto almacenado.png" alt="" class="menu-icon">
+                    <span>Marcas</span>
+                </a>
+
+                <a href="inventario.html" class="menu-item">
+                    <img src="assets/Inventario.png" alt="" class="menu-icon">
+                    <span>Inventario</span>
+                </a>
+
+            </nav>
+        </div>
+
+        <div class="sidebar-section">
+            <span class="section-label">OPERACIONES</span>
+
+            <nav class="sidebar-menu">
+
+                <a href="movimiento.html" class="menu-item">
+                    <img src="assets/Movimientos.png" alt="" class="menu-icon">
+                    <span>Movimientos</span>
+                </a>
+
+                <a href="reportes.html" class="menu-item">
+                    <img src="assets/Reportes.png" alt="" class="menu-icon">
+                    <span>Reportes</span>
+                </a>
+
+                <a href="auditoria.html" class="menu-item">
+                    <img src="assets/Auditoria.png" alt="" class="menu-icon">
+                    <span>Auditoría</span>
+                </a>
+
+            </nav>
+        </div>
+
+        <div class="sidebar-section">
+            <span class="section-label">ADMINISTRACIÓN</span>
+
+            <nav class="sidebar-menu">
+                <a href="usuarios.html" class="menu-item">
+                    <img src="assets/Usuarios.png" alt="" class="menu-icon">
+                    <span>Usuarios</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+
+            <div class="admin-profile">
+                <div class="profile-avatar" id="sidebarAdminInitials">AD</div>
+
+                <div class="profile-info">
+                    <strong id="sidebarAdminName">Administrador</strong>
+                    <span>Administrador del sistema</span>
+                </div>
+
+                <i class="fa-solid fa-ellipsis"></i>
+            </div>
+
+            <button class="logout-button" id="logoutButton">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                Cerrar sesión
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+
+        <!-- ENCABEZADO -->
+        <header class="topbar">
+
+            <div class="breadcrumb">
+                <span>Bake Track</span>
+                <i class="fa-solid fa-chevron-right"></i>
+                <strong>Gestión de bodegas</strong>
+            </div>
+
+            <div class="topbar-actions">
+                <div class="topbar-user">
+
+                    <div class="profile-avatar" id="topbarAdminInitials">AD</div>
+
+                    <div>
+                        <strong id="topbarAdminName">Administrador</strong>
+                        <span>ADMIN</span>
+                    </div>
+
+                </div>
+            </div>
+
+        </header>
+
+        <!-- BIENVENIDA -->
+        <section class="welcome-section">
+
+            <div class="welcome-content">
+
+                <span class="welcome-date" id="currentDate">
+                    GESTIÓN DE BODEGAS
+                </span>
+
+                <h1>Gestión de bodegas <span>✦</span></h1>
+
+                <p>
+                    Administra y organiza los espacios de almacenamiento
+                    de Bake Track desde un solo lugar.
+                </p>
+
+            </div>
+
+            <div class="welcome-decoration">
+                <img src="assets/saris2.png" alt="Bake Track" class="welcome-mascot">
+            </div>
+
+        </section>
+
+        <!-- CONTENIDO BODEGAS -->
+        <section class="warehouse-page">
+
+            <div class="warehouse-heading">
+
+                <div>
+                    <h2>
+                        <img src="assets/Estanterias.png" alt="" class="heading-icon">
+                        Mis bodegas
+                    </h2>
+
+                    <p>Consulta y administra las bodegas registradas en Bake Track.</p>
+                </div>
+
+                <button class="primary-button" id="openWarehouseModal">
+                    <i class="fa-solid fa-plus"></i>
+                    Nueva bodega
+                </button>
+
+            </div>
+
+            <!-- INDICADORES -->
+            <div class="warehouse-stats">
+
+                <article class="warehouse-stat">
+
+                    <div class="warehouse-stat-icon lavender">
+                        <img src="assets/Bodegas.png" alt="Bodegas">
+                    </div>
+
+                    <div>
+                        <span>Total de bodegas</span>
+                        <strong id="warehouseCount">--</strong>
+                    </div>
+
+                </article>
+
+                <article class="warehouse-stat">
+
+                    <div class="warehouse-stat-icon blue">
+                        <img src="assets/Cajas apiladas.png" alt="Unidades almacenadas">
+                    </div>
+
+                    <div>
+                        <span>Unidades almacenadas</span>
+                        <strong id="warehouseStock">--</strong>
+                    </div>
+
+                </article>
+
+                <article class="warehouse-stat">
+
+                    <div class="warehouse-stat-icon cream">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+
+                    <div>
+                        <span>Ciudades registradas</span>
+                        <strong id="warehouseCities">--</strong>
+                    </div>
+
+                </article>
+
+            </div>
+
+            <!-- BUSCADOR Y ACCIONES -->
+            <div class="warehouse-toolbar">
+
+                <div class="warehouse-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="warehouseSearch"
+                        placeholder="Buscar bodega por nombre o ciudad..."
+                    >
+                </div>
+
+                <button class="secondary-button" id="refreshWarehouses">
+                    <i class="fa-solid fa-rotate"></i>
+                    Actualizar
+                </button>
+
+            </div>
+
+            <!-- TABLA -->
+            <div class="warehouse-table-card">
+
+                <div class="table-heading">
+                    <div>
+                        <h2>Listado de bodegas</h2>
+                        <p>Información general de almacenamiento.</p>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+
+                    <table class="warehouse-table">
+
+                        <thead>
+                            <tr>
+                                <th>BODEGA</th>
+                                <th>CIUDAD</th>
+                                <th>CAPACIDAD</th>
+                                <th>ENCARGADO</th>
+                                <th>ACCIONES</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="warehouseTableBody">
+
+                            <tr>
+                                <td colspan="5" class="table-loading">
+                                    <i class="fa-solid fa-spinner fa-spin"></i>
+                                    Cargando bodegas...
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- PIE DE PÁGINA -->
+        <footer class="dashboard-footer">
+            <span>Bake Track © 2026</span>
+            <span>Gestión inteligente de inventario</span>
+        </footer>
+
+    </main>
+
+</div>
+
+<!-- MODAL DE BODEGAS -->
+<div class="modal-overlay" id="warehouseModal">
+
+    <div class="warehouse-modal">
+
+        <div class="modal-header">
+
+            <div>
+                <h2 id="warehouseModalTitle">Registrar nueva bodega</h2>
+                <p>Completa la información de la bodega.</p>
+            </div>
+
+            <button type="button" class="modal-close" id="closeWarehouseModal" aria-label="Cerrar">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <form id="warehouseForm">
+
+            <input type="hidden" id="warehouseId">
+
+            <div class="form-group">
+                <label for="warehouseName">Nombre de la bodega</label>
+                <input
+                    type="text"
+                    id="warehouseName"
+                    placeholder="Ej. Bodega principal"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="warehouseCapacity">Capacidad</label>
+                <input
+                    type="number"
+                    id="warehouseCapacity"
+                    min="1"
+                    placeholder="Ingresa la capacidad"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="warehouseCity">Ciudad</label>
+                <select id="warehouseCity" required>
+                    <option value="">Selecciona una ciudad</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="warehouseManager">Encargado</label>
+                <select id="warehouseManager" required>
+                    <option value="">Selecciona un encargado</option>
+                </select>
+            </div>
+
+            <div id="warehouseFormMessage" class="form-message"></div>
+
+            <div class="modal-actions">
+
+                <button type="button" class="secondary-button" id="cancelWarehouse">
+                    Cancelar
+                </button>
+
+                <button type="submit" class="primary-button" id="saveWarehouse">
+                    Guardar bodega
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- SCRIPTS ORIGINALES: NO MODIFICAR -->
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/bodega.js"></script>
+
+</body>
+</html>

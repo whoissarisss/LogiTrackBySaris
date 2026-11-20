@@ -1,0 +1,808 @@
+
+/* ==========================================
+   BAKE TRACK - MODULO DE BODEGAS
+   IDENTIDAD VISUAL DEL DASHBOARD
+========================================== */
+
+/* COLORES */
+
+:root {
+    --bodega-mahogany: #805841;
+    --bodega-pearl: #DCF7F3;
+    --bodega-yellow: #FFF4CF;
+    --bodega-pink: #FFD8D8;
+    --bodega-crimson: #F5A2A2;
+    --bodega-cream: #FFFAF2;
+    --bodega-ink: #4B3025;
+    --bodega-muted: #92796B;
+    --bodega-border: #EEE4DC;
+    --bodega-white: #FFFFFF;
+    --bodega-background: #FFF3ED;
+}
+
+/* CONTENIDO GENERAL */
+
+.warehouse-page {
+    width: 100%;
+    padding: 26px 0 20px;
+    box-sizing: border-box;
+    font-family: 'Amatic SC', cursive;
+}
+
+.warehouse-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.warehouse-heading h2,
+.table-heading h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 7px;
+    color: var(--bodega-mahogany);
+    font-family: 'Amatic SC', cursive;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.warehouse-heading p,
+.table-heading p {
+    margin: 0;
+    color: var(--bodega-muted);
+    font-family: 'Amatic SC', cursive;
+    font-size: 10px;
+}
+
+.warehouse-heading .heading-icon {
+    width: 38px;
+    height: 38px;
+    display: block;
+    object-fit: contain;
+    padding: 7px;
+    background: var(--bodega-white);
+    border-radius: 11px;
+    box-shadow: 0 3px 8px rgba(128, 88, 65, .07);
+}
+
+/* ICONOS E IMAGENES */
+
+.menu-icon {
+    width: 23px;
+    height: 23px;
+    min-width: 23px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.brand-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.welcome-content {
+    position: relative;
+    z-index: 1;
+}
+
+.welcome-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Amatic SC', sans-serif;
+}
+
+.date-icon {
+    width: 17px;
+    height: 17px;
+    object-fit: contain;
+}
+
+.welcome-mascot {
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    object-fit: contain;
+}
+
+/* BOTONES */
+
+.primary-button,
+.secondary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 40px;
+    padding: 11px 17px;
+    border-radius: 9px;
+    font-family: 'Amatic SC', cursive;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.primary-button {
+    background: var(--bodega-mahogany);
+    color: var(--bodega-white);
+    border: 1px solid var(--bodega-mahogany);
+}
+
+.primary-button:hover {
+    background: #6D4935;
+    border-color: #6D4935;
+    transform: translateY(-2px);
+}
+
+.secondary-button {
+    background: var(--bodega-white);
+    color: var(--bodega-mahogany);
+    border: 1px solid var(--bodega-border);
+}
+
+.secondary-button:hover {
+    background: #FFF3F2;
+    border-color: var(--bodega-pink);
+}
+
+.primary-button:disabled {
+    opacity: .65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* INDICADORES */
+
+.warehouse-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 25px;
+}
+
+.warehouse-stat {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-width: 0;
+    min-height: 112px;
+    padding: 19px;
+    border: 1px solid rgba(128, 88, 65, .08);
+    border-radius: 15px;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.warehouse-stat:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(128, 88, 65, .08);
+}
+
+/* FONDOS PASTEL DEL DASHBOARD */
+
+.warehouse-stat:nth-child(1) {
+    background: #F8E5EC;
+    border-color: #F1D4DF;
+}
+
+.warehouse-stat:nth-child(2) {
+    background: #FBE0DF;
+    border-color: #F3D0CF;
+}
+
+.warehouse-stat:nth-child(3) {
+    background: #FFF0D2;
+    border-color: #F1E1BD;
+}
+
+.warehouse-stat-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, .75);
+    box-shadow: 0 3px 8px rgba(128, 88, 65, .06);
+    color: var(--bodega-mahogany);
+}
+
+.warehouse-stat-icon img {
+    display: block;
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+
+.warehouse-stat-icon i {
+    font-size: 17px;
+}
+
+.warehouse-stat span {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--bodega-muted);
+    font-family: 'Amatic SC', cursive;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.warehouse-stat strong {
+    display: block;
+    color: var(--bodega-mahogany);
+    font-family: 'Amatic SC', cursive;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+/* BUSCADOR Y BARRA DE ACCIONES */
+
+.warehouse-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.warehouse-search {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: min(480px, 100%);
+    height: 43px;
+    padding: 0 14px;
+    background: var(--bodega-white);
+    border: 1px solid var(--bodega-border);
+    border-radius: 9px;
+    color: var(--bodega-mahogany);
+    transition: border-color .2s ease, box-shadow .2s ease;
+    box-sizing: border-box;
+}
+
+.warehouse-search:focus-within {
+    border-color: var(--bodega-crimson);
+    box-shadow: 0 0 0 3px rgba(245, 162, 162, .13);
+}
+
+.warehouse-search > i {
+    flex-shrink: 0;
+    font-size: 13px;
+}
+
+.warehouse-search input {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--bodega-ink);
+    font-family: 'Amatic SC', cursive;
+    font-size: 11px;
+}
+
+.warehouse-search input::placeholder {
+    color: #B6A398;
+}
+
+/* TABLA */
+
+.warehouse-table-card {
+    width: 100%;
+    overflow: hidden;
+    background: #FFF9F5;
+    border: 1px solid #F3DEDA;
+    border-radius: 16px;
+    box-shadow: 0 5px 18px rgba(128, 88, 65, .06);
+}
+
+.table-heading {
+    padding: 21px 23px;
+    border-bottom: 1px solid var(--bodega-border);
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.warehouse-table {
+    width: 100%;
+    min-width: 750px;
+    border-collapse: collapse;
+    font-family: 'Amatic SC', cursive;
+}
+
+.warehouse-table thead {
+    background: #FFF0F1;
+}
+
+.warehouse-table th {
+    padding: 15px 20px;
+    color: var(--bodega-mahogany);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .7px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.warehouse-table td {
+    padding: 16px 20px;
+    color: var(--bodega-ink);
+    font-size: 11px;
+    border-bottom: 1px solid var(--bodega-border);
+    vertical-align: middle;
+}
+
+.warehouse-table tbody tr {
+    transition: background .2s ease;
+}
+
+.warehouse-table tbody tr:hover {
+    background: #FFF3F2;
+}
+
+.warehouse-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* NOMBRE DE BODEGA */
+
+.warehouse-name-cell {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-width: 180px;
+}
+
+.warehouse-table-icon {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    background: #F5E9EC;
+    border-radius: 11px;
+}
+
+.warehouse-table-icon img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+
+.warehouse-table-icon i {
+    color: var(--bodega-mahogany);
+    font-size: 16px;
+}
+
+.warehouse-name-cell strong {
+    color: var(--bodega-mahogany);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* CIUDAD */
+
+.warehouse-table td:nth-child(2) {
+    color: var(--bodega-muted);
+}
+
+/* CAPACIDAD */
+
+.capacity-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 55px;
+    padding: 7px 11px;
+    background: #FFF0D2;
+    color: var(--bodega-mahogany);
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+/* ENCARGADO */
+
+.warehouse-table td:nth-child(4) {
+    color: var(--bodega-ink);
+}
+
+/* ACCIONES */
+
+.warehouse-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-button {
+    width: 33px;
+    height: 33px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.action-button.edit {
+    background: #F8E5EC;
+    color: var(--bodega-mahogany);
+}
+
+.action-button.edit:hover {
+    background: var(--bodega-mahogany);
+    color: var(--bodega-white);
+}
+
+.action-button.delete {
+    background: #FBE0DF;
+    color: #A34E46;
+}
+
+.action-button.delete:hover {
+    background: #C45E5E;
+    color: var(--bodega-white);
+}
+
+/* ESTADOS DE TABLA */
+
+.table-loading,
+.table-empty,
+.table-error {
+    padding: 40px !important;
+    text-align: center;
+    color: var(--bodega-muted) !important;
+    font-size: 11px;
+}
+
+.table-loading i {
+    margin-right: 8px;
+    color: var(--bodega-mahogany);
+}
+
+/* MODAL */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(75, 48, 37, .48);
+    backdrop-filter: blur(4px);
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.warehouse-modal {
+    width: 100%;
+    max-width: 510px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 27px;
+    background: var(--bodega-cream);
+    border: 1px solid var(--bodega-border);
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(75, 48, 37, .20);
+    animation: modalAppear .2s ease;
+    box-sizing: border-box;
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.modal-header h2 {
+    margin: 0 0 6px;
+    color: var(--bodega-mahogany);
+    font-family: 'Amatic SC', cursive;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.modal-header p {
+    margin: 0;
+    color: var(--bodega-muted);
+    font-family: 'Amatic SC', cursive;
+    font-size: 10px;
+}
+
+.modal-close {
+    width: 35px;
+    height: 35px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 9px;
+    background: #F8E5EC;
+    color: var(--bodega-mahogany);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.modal-close:hover {
+    background: var(--bodega-mahogany);
+    color: var(--bodega-white);
+}
+
+/* FORMULARIO */
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--bodega-mahogany);
+    font-family: 'Amatic SC', cursive;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    height: 43px;
+    padding: 0 13px;
+    border: 1px solid var(--bodega-border);
+    border-radius: 9px;
+    outline: none;
+    background: var(--bodega-white);
+    color: var(--bodega-ink);
+    font-family: 'Amatic SC', cursive;
+    font-size: 11px;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--bodega-crimson);
+    box-shadow: 0 0 0 3px rgba(245, 162, 162, .13);
+}
+
+/* MENSAJES DEL FORMULARIO */
+
+.form-message {
+    display: none;
+    margin: 12px 0;
+    padding: 11px 13px;
+    border-radius: 9px;
+    font-family: 'Amatic SC', cursive;
+    font-size: 11px;
+}
+
+.form-message.show {
+    display: block;
+}
+
+.form-message.error {
+    background: #FBE0DF;
+    color: #A34E46;
+}
+
+.form-message.success {
+    background: #DCF7F3;
+    color: #347653;
+}
+
+/* ACCIONES DEL MODAL */
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+/* PIE DE PÁGINA */
+
+.dashboard-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 15px 2px 0;
+    border-top: 1px solid var(--bodega-border);
+    color: var(--bodega-muted);
+    font-family: 'Amatic SC', cursive;
+    font-size: 10px;
+}
+
+/* AJUSTES RESPONSIVE */
+
+@media (max-width: 1100px) {
+
+    .warehouse-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 760px) {
+
+    .warehouse-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .warehouse-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .warehouse-search {
+        width: 100%;
+    }
+
+    .warehouse-toolbar .secondary-button {
+        width: 100%;
+    }
+
+    .warehouse-heading .primary-button {
+        width: 100%;
+    }
+
+    .warehouse-page {
+        padding-top: 22px;
+    }
+
+    .welcome-mascot {
+        padding: 5px;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .warehouse-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .warehouse-modal {
+        padding: 21px;
+    }
+
+    .modal-actions {
+        flex-direction: column-reverse;
+    }
+
+    .modal-actions button {
+        width: 100%;
+    }
+
+    .dashboard-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .warehouse-heading h2 {
+        font-size: 15px;
+    }
+
+    .table-heading {
+        padding: 18px;
+    }
+
+    .welcome-mascot {
+        padding: 3px;
+    }
+
+}
+
+/* ==========================================
+   MENÚ HAMBURGUESA - RESPONSIVE
+========================================== */
+
+.menu-toggle {
+    display: none;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #EEE4DC;
+    border-radius: 10px;
+    background: #FFFFFF;
+    color: #805841;
+    font-size: 20px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.sidebar-backdrop {
+    display: none;
+}
+
+@media (max-width: 760px) {
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 280px;
+        max-width: 85vw;
+        height: 100vh;
+        z-index: 1200;
+        overflow-y: auto;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    body.sidebar-open .sidebar {
+        transform: translateX(0);
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+    }
+
+    .topbar {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .sidebar-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 1100;
+        background: rgba(75, 48, 37, 0.45);
+    }
+
+    body.sidebar-open .sidebar-backdrop {
+        display: block;
+    }
+
+    body.sidebar-open {
+        overflow: hidden;
+    }
+
+    .main-content {
+        width: 100%;
+        min-width: 0;
+    }
+}

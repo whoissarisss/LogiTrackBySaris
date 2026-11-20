@@ -1,0 +1,289 @@
+/* ==========================================
+   BAKE TRACK - MODULO DE MARCAS
+   ========================================== */
+
+/* TABLA DE MARCAS */
+
+.brand-table {
+    width: 100%;
+    min-width: 520px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.brand-table th,
+.brand-table td {
+    white-space: nowrap;
+}
+
+.brand-table th:first-child,
+.brand-table td:first-child {
+    width: 90px;
+}
+
+.brand-table th:last-child,
+.brand-table td:last-child {
+    width: 130px;
+}
+
+.brand-table td {
+    vertical-align: middle;
+}
+
+.brand-table tbody tr:hover {
+    background: #FEFBFC;
+}
+
+/* IDENTIFICADOR Y NOMBRE */
+
+.brand-id {
+    color: #A78370;
+    font-weight: 700;
+}
+
+.brand-name {
+    color: #805841;
+    font-weight: 700;
+}
+
+/* BOTONES DE ACCIONES */
+
+.brand-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.brand-action {
+    width: 32px;
+    height: 32px;
+    display: inline-grid;
+    place-items: center;
+    border: 1px solid #F0DED5;
+    border-radius: 8px;
+    background: #FFFFFF;
+    color: #805841;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.brand-action:hover {
+    background: #F8E5EC;
+    border-color: #E8C9D2;
+}
+
+.brand-action.delete {
+    color: #B84444;
+}
+
+.brand-action.delete:hover {
+    background: #FCEAEA;
+    border-color: #F3CACA;
+}
+
+/* PIE DE TABLA */
+
+.brand-table-footer {
+    padding: 13px 18px;
+    border-top: 1px solid #F0DED5;
+    color: #A78370;
+    font-size: 11px;
+}
+
+/* MODAL DE MARCAS */
+
+.brand-modal {
+    width: min(100%, 480px);
+}
+
+.brand-modal .form-group input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.brand-modal .form-message.error {
+    color: #B84444;
+}
+
+.brand-modal .form-message.success {
+    color: #287A4B;
+}
+
+.brand-modal button:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+/* AJUSTES VISUALES */
+
+.brand-modal .modal-header h2 {
+    color: #805841;
+}
+
+.brand-modal .modal-header p {
+    color: #A78370;
+}
+
+.brand-modal .form-group label {
+    color: #805841;
+}
+
+.brand-modal .form-group input:focus {
+    border-color: #B87988;
+    box-shadow: 0 0 0 3px rgba(184, 121, 136, .12);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 760px) {
+
+    .brand-table {
+        min-width: 480px;
+    }
+
+    .brand-modal {
+        width: 100%;
+    }
+
+    .brand-table-footer {
+        padding: 13px 15px;
+    }
+
+}
+
+
+/* ==========================================
+   MENÚ RESPONSIVE - MARCAS
+========================================== */
+
+.menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid #F0DED5;
+    border-radius: 10px;
+    background: #FFFFFF;
+    color: #805841;
+    font-size: 20px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.sidebar-backdrop {
+    display: none;
+}
+
+@media (max-width: 760px) {
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 280px;
+        max-width: 85vw;
+        height: 100vh;
+        z-index: 1200;
+        overflow-y: auto;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    body.sidebar-open .sidebar {
+        transform: translateX(0);
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+    }
+
+    .sidebar-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 1100;
+        background: rgba(40, 25, 25, 0.45);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    body.sidebar-open .sidebar-backdrop {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    body.sidebar-open {
+        overflow: hidden;
+    }
+
+    .main-content {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .topbar {
+        gap: 12px;
+    }
+
+    .warehouse-page {
+        padding-top: 20px;
+    }
+
+    .warehouse-heading {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .warehouse-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .warehouse-toolbar {
+        flex-wrap: wrap;
+    }
+
+    .warehouse-search {
+        width: 100%;
+    }
+
+    .table-responsive {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .brand-table {
+        min-width: 480px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .breadcrumb {
+        font-size: 12px;
+    }
+
+    .topbar-user {
+        gap: 6px;
+    }
+
+    .warehouse-heading .primary-button {
+        width: 100%;
+    }
+
+    .brand-modal {
+        width: 100%;
+        max-width: calc(100vw - 30px);
+    }
+
+    .brand-modal .modal-actions {
+        flex-direction: column-reverse;
+    }
+
+    .brand-modal .modal-actions button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,554 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bake Track | Panel Administrativo</title>
+
+    <link rel="stylesheet" href="css/admin.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- =================================
+         MENÚ LATERAL
+    ================================== -->
+
+    <aside class="sidebar">
+
+        <!-- LOGO -->
+        <div class="sidebar-brand">
+
+            <img
+                src="assets/bake-track-logo.png"
+                alt="Bake Track"
+                class="brand-logo"
+            >
+
+            <div>
+                <h2>Bake Track</h2>
+                <span>GESTIÓN DE PANADERÍA</span>
+            </div>
+
+        </div>
+
+
+        <!-- PRINCIPAL -->
+        <div class="sidebar-section">
+
+            <span class="section-label">PRINCIPAL</span>
+
+            <nav class="sidebar-menu">
+
+                <a href="#" class="menu-item active">
+                    <img src="assets/Dashboard.png" alt="" class="menu-icon">
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="bodega.html" class="menu-item">
+                    <img src="assets/Bodegas.png" alt="" class="menu-icon">
+                    <span>Bodegas</span>
+                </a>
+
+                <a href="producto.html" class="menu-item">
+                    <img src="assets/Productos.png" alt="" class="menu-icon">
+                    <span>Productos</span>
+                </a>
+
+                <a href="categoria.html" class="menu-item">
+                    <img src="assets/Caja.png" alt="" class="menu-icon">
+                    <span>Categorías</span>
+                </a>
+
+                <a href="marca.html" class="menu-item">
+                    <img src="assets/Producto almacenado.png" alt="" class="menu-icon">
+                    <span>Marcas</span>
+                </a>
+
+                <a href="inventario.html" class="menu-item">
+                    <img src="assets/Inventario.png" alt="" class="menu-icon">
+                    <span>Inventario</span>
+                </a>
+
+            </nav>
+
+        </div>
+
+
+        <!-- OPERACIONES -->
+        <div class="sidebar-section">
+
+            <span class="section-label">OPERACIONES</span>
+
+            <nav class="sidebar-menu">
+
+                <a href="movimiento.html" class="menu-item">
+                    <img src="assets/Movimientos.png" alt="" class="menu-icon">
+                    <span>Movimientos</span>
+                </a>
+
+                <a href="reportes.html" class="menu-item">
+                    <img src="assets/Reportes.png" alt="" class="menu-icon">
+                    <span>Reportes</span>
+                </a>
+
+                <a href="auditoria.html" class="menu-item">
+                    <img src="assets/Auditoria.png" alt="" class="menu-icon">
+                    <span>Auditoría</span>
+                </a>
+
+            </nav>
+
+        </div>
+
+
+        <!-- ADMINISTRACIÓN -->
+        <div class="sidebar-section">
+
+            <span class="section-label">ADMINISTRACIÓN</span>
+
+            <nav class="sidebar-menu">
+
+                <a href="usuarios.html" class="menu-item">
+                    <img src="assets/Usuarios.png" alt="" class="menu-icon">
+                    <span>Usuarios</span>
+                    <span class="menu-badge">!</span>
+                </a>
+
+            </nav>
+
+        </div>
+
+
+        <!-- PERFIL -->
+        <div class="sidebar-bottom">
+
+            <div class="admin-profile">
+
+                <div class="profile-avatar" id="sidebarAdminInitials">
+                    AD
+                </div>
+
+                <div class="profile-info">
+
+                    <strong id="sidebarAdminName">
+                        Administrador
+                    </strong>
+
+                    <span>Administrador del sistema</span>
+
+                </div>
+
+            </div>
+
+
+            <button class="logout-button" id="logoutButton">
+
+                <span>Cerrar sesión</span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =================================
+         CONTENIDO PRINCIPAL
+    ================================== -->
+
+    <main class="main-content">
+
+
+        <!-- ENCABEZADO -->
+        <header class="topbar">
+
+            <div class="breadcrumb">
+
+                <span>Bake Track</span>
+
+                <span>›</span>
+
+                <strong>Dashboard</strong>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+        
+                <div class="topbar-user">
+
+                    <div class="profile-avatar" id="topbarAdminInitials">
+                        AD
+                    </div>
+
+                    <div>
+                        <strong id="topbarAdminName">
+                            Administrador
+                        </strong>
+
+                        <span id="topbarAdminRole">
+                            ADMIN
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================
+             BIENVENIDA
+        ================================== -->
+
+        <section class="welcome-section">
+
+            <div>
+
+                <span class="welcome-date" id="currentDate">
+                    PANEL DE CONTROL
+                </span>
+
+                <h1>
+                    ¡Bienvenido de nuevo!
+                    <span>✦</span>
+                </h1>
+
+                <p>
+                    Administra tus productos, controla tus existencias
+                    y mantén organizada tu panadería.
+                </p>
+
+            </div>
+
+            <div class="welcome-decoration">
+
+                <img
+                    src="assets/saris2.png"
+                    alt="Bake Track"
+                    class="welcome-mascot"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             RESUMEN GENERAL
+        ================================== -->
+
+        <section class="section-block">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Resumen general</h2>
+                    <p>Estado general de Bake Track</p>
+                </div>
+
+                <span class="period-label">
+
+                    <img
+                        src="assets/Fecha y hora.png"
+                        alt=""
+                        class="small-custom-icon"
+                    >
+
+                    Vista general
+
+                </span>
+
+            </div>
+
+
+            <!-- ESTADÍSTICAS -->
+            <div class="stats-grid">
+
+
+                <!-- PRODUCTOS -->
+                <article class="stat-card lavender-card">
+
+                    <div class="stat-top">
+
+                        <span>Total de productos</span>
+
+                        <div class="stat-icon">
+
+                            <img
+                                src="assets/Productos.png"
+                                alt=""
+                                class="stat-custom-icon"
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <h3 id="totalProductos">--</h3>
+
+                    <span class="stat-description">
+                        Productos registrados
+                    </span>
+
+                </article>
+
+
+                <!-- BODEGAS -->
+                <article class="stat-card blue-card">
+
+                    <div class="stat-top">
+
+                        <span>Total de bodegas</span>
+
+                        <div class="stat-icon">
+
+                            <img
+                                src="assets/Bodegas.png"
+                                alt=""
+                                class="stat-custom-icon"
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <h3 id="totalBodegas">--</h3>
+
+                    <span class="stat-description">
+                        Bodegas registradas
+                    </span>
+
+                </article>
+
+
+                <!-- STOCK -->
+                <article class="stat-card cream-card">
+
+                    <div class="stat-top">
+
+                        <span>Stock disponible</span>
+
+                        <div class="stat-icon">
+
+                            <img
+                                src="assets/Cajas apiladas.png"
+                                alt=""
+                                class="stat-custom-icon"
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <h3 id="stockDisponible">--</h3>
+
+                    <span class="stat-description">
+                        Unidades en inventario
+                    </span>
+
+                </article>
+
+
+                <!-- MOVIMIENTOS -->
+                <article class="stat-card purple-card">
+
+                    <div class="stat-top">
+
+                        <span>Movimientos</span>
+
+                        <div class="stat-icon">
+
+                            <img
+                                src="assets/Movimientos.png"
+                                alt=""
+                                class="stat-custom-icon"
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <h3 id="totalMovimientos">--</h3>
+
+                    <span class="stat-description">
+                        Operaciones registradas
+                    </span>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             INVENTARIO Y ACTIVIDAD
+        ================================== -->
+
+        <section class="content-grid">
+
+
+            <!-- INVENTARIO POR BODEGA -->
+            <article class="content-card inventory-card">
+
+                <div class="card-heading">
+
+                    <div>
+                        <h2>Inventario por bodega</h2>
+                        <p>Resumen de existencias por bodega</p>
+                    </div>
+
+                    <img
+                        src="assets/Estanterias.png"
+                        alt=""
+                        class="heading-custom-icon"
+                    >
+
+                </div>
+
+
+                <div id="warehouseSummary" class="empty-state">
+
+                    <img
+                        src="assets/sin existencias.png"
+                        alt=""
+                        class="empty-custom-icon"
+                    >
+
+                    <p>
+                        Los datos del inventario aparecerán aquí.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- ACTIVIDAD RECIENTE -->
+            <article class="content-card activity-card">
+
+                <div class="card-heading">
+
+                    <div>
+                        <h2>Actividad reciente</h2>
+                        <p>Últimas operaciones registradas</p>
+                    </div>
+
+                    <img
+                        src="assets/Movimientos.png"
+                        alt=""
+                        class="heading-custom-icon"
+                    >
+
+                </div>
+
+
+                <div id="recentActivity" class="empty-state">
+
+                    <img
+                        src="assets/Movimientos.png"
+                        alt=""
+                        class="empty-custom-icon"
+                    >
+
+                    <p>
+                        Las actividades aparecerán aquí.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+        </section>
+
+
+        <!-- =================================
+             ALERTAS DE STOCK
+        ================================== -->
+
+        <section class="content-card alerts-card">
+
+            <div class="card-heading">
+
+                <div>
+                    <h2>Productos con stock bajo</h2>
+
+                    <p>
+                        Productos que necesitan reposición
+                    </p>
+                </div>
+
+
+                <span class="alert-label">
+
+                    <img
+                        src="assets/Stock bajo.png"
+                        alt=""
+                        class="small-custom-icon"
+                    >
+
+                    Atención
+
+                </span>
+
+            </div>
+
+
+            <div id="lowStockProducts" class="empty-state">
+
+                <img
+                    src="assets/Stock bajo.png"
+                    alt=""
+                    class="empty-custom-icon"
+                >
+
+                <p>
+                    Las alertas de inventario aparecerán aquí.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             PIE DE PÁGINA
+        ================================== -->
+
+        <footer class="dashboard-footer">
+
+            <span>Bake Track © 2026</span>
+
+            <span>Gestión inteligente de inventario</span>
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+
+<!-- SCRIPTS -->
+<script src="js/api.js"></script>
+<script src="js/admin.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffd8d8">
+
+    <title>Bake Track | Iniciar sesión</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/login.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="baketrack-login-body">
+
+    <main class="baketrack-login" aria-label="Acceso a Bake Track">
+
+        <section class="login-illustration" aria-label="Identidad Bake Track">
+
+            <div class="illustration-pattern" aria-hidden="true"></div>
+
+            <a class="brand-lockup" href="index.html" aria-label="Bake Track, inicio">
+                <img
+                    src="assets/bake-track-logo.png"
+                    alt="Bake Track — Bakery Logistics"
+                    class="brand-logo">
+            </a>
+
+            <div class="illustration-tagline" aria-hidden="true">
+                <span>BAKERY LOGISTICS</span>
+                <span class="tagline-heart">♡</span>
+            </div>
+
+            <img
+                src="assets/saris.png"
+                alt="Personaje chef de Bake Track"
+                class="chef-mascot">
+
+            <span class="floating-sparkle sparkle-one" aria-hidden="true">✦</span>
+            <span class="floating-sparkle sparkle-two" aria-hidden="true">♡</span>
+
+        </section>
+
+        <section class="login-content">
+
+            <div class="login-content-inner">
+
+                <div class="mobile-brand">
+                    <img
+                        src="assets/bake-track-logo.png"
+                        alt="Bake Track"
+                        class="mobile-logo">
+                </div>
+
+                <div class="login-topline">
+                    <span class="topline-dot"></span>
+                    TU ESPACIO DE TRABAJO
+                </div>
+
+                <!-- PESTAÑAS -->
+
+                <div class="auth-tabs" role="tablist" aria-label="Acceso a Bake Track">
+
+                    <button
+                        type="button"
+                        class="auth-tab active"
+                        id="showLogin"
+                        role="tab"
+                        aria-selected="true"
+                        aria-controls="loginView">
+
+                        Iniciar sesión
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="auth-tab"
+                        id="showRegister"
+                        role="tab"
+                        aria-selected="false"
+                        aria-controls="registerView">
+
+                        Crear cuenta
+
+                    </button>
+
+                </div>
+
+                <!-- INICIO DE SESIÓN -->
+
+                <div id="loginView" role="tabpanel" aria-labelledby="showLogin">
+
+                    <div class="login-heading">
+
+                        <span class="form-eyebrow">
+                            ¡QUÉ ALEGRÍA TENERTE AQUÍ!
+                        </span>
+
+                        <h1>¡Hola de nuevo!</h1>
+
+                        <p>Ingresa tus datos para entrar a Bake Track.</p>
+
+                    </div>
+
+                    <form id="loginForm">
+
+                        <label class="baketrack-field" for="correo">
+
+                            <span>Correo electrónico</span>
+
+                            <input
+                                type="email"
+                                id="correo"
+                                name="correo"
+                                placeholder="tunombre@correo.com"
+                                autocomplete="username"
+                                required>
+
+                        </label>
+
+                        <label class="baketrack-field" for="password">
+
+                            <span>Contraseña</span>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Escribe tu contraseña"
+                                autocomplete="current-password"
+                                required>
+
+                        </label>
+
+                        <p
+                            id="loginMessage"
+                            class="auth-message"
+                            role="alert"
+                            aria-live="polite">
+                        </p>
+
+                        <button class="login-button" type="submit">
+
+                            <span>Entrar a mi espacio</span>
+
+                            <span class="button-arrow" aria-hidden="true">♡</span>
+
+                        </button>
+
+                    </form>
+
+                    <p class="login-hint">
+                        Tu inventario, tus productos y tus movimientos en un solo lugar.
+                    </p>
+
+                </div>
+
+                <!-- REGISTRO -->
+
+                <div
+                    id="registerView"
+                    role="tabpanel"
+                    aria-labelledby="showRegister"
+                    hidden>
+
+                    <div class="login-heading">
+
+                        <span class="form-eyebrow">
+                            NOS ENCANTA QUE TE UNAS
+                        </span>
+
+                        <h1>Crea tu cuenta</h1>
+
+                        <p>
+                            Completa tus datos para solicitar acceso a Bake Track.
+                        </p>
+
+                    </div>
+
+                    <form id="registerForm">
+
+                        <div class="register-two-col">
+
+                            <label class="baketrack-field" for="regNombre">
+
+                                <span>Nombre</span>
+
+                                <input
+                                    type="text"
+                                    id="regNombre"
+                                    placeholder="Tu nombre"
+                                    maxlength="80"
+                                    required>
+
+                            </label>
+
+                            <label class="baketrack-field" for="regApellido">
+
+                                <span>Apellido</span>
+
+                                <input
+                                    type="text"
+                                    id="regApellido"
+                                    placeholder="Tu apellido"
+                                    maxlength="80"
+                                    required>
+
+                            </label>
+
+                        </div>
+
+                        <label class="baketrack-field" for="regCorreo">
+
+                            <span>Correo electrónico</span>
+
+                            <input
+                                type="email"
+                                id="regCorreo"
+                                placeholder="tunombre@correo.com"
+                                required>
+
+                        </label>
+
+                        <label class="baketrack-field" for="regPassword">
+
+                            <span>Contraseña</span>
+
+                            <input
+                                type="password"
+                                id="regPassword"
+                                minlength="8"
+                                placeholder="Mínimo 8 caracteres"
+                                autocomplete="new-password"
+                                required>
+
+                        </label>
+
+                        <p
+                            id="registerMessage"
+                            class="auth-message"
+                            role="alert"
+                            aria-live="polite">
+                        </p>
+
+                        <button class="login-button" type="submit">
+
+                            <span>Enviar solicitud</span>
+
+                            <span class="button-arrow" aria-hidden="true">♡</span>
+
+                        </button>
+
+                    </form>
+
+                    <div class="pending-note">
+
+                        <span class="pending-symbol" aria-hidden="true">♡</span>
+
+                        <span>
+                            Tu cuenta quedará <strong>PENDIENTE</strong> hasta que el administrador apruebe tu solicitud.
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <footer class="login-footer">
+
+                    <span>BAKE TRACK © 2026</span>
+
+                    <span>Hecho con cariño · Bakery Logistics</span>
+
+                </footer>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+
+</body>
+</html>

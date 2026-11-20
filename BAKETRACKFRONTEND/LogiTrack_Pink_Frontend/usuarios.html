@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bake Track | Usuarios</title>
+
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/bodega.css">
+    <link rel="stylesheet" href="css/ui.css">
+    <link rel="stylesheet" href="css/usuarios.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- BARRA LATERAL -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <img src="assets/bake-track-logo.png" alt="Bake Track" class="brand-logo">
+
+            <div>
+                <h2>Bake Track</h2>
+                <span>Control de inventario</span>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <span class="section-label">PRINCIPAL</span>
+
+            <nav class="sidebar-menu">
+
+                <a href="admin.html" class="menu-item">
+                    <img src="assets/Dashboard.png" alt="">
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="bodega.html" class="menu-item">
+                    <img src="assets/Bodegas.png" alt="">
+                    <span>Bodegas</span>
+                </a>
+
+                <a href="producto.html" class="menu-item">
+                    <img src="assets/Productos.png" alt="">
+                    <span>Productos</span>
+                </a>
+
+                <a href="categoria.html" class="menu-item">
+                    <img src="assets/Caja.png" alt="">
+                    <span>Categorías</span>
+                </a>
+
+                <a href="marca.html" class="menu-item">
+                    <img src="assets/Producto almacenado.png" alt="">
+                    <span>Marcas</span>
+                </a>
+
+                <a href="inventario.html" class="menu-item">
+                    <img src="assets/Inventario.png" alt="">
+                    <span>Inventario</span>
+                </a>
+
+            </nav>
+        </div>
+
+        <div class="sidebar-section">
+            <span class="section-label">OPERACIONES</span>
+
+            <nav class="sidebar-menu">
+
+                <a href="movimiento.html" class="menu-item">
+                    <img src="assets/Movimientos.png" alt="">
+                    <span>Movimientos</span>
+                </a>
+
+                <a href="reportes.html" class="menu-item">
+                    <img src="assets/Reportes.png" alt="">
+                    <span>Reportes</span>
+                </a>
+
+                <a href="auditoria.html" class="menu-item">
+                    <img src="assets/Auditoria.png" alt="">
+                    <span>Auditoría</span>
+                </a>
+
+            </nav>
+        </div>
+
+        <div class="sidebar-section">
+            <span class="section-label">ADMINISTRACIÓN</span>
+
+            <nav class="sidebar-menu">
+
+                <a href="usuarios.html" class="menu-item active">
+                    <img src="assets/Usuarios.png" alt="">
+                    <span>Usuarios</span>
+                </a>
+
+            </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+
+            <div class="admin-profile">
+
+                <div class="profile-avatar" id="sidebarAdminInitials">AD</div>
+
+                <div class="profile-info">
+                    <strong id="sidebarAdminName">Administrador</strong>
+                    <span>Administrador del sistema</span>
+                </div>
+
+                <i class="fa-solid fa-ellipsis"></i>
+
+            </div>
+
+            <button class="logout-button" id="logoutButton">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                Cerrar sesión
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- FONDO DEL MENÚ MÓVIL -->
+
+    <div class="sidebar-backdrop"></div>
+
+    <!-- CONTENIDO -->
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <!-- BOTÓN HAMBURGUESA -->
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Abrir menú"
+                aria-expanded="false">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+            <div class="breadcrumb">
+                <span>Panel administrativo</span>
+                <i class="fa-solid fa-chevron-right"></i>
+                <strong>Administración de usuarios</strong>
+            </div>
+
+            <div class="topbar-actions">
+
+                <div class="topbar-user">
+
+                    <div class="profile-avatar" id="topbarAdminInitials">AD</div>
+
+                    <div>
+                        <strong id="topbarAdminName">Administrador</strong>
+                        <span id="topbarAdminRole">ADMIN</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- BANNER DE BIENVENIDA -->
+
+        <section class="welcome-section">
+
+            <div class="welcome-content">
+
+                <span class="welcome-date" id="currentDate">
+                    BAKE TRACK · ADMINISTRACIÓN
+                </span>
+
+                <h1>Usuarios <span>✦</span></h1>
+
+                <p>
+                    Administración de usuarios · Información centralizada para tomar mejores decisiones.
+                </p>
+
+            </div>
+
+            <div class="welcome-decoration">
+                <img src="assets/saris2.png" alt="Mascota Bake Track" class="welcome-mascot">
+            </div>
+
+        </section>
+
+        <section class="section-block">
+
+            <!-- ENCABEZADO -->
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Accesos y equipo</h2>
+
+                    <p>
+                        Revisa solicitudes de registro y administra el acceso de los empleados.
+                    </p>
+                </div>
+
+                <button class="secondary-button" id="refreshUsers">
+                    <i class="fa-solid fa-rotate"></i>
+                    Actualizar
+                </button>
+
+            </div>
+
+            <!-- RESUMEN -->
+
+            <div class="user-overview">
+
+                <div>
+                    <span>Solicitudes por revisar</span>
+                    <strong id="pendingCount">—</strong>
+                    <i class="fa-regular fa-hourglass-half"></i>
+                </div>
+
+                <div>
+                    <span>Empleados aprobados</span>
+                    <strong id="approvedCount">—</strong>
+                    <i class="fa-solid fa-user-check"></i>
+                </div>
+
+                <div>
+                    <span>Estado del acceso</span>
+                    <strong>Controlado</strong>
+                    <i class="fa-solid fa-shield-heart"></i>
+                </div>
+
+            </div>
+
+            <!-- PESTAÑAS -->
+
+            <div class="user-tabs">
+
+                <button class="user-tab active" data-view="pending">
+                    Solicitudes pendientes
+                    <span id="pendingTabCount">0</span>
+                </button>
+
+                <button class="user-tab" data-view="approved">
+                    Empleados aprobados
+                </button>
+
+            </div>
+
+            <!-- TABLA -->
+
+            <article class="warehouse-table-card user-table-card">
+
+                <div class="table-heading">
+
+                    <div>
+                        <h2 id="userListTitle">Solicitudes de acceso</h2>
+
+                        <p id="userListSubtitle">
+                            Aprueba o rechaza los registros enviados por los empleados.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="table-responsive">
+
+                    <table class="warehouse-table">
+
+                        <thead id="usersHead">
+                            <tr>
+                                <th>COLABORADOR</th>
+                                <th>CORREO</th>
+                                <th>FECHA DE REGISTRO</th>
+                                <th>ESTADO</th>
+                                <th>ACCIONES</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="usersBody">
+
+                            <tr>
+                                <td colspan="5" class="table-loading">
+                                    Cargando solicitudes...
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </article>
+
+        </section>
+
+        <!-- MODAL DE RECHAZO -->
+
+        <div class="reject-backdrop" id="rejectModal" hidden>
+
+            <section
+                class="reject-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="rejectTitle">
+
+                <button
+                    class="reject-close"
+                    id="closeReject"
+                    aria-label="Cerrar">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+                <span class="form-eyebrow">
+                    REVISIÓN DE SOLICITUD
+                </span>
+
+                <h2 id="rejectTitle">
+                    Rechazar solicitud
+                </h2>
+
+                <p>
+                    Escribe el motivo para dejar constancia de la decisión.
+                </p>
+
+                <label for="rejectReason">
+                    Motivo del rechazo
+                </label>
+
+                <textarea
+                    id="rejectReason"
+                    rows="4"
+                    maxlength="500"
+                    placeholder="Describe brevemente el motivo..."></textarea>
+
+                <p class="reject-error" id="rejectError"></p>
+
+                <div class="reject-actions">
+
+                    <button class="secondary-button" id="cancelReject">
+                        Cancelar
+                    </button>
+
+                    <button class="danger-button" id="confirmReject">
+                        Confirmar rechazo
+                    </button>
+
+                </div>
+
+            </section>
+
+        </div>
+
+        <!-- PIE DE PÁGINA -->
+
+        <footer class="dashboard-footer">
+            <span>Bake Track © 2026</span>
+            <span>Control · Organización · Trazabilidad</span>
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/usuarios.js"></script>
+
+</body>
+</html>

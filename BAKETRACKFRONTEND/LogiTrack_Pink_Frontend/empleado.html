@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bake Track | Mi espacio</title>
+
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/bodega.css">
+    <link rel="stylesheet" href="css/ui.css">
+    <link rel="stylesheet" href="css/pink-theme.css">
+    <link rel="stylesheet" href="css/empleado.css">
+    <link rel="stylesheet" href="css/reportes.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-icon">BT</div>
+            <div>
+                <h2>Bake Track</h2>
+                <span>Employee workspace</span>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <span class="section-label">MI ESPACIO</span>
+
+            <nav class="sidebar-menu">
+
+                <a href="#overview" class="menu-item active">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Resumen</span>
+                </a>
+
+                <a href="#myMovements" class="menu-item">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>Mis movimientos</span>
+                </a>
+
+                <a href="#myReports" class="menu-item">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Mis reportes</span>
+                </a>
+
+            </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+
+            <div class="admin-profile">
+                <div class="profile-avatar" id="employeeInitials">EM</div>
+
+                <div class="profile-info">
+                    <strong id="employeeName">Empleado</strong>
+                    <span>Empleado</span>
+                </div>
+            </div>
+
+            <button class="logout-button" id="logoutButton">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                Cerrar sesión
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div class="breadcrumb">
+                <span>Espacio de trabajo</span>
+                <i class="fa-solid fa-chevron-right"></i>
+                <strong>Mi resumen</strong>
+            </div>
+
+            <div class="topbar-user">
+
+                <div class="profile-avatar" id="topbarEmployeeInitials">EM</div>
+
+                <div>
+                    <strong id="topbarEmployeeName">Empleado</strong>
+                    <span>EMPLEADO</span>
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- BIENVENIDA -->
+        <section class="welcome-section" id="overview">
+
+            <div>
+                <span class="welcome-date" id="currentDate">TU ACTIVIDAD</span>
+
+                <h1>
+                    Hola,
+                    <span id="welcomeEmployee">equipo</span>
+                    <span>✦</span>
+                </h1>
+
+                <p>
+                    Consulta tu actividad, movimientos y reportes personales.
+                </p>
+            </div>
+
+            <div class="welcome-decoration">
+                <i class="fa-solid fa-heart"></i>
+            </div>
+
+        </section>
+
+        <!-- RESUMEN -->
+        <section class="section-block">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Mi actividad</h2>
+                    <p>Resumen de tus operaciones registradas.</p>
+                </div>
+
+                <button class="secondary-button" id="refreshEmployee">
+                    <i class="fa-solid fa-rotate"></i>
+                    Actualizar
+                </button>
+
+            </div>
+
+            <div class="stats-grid employee-stats">
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span>Movimientos realizados</span>
+                        <div class="stat-icon">
+                            <i class="fa-solid fa-arrows-left-right"></i>
+                        </div>
+                    </div>
+                    <h3 id="myMovementCount">—</h3>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span>Entradas</span>
+                        <div class="stat-icon">
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </div>
+                    </div>
+                    <h3 id="myEntries">—</h3>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span>Salidas</span>
+                        <div class="stat-icon">
+                            <i class="fa-solid fa-arrow-up"></i>
+                        </div>
+                    </div>
+                    <h3 id="myExits">—</h3>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span>Transferencias</span>
+                        <div class="stat-icon">
+                            <i class="fa-solid fa-right-left"></i>
+                        </div>
+                    </div>
+                    <h3 id="myTransfers">—</h3>
+                </article>
+
+            </div>
+
+            <!-- MIS MOVIMIENTOS -->
+            <article class="warehouse-table-card" id="myMovements">
+
+                <div class="table-heading">
+                    <div>
+                        <h2>Mis movimientos recientes</h2>
+                        <p>Los registros más recientes aparecen primero.</p>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+
+                    <table class="warehouse-table">
+
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>FECHA</th>
+                                <th>TIPO</th>
+                                <th>BODEGA ORIGEN</th>
+                                <th>BODEGA DESTINO</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="myMovementsBody">
+                            <tr>
+                                <td colspan="5" class="table-loading">
+                                    Cargando actividad...
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </article>
+
+        </section>
+
+        <!-- MIS REPORTES -->
+        <section class="section-block" id="myReports">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Mis reportes</h2>
+                    <p>
+                        Consulta el comportamiento de tus operaciones y
+                        productos movilizados.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- FILTROS -->
+            <div class="report-filter-panel">
+
+                <label>
+                    Desde
+                    <input type="date" id="employeeStartDate">
+                </label>
+
+                <label>
+                    Hasta
+                    <input type="date" id="employeeEndDate">
+                </label>
+
+                <button class="primary-button" id="applyEmployeeFilters">
+                    <i class="fa-solid fa-filter"></i>
+                    Aplicar
+                </button>
+
+                <button class="secondary-button" id="clearEmployeeFilters">
+                    Limpiar
+                </button>
+
+            </div>
+
+            <!-- ESTADÍSTICAS -->
+            <div class="stats-grid report-stats">
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span>Movimientos</span>
+                        <div class="stat-icon">
+                            <i class="fa-solid fa-arrows-left-right"></i>
+                        </div>
+                    </div>
+                    <h3 id="employeeReportMovements">—</h3>
+                    <span class="stat-description">En el periodo seleccionado</span>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span>Entradas</span>
+                        <div class="stat-icon">
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </div>
+                    </div>
+                    <h3 id="employeeReportEntries">—</h3>
+                    <span class="stat-description">Operaciones de ingreso</span>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span>Salidas</span>
+                        <div class="stat-icon">
+                            <i class="fa-solid fa-arrow-up"></i>
+                        </div>
+                    </div>
+                    <h3 id="employeeReportExits">—</h3>
+                    <span class="stat-description">Operaciones de retiro</span>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span>Transferencias</span>
+                        <div class="stat-icon">
+                            <i class="fa-solid fa-right-left"></i>
+                        </div>
+                    </div>
+                    <h3 id="employeeReportTransfers">—</h3>
+                    <span class="stat-description">Entre bodegas</span>
+                </article>
+
+            </div>
+
+            <!-- GRÁFICO Y PRODUCTOS -->
+            <div class="report-two-col">
+
+                <article class="warehouse-table-card report-panel">
+
+                    <div class="table-heading">
+                        <div>
+                            <h2>Distribución de movimientos</h2>
+                            <p>Comparativo por tipo de operación.</p>
+                        </div>
+                    </div>
+
+                    <div id="employeeMovementChart" class="report-chart">
+                        <p class="table-loading">Cargando datos...</p>
+                    </div>
+
+                </article>
+
+                <article class="warehouse-table-card report-panel">
+
+                    <div class="table-heading">
+                        <div>
+                            <h2>Productos movilizados</h2>
+                            <p>Productos con mayor volumen registrado.</p>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+
+                        <table class="warehouse-table">
+
+                            <thead>
+                                <tr>
+                                    <th>PRODUCTO</th>
+                                    <th>CANTIDAD</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="employeeTopProducts">
+                                <tr>
+                                    <td colspan="2" class="table-loading">
+                                        Cargando...
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            <!-- DETALLE DE REPORTES -->
+            <article class="warehouse-table-card report-panel">
+
+                <div class="table-heading">
+                    <div>
+                        <h2>Detalle de mis operaciones</h2>
+                        <p>Movimientos correspondientes al periodo seleccionado.</p>
+                    </div>
+
+                    <span class="report-count" id="employeeReportResults">
+                        0 movimientos
+                    </span>
+                </div>
+
+                <div class="table-responsive">
+
+                    <table class="warehouse-table">
+
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>FECHA</th>
+                                <th>TIPO</th>
+                                <th>PRODUCTOS</th>
+                                <th>CANTIDAD</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="employeeReportTable">
+                            <tr>
+                                <td colspan="5" class="table-loading">
+                                    Cargando...
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </article>
+
+        </section>
+
+        <footer class="dashboard-footer">
+            <span>Bake Track © 2026</span>
+            <span>Tu trabajo, con trazabilidad.</span>
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/empleado.js"></script>
+
+</body>
+</html>

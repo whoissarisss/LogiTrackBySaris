@@ -1,0 +1,374 @@
+
+/* =========================================
+   BAKETRACK - IDENTIDAD VISUAL
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+
+:root {
+    --lavender: #E3BAC4;
+    --purple: #905866;
+    --cream: #F5E2B9;
+    --sky-blue: #E9ABBA;
+    --navy: #6E182D;
+
+    --white: #FFFFFF;
+    --text: #4A2931;
+    --muted: #A38990;
+    --border: #F0E8EA;
+    --background: #F8F7F5;
+
+    /* Tipografías oficiales */
+    --font-principal: 'Amatic SC', cursive;
+    --font-titulos: 'Amatic SC', cursive;   
+}
+
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+/* Tipografía general de la aplicación */
+* {
+    font-family: 'Amatic SC', cursive !important;
+}
+
+body {
+    font-family: var(--font-principal);
+}
+
+h1, h2, h3, h4, h5, h6,
+.brand-symbol,
+.brand-content h1,
+.login-header h2 {
+    font-family: var(--font-titulos);
+    font-weight: 700;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: var(--font-principal);
+}
+
+/* =========================================
+   CONTENEDOR PRINCIPAL
+========================================= */
+
+.login-container {
+    width: 100%;
+    max-width: 1080px;
+    min-height: 620px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--white);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 25px 70px rgba(24, 55, 110, 0.13);
+}
+
+/* =========================================
+   PANEL IZQUIERDO - MARCA
+========================================= */
+
+.login-brand {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 55px 48px 35px;
+    overflow: hidden;
+    background: var(--navy);
+    color: var(--white);
+}
+
+.brand-content {
+    position: relative;
+    z-index: 2;
+}
+
+.brand-symbol {
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+    border-radius: 17px;
+    background: var(--lavender);
+    color: var(--navy);
+    font-family: var(--font-titulos);
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.brand-content h1 {
+    font-family: var(--font-titulos);
+    font-size: 39px;
+    font-weight: 800;
+    letter-spacing: -1.8px;
+}
+
+.brand-content p {
+    margin-top: 10px;
+    color: #F3D9DF;
+    font-size: 14px;
+}
+
+/* =========================================
+   ELEMENTOS DECORATIVOS
+========================================= */
+
+.brand-decoration {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.decoration-circle {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+}
+
+.circle-one {
+    width: 320px;
+    height: 320px;
+    right: -120px;
+    top: 170px;
+    background: rgba(186, 193, 227, 0.13);
+}
+
+.circle-two {
+    width: 230px;
+    height: 230px;
+    right: 15px;
+    top: 220px;
+    border: 1px solid rgba(255, 255, 255, 0.17);
+}
+
+.circle-three {
+    width: 120px;
+    height: 120px;
+    right: 70px;
+    top: 275px;
+    background: rgba(110, 88, 144, 0.7);
+}
+
+.brand-footer {
+    position: relative;
+    z-index: 2;
+    color: #F3D9DF;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* =========================================
+   PANEL DERECHO - FORMULARIO
+========================================= */
+
+.login-form-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 65px 65px 35px;
+    background: var(--white);
+}
+
+.login-header {
+    margin-bottom: 42px;
+}
+
+.welcome-label {
+    color: var(--purple);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.login-header h2 {
+    margin-top: 15px;
+    color: var(--navy);
+    font-family: var(--font-titulos);
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.login-header p {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   CAMPOS DEL FORMULARIO
+========================================= */
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.form-group input {
+    width: 100%;
+    height: 51px;
+    padding: 0 16px;
+    outline: none;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--background);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 13px;
+    transition: all 0.25s ease;
+}
+
+.form-group input::placeholder {
+    color: #B5A6AA;
+}
+
+.form-group input:focus {
+    border-color: var(--purple);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(110, 88, 144, 0.10);
+}
+
+/* =========================================
+   MENSAJES
+========================================= */
+
+.login-message {
+    min-height: 18px;
+    margin-bottom: 12px;
+    color: #C04B5A;
+    font-size: 12px;
+}
+
+/* =========================================
+   BOTÓN DE INGRESO
+========================================= */
+
+.login-button {
+    width: 100%;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 19px;
+    border: none;
+    border-radius: 10px;
+    background: var(--purple);
+    color: var(--white);
+    font-family: var(--font-titulos);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.login-button:hover {
+    background: var(--navy);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(24, 55, 110, 0.17);
+}
+
+.login-button span {
+    font-size: 21px;
+}
+
+/* =========================================
+   PIE DEL FORMULARIO
+========================================= */
+
+.login-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 55px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 0.5px;
+}
+
+/* =========================================
+   DISEÑO RESPONSIVE
+========================================= */
+
+@media (max-width: 850px) {
+
+    body {
+        padding: 20px;
+    }
+
+    .login-container {
+        max-width: 550px;
+        grid-template-columns: 1fr;
+    }
+
+    .login-brand {
+        min-height: 210px;
+        padding: 30px;
+    }
+
+    .brand-content h1 {
+        font-size: 30px;
+    }
+
+    .brand-symbol {
+        width: 45px;
+        height: 45px;
+        margin-bottom: 12px;
+    }
+
+    .circle-one {
+        top: 10px;
+        right: -100px;
+    }
+
+    .circle-two {
+        top: 20px;
+    }
+
+    .circle-three {
+        top: 65px;
+    }
+
+    .brand-footer {
+        display: none;
+    }
+
+    .login-form-section {
+        padding: 40px 35px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 12px;
+    }
+
+    .login-container {
+        border-radius: 17px;
+    }
+
+    .login-form-section {
+        padding: 35px 24px;
+    }
+
+    .login-header h2 {
+        font-size: 27px;
+    }
+}

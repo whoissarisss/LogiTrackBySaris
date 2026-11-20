@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bake Track | Auditoría</title>
+
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/bodega.css">
+    <link rel="stylesheet" href="css/ui.css">
+    <link rel="stylesheet" href="css/auditoria.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <img src="assets/bake-track-logo.png" alt="Bake Track" class="brand-logo">
+
+            <div>
+                <h2>Bake Track</h2>
+                <span>Control de inventario</span>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <span class="section-label">PRINCIPAL</span>
+
+            <nav class="sidebar-menu">
+
+                <a href="admin.html" class="menu-item">
+                    <img src="assets/Dashboard.png" alt="">
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="bodega.html" class="menu-item">
+                    <img src="assets/Bodegas.png" alt="">
+                    <span>Bodegas</span>
+                </a>
+
+                <a href="producto.html" class="menu-item">
+                    <img src="assets/Productos.png" alt="">
+                    <span>Productos</span>
+                </a>
+
+                <a href="categoria.html" class="menu-item">
+                    <img src="assets/Caja.png" alt="">
+                    <span>Categorías</span>
+                </a>
+
+                <a href="marca.html" class="menu-item">
+                    <img src="assets/Producto almacenado.png" alt="">
+                    <span>Marcas</span>
+                </a>
+
+                <a href="inventario.html" class="menu-item">
+                    <img src="assets/Inventario.png" alt="">
+                    <span>Inventario</span>
+                </a>
+
+            </nav>
+        </div>
+
+        <div class="sidebar-section">
+            <span class="section-label">OPERACIONES</span>
+
+            <nav class="sidebar-menu">
+
+                <a href="movimiento.html" class="menu-item">
+                    <img src="assets/Movimientos.png" alt="">
+                    <span>Movimientos</span>
+                </a>
+
+                <a href="reportes.html" class="menu-item">
+                    <img src="assets/Reportes.png" alt="">
+                    <span>Reportes</span>
+                </a>
+
+                <a href="auditoria.html" class="menu-item active">
+                    <img src="assets/Auditoria.png" alt="">
+                    <span>Auditoría</span>
+                </a>
+
+            </nav>
+        </div>
+
+        <div class="sidebar-section">
+            <span class="section-label">ADMINISTRACIÓN</span>
+
+            <nav class="sidebar-menu">
+
+                <a href="usuarios.html" class="menu-item">
+                    <img src="assets/Usuarios.png" alt="">
+                    <span>Usuarios</span>
+                </a>
+
+            </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+
+            <div class="admin-profile">
+
+                <div class="profile-avatar" id="sidebarAdminInitials">
+                    AD
+                </div>
+
+                <div class="profile-info">
+                    <strong id="sidebarAdminName">Administrador</strong>
+                    <span>Administrador del sistema</span>
+                </div>
+
+                <i class="fa-solid fa-ellipsis"></i>
+
+            </div>
+
+            <button class="logout-button" id="logoutButton">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                Cerrar sesión
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- FONDO DEL MENÚ MÓVIL -->
+    <div class="sidebar-backdrop" aria-hidden="true"></div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Abrir menú"
+                aria-expanded="false">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+            <div class="breadcrumb">
+                <span>Panel administrativo</span>
+                <i class="fa-solid fa-chevron-right"></i>
+                <strong>Trazabilidad de operaciones</strong>
+            </div>
+
+            <div class="topbar-actions">
+
+                <div class="topbar-user">
+
+                    <div class="profile-avatar" id="topbarAdminInitials">
+                        AD
+                    </div>
+
+                    <div>
+                        <strong id="topbarAdminName">Administrador</strong>
+                        <span id="topbarAdminRole">ADMIN</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- BANNER -->
+        <section class="welcome-section">
+
+            <div class="welcome-content">
+
+                <span class="welcome-date" id="currentDate">
+                    BAKE TRACK · TRAZABILIDAD
+                </span>
+
+                <h1>Auditoría <span>✦</span></h1>
+
+                <p>
+                    Trazabilidad de operaciones · Información centralizada
+                    para tomar mejores decisiones.
+                </p>
+
+            </div>
+
+            <div class="welcome-decoration">
+                <img src="assets/saris2.png" alt="Mascota Bake Track" class="welcome-mascot">
+            </div>
+
+        </section>
+
+        <!-- SECCIÓN PRINCIPAL -->
+        <section class="section-block">
+
+            <!-- ENCABEZADO -->
+            <div class="section-heading">
+
+                <div>
+                    <h2>Rastro de actividad</h2>
+
+                    <p>
+                        Consulta las operaciones que han quedado registradas
+                        en la bitácora.
+                    </p>
+                </div>
+
+                <button class="secondary-button" id="refreshAudit">
+                    <i class="fa-solid fa-rotate"></i>
+                    Actualizar
+                </button>
+
+            </div>
+
+            <!-- FILTROS -->
+            <div class="audit-filters">
+
+                <label>
+                    Operación
+
+                    <select id="filterOperation">
+                        <option value="">Todas las operaciones</option>
+                        <option value="INSERT">INSERT · Creación</option>
+                        <option value="UPDATE">UPDATE · Modificación</option>
+                        <option value="DELETE">DELETE · Eliminación</option>
+                    </select>
+                </label>
+
+                <label>
+                    Tabla afectada
+
+                    <input
+                        type="text"
+                        id="filterTable"
+                        placeholder="Ej. producto, bodega...">
+                </label>
+
+                <label>
+                    ID de usuario
+
+                    <input
+                        type="number"
+                        min="1"
+                        id="filterUser"
+                        placeholder="ID usuario">
+                </label>
+
+                <button class="primary-button" id="applyAuditFilters">
+                    <i class="fa-solid fa-filter"></i>
+                    Filtrar
+                </button>
+
+                <button class="secondary-button" id="clearAuditFilters">
+                    Limpiar
+                </button>
+
+            </div>
+
+            <!-- RESUMEN -->
+            <div class="audit-summary" id="auditSummary">
+
+                <div class="audit-summary-card">
+                    <span>Registros encontrados</span>
+                    <strong id="auditCount">—</strong>
+                </div>
+
+                <div class="audit-summary-card">
+                    <span>Última actividad</span>
+                    <strong id="auditLatest">—</strong>
+                </div>
+
+                <div class="audit-summary-card">
+                    <span>Usuarios involucrados</span>
+                    <strong id="auditUsers">—</strong>
+                </div>
+
+            </div>
+
+            <!-- TABLA DE AUDITORÍA -->
+            <article class="warehouse-table-card audit-table-card">
+
+                <div class="table-heading">
+
+                    <div>
+                        <h2>Registro de auditoría</h2>
+
+                        <p>
+                            Selecciona un registro para consultar sus valores
+                            anteriores y nuevos.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="table-responsive">
+
+                    <table class="warehouse-table">
+
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>FECHA Y HORA</th>
+                                <th>USUARIO</th>
+                                <th>OPERACIÓN</th>
+                                <th>TABLA</th>
+                                <th>REGISTRO</th>
+                                <th>DETALLE</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="auditBody">
+
+                            <tr>
+                                <td colspan="7" class="table-loading">
+                                    Cargando auditoría...
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </article>
+
+        </section>
+
+        <!-- MODAL DE DETALLE -->
+        <div class="audit-modal-backdrop" id="auditModal" hidden>
+
+            <section
+                class="audit-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="auditModalTitle">
+
+                <button
+                    class="audit-modal-close"
+                    id="closeAuditModal"
+                    aria-label="Cerrar">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+                <span class="form-eyebrow">
+                    TRAZABILIDAD DEL SISTEMA
+                </span>
+
+                <h2 id="auditModalTitle">
+                    Detalle de auditoría
+                </h2>
+
+                <div id="auditDetailContent"></div>
+
+            </section>
+
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="dashboard-footer">
+            <span>Bake Track © 2026</span>
+            <span>Control · Organización · Trazabilidad</span>
+        </footer>
+
+    </main>
+
+</div>
+
+<!-- SCRIPTS -->
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/auditoria.js"></script>
+
+</body>
+</html>

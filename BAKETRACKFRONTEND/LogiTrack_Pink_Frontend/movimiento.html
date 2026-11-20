@@ -1,0 +1,693 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bake Track | Gestión de Movimientos</title>
+
+    <!-- ESTILOS GENERALES -->
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/bodega.css">
+    <link rel="stylesheet" href="css/ui.css">
+    <link rel="stylesheet" href="css/pink-theme.css">
+    <link rel="stylesheet" href="css/movimiento.css">
+
+    <!-- FUENTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- ICONOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- =====================================
+         MENÚ LATERAL
+    ====================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <img
+                src="assets/bake-track-logo.png"
+                alt="Bake Track"
+                class="sidebar-logo"
+            >
+        </div>
+
+        <div class="sidebar-section">
+
+            <span class="section-label">PRINCIPAL</span>
+
+            <nav class="sidebar-menu">
+
+                <a href="admin.html" class="menu-item">
+                    <img src="assets/Dashboard.png" class="menu-icon" alt="">
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="bodega.html" class="menu-item">
+                    <img src="assets/Bodegas.png" class="menu-icon" alt="">
+                    <span>Bodegas</span>
+                </a>
+
+                <a href="producto.html" class="menu-item">
+                    <img src="assets/Productos.png" class="menu-icon" alt="">
+                    <span>Productos</span>
+                </a>
+
+                <a href="categoria.html" class="menu-item">
+                    <img src="assets/Caja.png" class="menu-icon" alt="">
+                    <span>Categorías</span>
+                </a>
+
+                <a href="marca.html" class="menu-item">
+                    <img src="assets/Producto almacenado.png" class="menu-icon" alt="">
+                    <span>Marcas</span>
+                </a>
+
+                <a href="inventario.html" class="menu-item">
+                    <img src="assets/Inventario.png" class="menu-icon" alt="">
+                    <span>Inventario</span>
+                </a>
+
+            </nav>
+        </div>
+
+
+        <div class="sidebar-section">
+
+            <span class="section-label">OPERACIONES</span>
+
+            <nav class="sidebar-menu">
+
+                <a href="movimiento.html" class="menu-item active">
+                    <img src="assets/Movimientos.png" class="menu-icon" alt="">
+                    <span>Movimientos</span>
+                </a>
+
+                <a href="reportes.html" class="menu-item">
+                    <img src="assets/Reportes.png" class="menu-icon" alt="">
+                    <span>Reportes</span>
+                </a>
+
+                <a href="auditoria.html" class="menu-item">
+                    <img src="assets/Auditoria.png" class="menu-icon" alt="">
+                    <span>Auditoría</span>
+                </a>
+
+            </nav>
+        </div>
+
+
+        <div class="sidebar-section">
+
+            <span class="section-label">ADMINISTRACIÓN</span>
+
+            <nav class="sidebar-menu">
+
+                <a href="usuarios.html" class="menu-item">
+                    <img src="assets/Usuarios.png" class="menu-icon" alt="">
+                    <span>Usuarios</span>
+                </a>
+
+            </nav>
+        </div>
+
+
+        <!-- PERFIL ADMINISTRADOR -->
+        <div class="sidebar-bottom">
+
+            <div class="admin-profile">
+
+                <div class="profile-avatar" id="sidebarAdminInitials">
+                    AD
+                </div>
+
+                <div class="profile-info">
+                    <strong id="sidebarAdminName">Administrador</strong>
+                    <span>Administrador del sistema</span>
+                </div>
+
+                <i class="fa-solid fa-ellipsis"></i>
+
+            </div>
+
+            <button class="logout-button" id="logoutButton">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                Cerrar sesión
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================
+         CONTENIDO PRINCIPAL
+    ====================================== -->
+
+    <main class="main-content">
+
+        <!-- BARRA SUPERIOR -->
+        <header class="topbar">
+
+            <div class="breadcrumb">
+                <span>Panel administrativo</span>
+                <i class="fa-solid fa-chevron-right"></i>
+                <strong>Gestión de movimientos</strong>
+            </div>
+
+            <div class="topbar-actions">
+
+                <div class="topbar-user">
+
+                    <div class="profile-avatar" id="topbarAdminInitials">
+                        AD
+                    </div>
+
+                    <div>
+                        <strong id="topbarAdminName">Administrador</strong>
+                        <span>ADMIN</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =====================================
+             BANNER PRINCIPAL
+        ====================================== -->
+
+        <section class="welcome-section">
+
+            <div class="welcome-content">
+
+                <span class="welcome-date">
+                    <span id="currentDate">
+                        CONTROL DE MOVIMIENTOS
+                    </span>
+                </span>
+
+                <h1>
+                    Gestión de movimientos
+                    <span>✦</span>
+                </h1>
+
+                <p>
+                    Controla las entradas, salidas y transferencias
+                    de productos entre las bodegas de Bake Track.
+                </p>
+
+            </div>
+
+            <div class="welcome-decoration">
+                <img
+                    src="assets/saris2.png"
+                    alt="Mascota Bake Track"
+                    class="welcome-mascot"
+                >
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             CONTENIDO DE MOVIMIENTOS
+        ====================================== -->
+
+        <section class="warehouse-page">
+
+            <!-- ENCABEZADO -->
+            <div class="warehouse-heading">
+
+                <div>
+                    <h2>Control de movimientos</h2>
+
+                    <p>
+                        Registra operaciones y consulta el historial
+                        de movimientos del inventario.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 INDICADORES
+            ================================== -->
+
+            <div class="warehouse-stats movement-stats">
+
+                <article class="warehouse-stat">
+
+                    <div class="warehouse-stat-icon lavender">
+                        <i class="fa-solid fa-list"></i>
+                    </div>
+
+                    <div>
+                        <span>Total de movimientos</span>
+                        <strong id="totalMovements">0</strong>
+                    </div>
+
+                </article>
+
+
+                <article class="warehouse-stat">
+
+                    <div class="warehouse-stat-icon blue">
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </div>
+
+                    <div>
+                        <span>Entradas</span>
+                        <strong id="totalEntries">0</strong>
+                    </div>
+
+                </article>
+
+
+                <article class="warehouse-stat">
+
+                    <div class="warehouse-stat-icon cream">
+                        <i class="fa-solid fa-arrow-up"></i>
+                    </div>
+
+                    <div>
+                        <span>Salidas</span>
+                        <strong id="totalExits">0</strong>
+                    </div>
+
+                </article>
+
+
+                <article class="warehouse-stat">
+
+                    <div class="warehouse-stat-icon transfer-icon">
+                        <i class="fa-solid fa-right-left"></i>
+                    </div>
+
+                    <div>
+                        <span>Transferencias</span>
+                        <strong id="totalTransfers">0</strong>
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- =================================
+                 FORMULARIO DE MOVIMIENTOS
+            ================================== -->
+
+            <div class="warehouse-table-card movement-form-card">
+
+                <div class="table-heading movement-section-heading">
+
+                    <div>
+                        <h2>
+                            <i class="fa-solid fa-circle-plus"></i>
+                            Registrar movimiento
+                        </h2>
+
+                        <p>
+                            Completa los datos para registrar una operación.
+                        </p>
+                    </div>
+
+                    <div class="movement-heading-icon">
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                    </div>
+
+                </div>
+
+
+                <form id="movementForm">
+
+                    <!-- TIPO Y BODEGAS -->
+                    <div class="movement-form-grid">
+
+                        <div class="form-group">
+
+                            <label for="movementType">
+                                Tipo de movimiento *
+                            </label>
+
+                            <select
+                                id="movementType"
+                                name="tipoMovimiento"
+                                required
+                            >
+                                <option value="">Selecciona un tipo</option>
+                                <option value="ENTRADA">Entrada</option>
+                                <option value="SALIDA">Salida</option>
+                                <option value="TRANSFERENCIA">Transferencia</option>
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group" id="originWarehouseGroup">
+
+                            <label for="originWarehouse">
+                                Bodega de origen
+                            </label>
+
+                            <select
+                                id="originWarehouse"
+                                name="idBodegaOrigen"
+                            >
+                                <option value="">Selecciona una bodega</option>
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group" id="destinationWarehouseGroup">
+
+                            <label for="destinationWarehouse">
+                                Bodega de destino
+                            </label>
+
+                            <select
+                                id="destinationWarehouse"
+                                name="idBodegaDestino"
+                            >
+                                <option value="">Selecciona una bodega</option>
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PRODUCTOS DEL MOVIMIENTO -->
+                    <div class="movement-products-section">
+
+                        <div class="movement-products-heading">
+
+                            <div>
+                                <h3>
+                                    <i class="fa-solid fa-box-open"></i>
+                                    Productos del movimiento
+                                </h3>
+
+                                <p>
+                                    Agrega los productos y sus respectivas cantidades.
+                                </p>
+                            </div>
+
+                            <button
+                                type="button"
+                                class="btn-add-detail"
+                                id="addMovementDetail"
+                            >
+                                <i class="fa-solid fa-plus"></i>
+                                Agregar producto
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            class="movement-details-container"
+                            id="movementDetails"
+                        >
+
+                            <div class="movement-detail-row">
+
+                                <div class="form-group">
+
+                                    <label>Producto *</label>
+
+                                    <select class="detail-product" required>
+                                        <option value="">Selecciona un producto</option>
+                                    </select>
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label>Cantidad *</label>
+
+                                    <input
+                                        type="number"
+                                        class="detail-quantity"
+                                        min="0.001"
+                                        step="0.001"
+                                        placeholder="Ej. 10"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <button
+                                    type="button"
+                                    class="btn-remove-detail"
+                                    disabled
+                                    title="Eliminar producto"
+                                >
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PIE DEL FORMULARIO -->
+                    <div class="movement-form-footer">
+
+                        <span class="required-note">
+                            * Campos obligatorios
+                        </span>
+
+                        <button
+                            type="submit"
+                            class="primary-button btn-register-movement"
+                            id="saveMovementButton"
+                        >
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            Registrar movimiento
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+
+            <!-- =================================
+                 HISTORIAL DE MOVIMIENTOS
+            ================================== -->
+
+            <div class="warehouse-table-card movement-history-card">
+
+                <div class="table-heading">
+
+                    <div>
+                        <h2>
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                            Historial de movimientos
+                        </h2>
+
+                        <p>
+                            Consulta las operaciones registradas en el sistema.
+                        </p>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="refreshMovements"
+                    >
+                        <i class="fa-solid fa-rotate"></i>
+                        Actualizar
+                    </button>
+
+                </div>
+
+
+                <!-- FILTROS -->
+                <div class="movement-filters">
+
+                    <div class="warehouse-search">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="search"
+                            id="movementSearch"
+                            placeholder="Buscar movimiento..."
+                        >
+
+                    </div>
+
+
+                    <select id="filterMovementType">
+                        <option value="">Todos los tipos</option>
+                        <option value="ENTRADA">Entradas</option>
+                        <option value="SALIDA">Salidas</option>
+                        <option value="TRANSFERENCIA">Transferencias</option>
+                    </select>
+
+
+                    <input
+                        type="date"
+                        id="filterStartDate"
+                        title="Fecha inicial"
+                    >
+
+
+                    <input
+                        type="date"
+                        id="filterEndDate"
+                        title="Fecha final"
+                    >
+
+
+                    <button
+                        type="button"
+                        class="primary-button btn-filter-movements"
+                        id="filterMovementsButton"
+                    >
+                        <i class="fa-solid fa-filter"></i>
+                        Filtrar
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="secondary-button btn-clear-filters"
+                        id="clearMovementFilters"
+                    >
+                        <i class="fa-solid fa-eraser"></i>
+                        Limpiar
+                    </button>
+
+                </div>
+
+
+                <!-- TABLA -->
+                <div class="table-responsive">
+
+                    <table class="warehouse-table movement-table">
+
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>FECHA</th>
+                                <th>TIPO</th>
+                                <th>BODEGA ORIGEN</th>
+                                <th>BODEGA DESTINO</th>
+                                <th>USUARIO</th>
+                                <th>PRODUCTOS</th>
+                                <th>ACCIONES</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="movementTableBody">
+
+                            <tr>
+                                <td colspan="8" class="table-loading">
+                                    <i class="fa-solid fa-spinner fa-spin"></i>
+                                    Cargando movimientos...
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <div class="category-table-footer movement-table-footer">
+
+                    <span id="movementResults">
+                        Mostrando 0 movimientos
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PIE DE PÁGINA -->
+        <footer class="dashboard-footer">
+            <span>Bake Track © 2026</span>
+            <span>Control inteligente de inventario</span>
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- =====================================
+     MODAL DETALLE DEL MOVIMIENTO
+====================================== -->
+
+<div class="modal-overlay" id="movementDetailModal">
+
+    <div class="warehouse-modal movement-detail-modal">
+
+        <div class="modal-header">
+
+            <div>
+                <h2>Detalle del movimiento</h2>
+
+                <p id="movementDetailSubtitle">
+                    Información de la operación
+                </p>
+            </div>
+
+            <button
+                type="button"
+                class="modal-close"
+                id="closeMovementDetail"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+
+        <div class="modal-body" id="movementDetailContent">
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- NOTIFICACIONES -->
+<div id="toastContainer" class="toast-container"></div>
+
+
+<!-- JAVASCRIPT ORIGINAL -->
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/movimiento.js"></script>
+
+</body>
+</html>
