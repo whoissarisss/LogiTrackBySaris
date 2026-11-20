@@ -5,6 +5,9 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import model.EstadoSolicitud;
+import model.Usuario;
+import repository.UsuarioRepository;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -19,6 +22,7 @@ import java.util.Collections;
 public class JwtFilter extends OncePerRequestFilter {
 
     private final JwtService jwtService;
+    private final UsuarioRepository usuarioRepository;
 
     @Override
     protected void doFilterInternal(
@@ -33,27 +37,34 @@ public class JwtFilter extends OncePerRequestFilter {
 
             String token = header.substring(7);
 
+            // Validar token y obtener el correo
             String username = jwtService.validateToken(token);
-            String rol = jwtService.extractRole(token);
-
-            System.out.println("JWT USERNAME: " + username);
-            System.out.println("JWT ROLE: " + rol);
 
             if (username != null
-                    && rol != null
                     && SecurityContextHolder.getContext().getAuthentication() == null) {
 
-                UsernamePasswordAuthenticationToken auth =
-                        new UsernamePasswordAuthenticationToken(
-                                username,
-                                null,
-                                Collections.singletonList(
-                                        new SimpleGrantedAuthority("ROLE_" + rol)
-                                )
-                        );
+                // Consultar el usuario directamente en la base de datos
+                Usuario usuario = usuarioRepository.findByCorreo(username)
+                        .orElse(null);
 
-                SecurityContextHolder.getContext().setAuthentication(auth);
-                System.out.println("JWT AUTHORITY: " + auth.getAuthorities());
+                // Verificar que exista, esté aprobado y tenga rol
+                if (usuario != null
+                        && usuario.getEstadoSolicitud() == EstadoSolicitud.APROBADO
+                        && usuario.getRol() != null) {
+
+                    String rol = usuario.getRol().name();
+
+                    UsernamePasswordAuthenticationToken auth =
+                            new UsernamePasswordAuthenticationToken(
+                                    username,
+                                    null,
+                                    Collections.singletonList(
+                                            new SimpleGrantedAuthority("ROLE_" + rol)
+                                    )
+                            );
+
+                    SecurityContextHolder.getContext().setAuthentication(auth);
+                }
             }
         }
 

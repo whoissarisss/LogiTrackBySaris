@@ -45,10 +45,9 @@ public class AuthServiceImpl implements AuthService {
             );
         }
 
-        // Generar token JWT
+        // Generar token JWT sin almacenar el rol
         String token = jwtService.generateToken(
-                usuario.getCorreo(),
-                usuario.getRol().name()
+                usuario.getCorreo()
         );
 
         // Devolver información del usuario
