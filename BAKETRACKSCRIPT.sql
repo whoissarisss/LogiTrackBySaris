@@ -293,7 +293,7 @@ VALUES
  'Equipo profesional para preparación de alimentos',
  1, 4, 4);
 
---CIUDAD
+-- CIUDAD
  INSERT INTO ciudad (nombre, departamento, pais)
 VALUES
 ('Bucaramanga', 'Santander', 'Colombia'),
@@ -302,14 +302,14 @@ VALUES
 ('Cali', 'Valle del Cauca', 'Colombia'),
 ('Cúcuta', 'Norte de Santander', 'Colombia');
 
---BODEGA
+-- BODEGA
 INSERT INTO bodega (nombre, capacidad, id_ciudad, id_encargado)
 VALUES
 ('Bodega Mezcladoras', 500, 1, 1),
 ('Bodega Cocción', 400, 2, 1),
 ('Bodega Procesamiento y Complementarios', 350, 3, 1);
 
---INVENTARIO
+-- INVENTARIO
 INSERT INTO inventario (id_bodega, id_producto, stock_actual)
 VALUES
 (1, 1, 15),
@@ -330,3 +330,128 @@ VALUES
 (3, 1, 8),
 (3, 2, 10),
 (3, 6, 6);
+
+INSERT INTO movimiento (fecha, tipo_movimiento, id_usuario, id_bodega_origen, id_bodega_destino)
+VALUES (DATE_SUB(NOW(), INTERVAL 14 DAY), 'ENTRADA', 1, NULL, 1);
+SET @movimiento_id = LAST_INSERT_ID();
+INSERT INTO detalle_movimiento (id_movimiento, id_producto, cantidad) VALUES (@movimiento_id, 1, 17);
+
+INSERT INTO movimiento (fecha, tipo_movimiento, id_usuario, id_bodega_origen, id_bodega_destino)
+VALUES (DATE_SUB(NOW(), INTERVAL 20 DAY), 'ENTRADA', 1, NULL, 1);
+SET @movimiento_id = LAST_INSERT_ID();
+INSERT INTO detalle_movimiento (id_movimiento, id_producto, cantidad) VALUES (@movimiento_id, 2, 15);
+
+INSERT INTO movimiento (fecha, tipo_movimiento, id_usuario, id_bodega_origen, id_bodega_destino)
+VALUES (DATE_SUB(NOW(), INTERVAL 2 DAY), 'ENTRADA', 1, NULL, 1);
+SET @movimiento_id = LAST_INSERT_ID();
+INSERT INTO detalle_movimiento (id_movimiento, id_producto, cantidad) VALUES (@movimiento_id, 3, 18);
+
+INSERT INTO movimiento (fecha, tipo_movimiento, id_usuario, id_bodega_origen, id_bodega_destino)
+VALUES (DATE_SUB(NOW(), INTERVAL 8 DAY), 'ENTRADA', 1, NULL, 1);
+SET @movimiento_id = LAST_INSERT_ID();
+INSERT INTO detalle_movimiento (id_movimiento, id_producto, cantidad) VALUES (@movimiento_id, 4, 20);
+
+INSERT INTO movimiento (fecha, tipo_movimiento, id_usuario, id_bodega_origen, id_bodega_destino)
+VALUES (DATE_SUB(NOW(), INTERVAL 14 DAY), 'ENTRADA', 1, NULL, 1);
+SET @movimiento_id = LAST_INSERT_ID();
+INSERT INTO detalle_movimiento (id_movimiento, id_producto, cantidad) VALUES (@movimiento_id, 5, 16);
+
+INSERT INTO movimiento (fecha, tipo_movimiento, id_usuario, id_bodega_origen, id_bodega_destino)
+VALUES (DATE_SUB(NOW(), INTERVAL 20 DAY), 'ENTRADA', 1, NULL, 1);
+SET @movimiento_id = LAST_INSERT_ID();
+INSERT INTO detalle_movimiento (id_movimiento, id_producto, cantidad) VALUES (@movimiento_id, 14, 10);
+
+INSERT INTO movimiento (fecha, tipo_movimiento, id_usuario, id_bodega_origen, id_bodega_destino)
+VALUES (DATE_SUB(NOW(), INTERVAL 2 DAY), 'ENTRADA', 1, NULL, 2);
+SET @movimiento_id = LAST_INSERT_ID();
+INSERT INTO detalle_movimiento (id_movimiento, id_producto, cantidad) VALUES (@movimiento_id, 6, 14);
+
+INSERT INTO movimiento (fecha, tipo_movimiento, id_usuario, id_bodega_origen, id_bodega_destino)
+VALUES (DATE_SUB(NOW(), INTERVAL 8 DAY), 'ENTRADA', 1, NULL, 2);
+SET @movimiento_id = LAST_INSERT_ID();
+INSERT INTO detalle_movimiento (id_movimiento, id_producto, cantidad) VALUES (@movimiento_id, 7, 16);
+
+INSERT INTO movimiento (fecha, tipo_movimiento, id_usuario, id_bodega_origen, id_bodega_destino)
+VALUES (DATE_SUB(NOW(), INTERVAL 14 DAY), 'ENTRADA', 1, NULL, 2);
+SET @movimiento_id = LAST_INSERT_ID();
+INSERT INTO detalle_movimiento (id_movimiento, id_producto, cantidad) VALUES (@movimiento_id, 8, 10);
+
+INSERT INTO movimiento (fecha, tipo_movimiento, id_usuario, id_bodega_origen, id_bodega_destino)
+VALUES (DATE_SUB(NOW(), INTERVAL 20 DAY), 'ENTRADA', 1, NULL, 3);
+SET @movimiento_id = LAST_INSERT_ID();
+INSERT INTO detalle_movimiento (id_movimiento, id_producto, cantidad) VALUES (@movimiento_id, 9, 14);
+
+INSERT INTO movimiento (fecha, tipo_movimiento, id_usuario, id_bodega_origen, id_bodega_destino)
+VALUES (DATE_SUB(NOW(), INTERVAL 2 DAY), 'ENTRADA', 1, NULL, 3);
+SET @movimiento_id = LAST_INSERT_ID();
+INSERT INTO detalle_movimiento (id_movimiento, id_producto, cantidad) VALUES (@movimiento_id, 10, 12);
+
+INSERT INTO movimiento (fecha, tipo_movimiento, id_usuario, id_bodega_origen, id_bodega_destino)
+VALUES (DATE_SUB(NOW(), INTERVAL 8 DAY), 'ENTRADA', 1, NULL, 3);
+SET @movimiento_id = LAST_INSERT_ID();
+INSERT INTO detalle_movimiento (id_movimiento, id_producto, cantidad) VALUES (@movimiento_id, 11, 16);
+
+INSERT INTO movimiento (fecha, tipo_movimiento, id_usuario, id_bodega_origen, id_bodega_destino)
+VALUES (DATE_SUB(NOW(), INTERVAL 14 DAY), 'ENTRADA', 1, NULL, 3);
+SET @movimiento_id = LAST_INSERT_ID();
+INSERT INTO detalle_movimiento (id_movimiento, id_producto, cantidad) VALUES (@movimiento_id, 12, 15);
+
+INSERT INTO movimiento (fecha, tipo_movimiento, id_usuario, id_bodega_origen, id_bodega_destino)
+VALUES (DATE_SUB(NOW(), INTERVAL 20 DAY), 'ENTRADA', 1, NULL, 3);
+SET @movimiento_id = LAST_INSERT_ID();
+INSERT INTO detalle_movimiento (id_movimiento, id_producto, cantidad) VALUES (@movimiento_id, 13, 18);
+
+INSERT INTO movimiento (fecha, tipo_movimiento, id_usuario, id_bodega_origen, id_bodega_destino)
+VALUES (DATE_SUB(NOW(), INTERVAL 2 DAY), 'ENTRADA', 1, NULL, 3);
+SET @movimiento_id = LAST_INSERT_ID();
+INSERT INTO detalle_movimiento (id_movimiento, id_producto, cantidad) VALUES (@movimiento_id, 15, 12);
+
+INSERT INTO movimiento (fecha, tipo_movimiento, id_usuario, id_bodega_origen, id_bodega_destino)
+VALUES (DATE_SUB(NOW(), INTERVAL 8 DAY), 'ENTRADA', 1, NULL, 3);
+SET @movimiento_id = LAST_INSERT_ID();
+INSERT INTO detalle_movimiento (id_movimiento, id_producto, cantidad) VALUES (@movimiento_id, 1, 8);
+
+INSERT INTO movimiento (fecha, tipo_movimiento, id_usuario, id_bodega_origen, id_bodega_destino)
+VALUES (DATE_SUB(NOW(), INTERVAL 14 DAY), 'ENTRADA', 1, NULL, 3);
+SET @movimiento_id = LAST_INSERT_ID();
+INSERT INTO detalle_movimiento (id_movimiento, id_producto, cantidad) VALUES (@movimiento_id, 2, 7);
+
+INSERT INTO movimiento (fecha, tipo_movimiento, id_usuario, id_bodega_origen, id_bodega_destino)
+VALUES (DATE_SUB(NOW(), INTERVAL 20 DAY), 'ENTRADA', 1, NULL, 3);
+SET @movimiento_id = LAST_INSERT_ID();
+INSERT INTO detalle_movimiento (id_movimiento, id_producto, cantidad) VALUES (@movimiento_id, 6, 4);
+
+-- SALIDAS
+
+INSERT INTO movimiento (fecha, tipo_movimiento, id_usuario, id_bodega_origen, id_bodega_destino)
+VALUES (DATE_SUB(NOW(), INTERVAL 1 DAY), 'SALIDA', 1, 1, NULL);
+SET @movimiento_id = LAST_INSERT_ID();
+INSERT INTO detalle_movimiento (id_movimiento, id_producto, cantidad) VALUES (@movimiento_id, 1, 2);
+
+INSERT INTO movimiento (fecha, tipo_movimiento, id_usuario, id_bodega_origen, id_bodega_destino)
+VALUES (DATE_SUB(NOW(), INTERVAL 2 DAY), 'SALIDA', 1, 2, NULL);
+SET @movimiento_id = LAST_INSERT_ID();
+INSERT INTO detalle_movimiento (id_movimiento, id_producto, cantidad) VALUES (@movimiento_id, 7, 1);
+
+-- TRANSFERENCIAS
+
+INSERT INTO movimiento (fecha, tipo_movimiento, id_usuario, id_bodega_origen, id_bodega_destino)
+VALUES (DATE_SUB(NOW(), INTERVAL 3 DAY), 'TRANSFERENCIA', 1, 1, 3);
+SET @movimiento_id = LAST_INSERT_ID();
+INSERT INTO detalle_movimiento (id_movimiento, id_producto, cantidad) VALUES (@movimiento_id, 2, 3);
+
+INSERT INTO movimiento (fecha, tipo_movimiento, id_usuario, id_bodega_origen, id_bodega_destino)
+VALUES (DATE_SUB(NOW(), INTERVAL 4 DAY), 'TRANSFERENCIA', 1, 2, 3);
+SET @movimiento_id = LAST_INSERT_ID();
+INSERT INTO detalle_movimiento (id_movimiento, id_producto, cantidad) VALUES (@movimiento_id, 6, 2);
+
+-- AUDITORÍA
+
+INSERT INTO auditoria
+(fecha_hora, operacion, usuario_id, tabla_afectada, registro_id, valores_anteriores, valores_nuevos)
+VALUES
+(DATE_SUB(NOW(), INTERVAL 6 DAY), 'INSERT', 1, 'movimiento', 1, NULL, JSON_OBJECT('tipo_movimiento', 'ENTRADA', 'origen', NULL, 'destino', 1)),
+(DATE_SUB(NOW(), INTERVAL 5 DAY), 'INSERT', 1, 'movimiento', 2, NULL, JSON_OBJECT('tipo_movimiento', 'ENTRADA', 'destino', 1)),
+(DATE_SUB(NOW(), INTERVAL 4 DAY), 'INSERT', 1, 'movimiento', 19, NULL, JSON_OBJECT('tipo_movimiento', 'SALIDA', 'bodega_origen', 1)),
+(DATE_SUB(NOW(), INTERVAL 3 DAY), 'INSERT', 1, 'movimiento', 21, NULL, JSON_OBJECT('tipo_movimiento', 'TRANSFERENCIA', 'origen', 1, 'destino', 3)),
+(DATE_SUB(NOW(), INTERVAL 2 DAY), 'UPDATE', 1, 'inventario', 1, JSON_OBJECT('stock_actual', 17), JSON_OBJECT('stock_actual', 15));
