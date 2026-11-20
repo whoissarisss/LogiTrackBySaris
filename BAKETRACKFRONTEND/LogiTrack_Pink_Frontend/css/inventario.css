@@ -28,7 +28,7 @@ body {
     max-width: 100%;
     min-height: 100%;
     margin: 0;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 * {
@@ -39,7 +39,7 @@ body {
     display: flex;
     width: 100%;
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 .main-content {
@@ -61,6 +61,9 @@ body {
 ========================================= */
 
 .sidebar {
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
     width: 255px;
     min-width: 255px;
     min-height: 100vh;
@@ -72,23 +75,20 @@ body {
     padding: 25px 17px 20px;
     overflow-y: auto;
     overflow-x: hidden;
+    scrollbar-width: none;
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none;
 }
 
 .sidebar-brand {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 10px;
     width: 100%;
-    padding: 0 8px 32px;
+    padding: 0 8px 38px;
     flex-shrink: 0;
-}
-
-.sidebar-logo {
-    display: block;
-    width: 100%;
-    max-width: 175px;
-    max-height: 85px;
-    object-fit: contain;
 }
 
 .sidebar-section {
@@ -728,6 +728,15 @@ body {
         flex-direction: column;
     }
 
+    .inventory-toolbar .warehouse-search {
+        flex: none;
+        height: 43px;
+    }
+
+    .warehouse-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .inventory-filters {
         width: 100%;
     }
@@ -782,10 +791,6 @@ body {
         height: 85px;
         min-width: 85px;
         flex-basis: 85px;
-    }
-
-    .warehouse-stats {
-        grid-template-columns: 1fr;
     }
 
     .inventory-alert-card {
@@ -967,6 +972,12 @@ body {
     .inventory-table,
     .inventory-summary-table {
         min-width: 850px;
+    }
+}
+
+@media (max-width: 650px) {
+    .warehouse-stats {
+        grid-template-columns: 1fr;
     }
 }
 

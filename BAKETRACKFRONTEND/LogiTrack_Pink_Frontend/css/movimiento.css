@@ -27,7 +27,7 @@ body {
     max-width: 100%;
     min-height: 100%;
     margin: 0;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 * {
@@ -38,7 +38,7 @@ body {
     display: flex;
     width: 100%;
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 .main-content {
@@ -60,6 +60,9 @@ body {
 ========================================= */
 
 .sidebar {
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
     width: 255px;
     min-width: 255px;
     height: 100vh;
@@ -74,25 +77,21 @@ body {
 
     overflow-y: auto;
     overflow-x: hidden;
+    scrollbar-width: none;
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none;
 }
 
 .sidebar-brand {
     display: flex;
     align-items: center;
-    justify-content: center;
-
+    gap: 10px;
     width: 100%;
-    padding: 0 8px 32px;
+    padding: 0 8px 38px;
 
     flex-shrink: 0;
-}
-
-.sidebar-logo {
-    display: block;
-    width: 100%;
-    max-width: 175px;
-    max-height: 85px;
-    object-fit: contain;
 }
 
 .sidebar-section {
